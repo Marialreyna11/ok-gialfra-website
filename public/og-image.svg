@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1222"/>
+      <stop offset="0.6" stop-color="#152743"/>
+      <stop offset="1" stop-color="#c2410c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <g fill="none" stroke="#274573" stroke-opacity="0.3">
+    <path d="M0 500h1200M0 440h1200M0 560h1200"/>
+  </g>
+  <g fill="#04070d">
+    <path d="M540 560 L600 160 L660 560 Z"/>
+    <path d="M120 560 L120 460 L150 445 L150 560 Z" opacity="0.7"/>
+    <path d="M1040 560 L1040 470 L1075 452 L1075 560 Z" opacity="0.7"/>
+  </g>
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff">GLOBAL PROCUREMENT.</text>
+  <text x="80" y="372" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff">INDUSTRIAL SOLUTIONS.</text>
+  <text x="80" y="444" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#f97316">DELIVERED.</text>
+  <text x="82" y="180" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6" fill="#f97316">OK. GIALFRA LLC</text>
+</svg>
