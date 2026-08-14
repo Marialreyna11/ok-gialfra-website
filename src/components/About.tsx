@@ -49,16 +49,17 @@ function PhotoCard({ photo, className = '' }: { photo: AboutPhoto; className?: s
     <div className={`media rounded-lg border border-white/10 ${className}`}>
       {/* object-cover (via .media > img) keeps the industrial equipment in frame, never stretched */}
       <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="object-center" />
-      {/* subtle dark-navy overlays so all photos integrate with the existing palette and text stays legible */}
-      <div className="pointer-events-none absolute inset-0 bg-navy-950/35" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/75 via-navy-950/10 to-transparent" />
+      {/* subtle dark-navy overlays so all photos integrate with the existing palette and text stays legible.
+          Kept light enough that the industrial photography reads clearly while preserving the dark aesthetic. */}
+      <div className="pointer-events-none absolute inset-0 bg-navy-950/20" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/55 via-navy-950/5 to-transparent" />
     </div>
   )
 }
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-navy-950 py-24 lg:py-32">
+    <section id="about" className="relative bg-navy-950 pt-32 pb-24 sm:pt-36 lg:pt-44 lg:pb-32">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Visual montage */}
         <Reveal className="order-2 lg:order-1">
