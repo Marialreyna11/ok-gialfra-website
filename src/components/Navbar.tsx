@@ -28,9 +28,31 @@ export default function Navbar() {
         scrolled ? 'border-b border-white/10 bg-navy-950/90 backdrop-blur-md' : 'bg-gradient-to-b from-black/60 to-transparent'
       }`}
     >
-      <nav className="mx-auto flex h-[var(--nav-h)] w-full max-w-[1760px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">
-        <a href="#home" className="shrink-0 py-1.5" aria-label={`${COMPANY.name} home`}>
-          <Logo className="h-[88px] sm:h-[88px] lg:h-[90px]" />
+      <nav
+        className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
+          scrolled ? 'h-[64px] lg:h-[78px]' : 'h-[100px] lg:h-[110px]'
+        }`}
+      >
+        <a href="#home" className="flex min-w-0 shrink items-center gap-3" aria-label={`${COMPANY.name} home`}>
+          <Logo
+            className={`shrink-0 transition-all duration-300 ${
+              scrolled ? 'h-[46px] lg:h-[56px]' : 'h-[74px] sm:h-[84px] lg:h-[88px]'
+            }`}
+          />
+          <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1600px]:flex">
+            <span
+              className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white transition-all duration-300 ${
+                scrolled ? 'text-lg' : 'text-xl lg:text-2xl'
+              }`}
+            >
+              OK.&nbsp;GIALFRA <span className="text-steel-500">LLC</span>
+            </span>
+            {!scrolled && (
+              <span className="mt-1 hidden whitespace-nowrap text-[10.5px] font-semibold uppercase tracking-widest2 text-copper-400 min-[1780px]:block">
+                Industrial Procurement &amp; Oilfield Supply
+              </span>
+            )}
+          </span>
         </a>
 
         <div className="hidden items-center gap-6 min-[1400px]:flex 2xl:gap-8">
@@ -53,12 +75,12 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-white min-[1400px]:hidden"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:border-copper-400/60 min-[1400px]:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
         >
-          <IconMenu className="h-5 w-5" />
+          <IconMenu className="h-[18px] w-[18px]" />
         </button>
       </nav>
 
@@ -78,8 +100,13 @@ export default function Navbar() {
               exit={{ x: '100%' }}
               transition={{ type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.4 }}
             >
-              <div className="flex h-[var(--nav-h)] items-center justify-between border-b border-white/10 px-6">
-                <Logo className="h-12" />
+              <div className="flex h-[76px] items-center justify-between border-b border-white/10 px-5">
+                <span className="flex items-center gap-2.5">
+                  <Logo className="h-12" />
+                  <span className="font-display text-base font-bold uppercase tracking-wide text-white">
+                    OK.&nbsp;GIALFRA <span className="text-steel-500">LLC</span>
+                  </span>
+                </span>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}

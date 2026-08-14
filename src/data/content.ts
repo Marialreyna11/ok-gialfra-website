@@ -40,30 +40,30 @@ export const CAPABILITIES: { title: string; desc: string; icon: Icon; tone: Tone
   { title: 'Vendor Sourcing', desc: 'Qualified vendor identification, evaluation and management for every requirement.', icon: IconHandshake, tone: 'graphite' },
 ]
 
-export const INDUSTRIES: { title: string; desc: string; icon: Icon; tone: Tone }[] = [
-  { title: 'Oil & Gas', desc: 'Upstream, midstream and downstream supply.', icon: IconDerrick, tone: 'dusk' },
-  { title: 'Energy', desc: 'Power generation and energy infrastructure.', icon: IconPower, tone: 'navy' },
-  { title: 'Petrochemical', desc: 'Refining, processing and chemical plants.', icon: IconCompressor, tone: 'copper' },
-  { title: 'Industrial', desc: 'Manufacturing and heavy industry.', icon: IconFactory, tone: 'graphite' },
-  { title: 'Construction', desc: 'EPC contractors and site operations.', icon: IconBuilding, tone: 'steel' },
-  { title: 'Infrastructure', desc: 'Utilities, pipelines and public works.', icon: IconPipe, tone: 'navy' },
-  { title: 'Marine', desc: 'Ports, offshore and vessel supply.', icon: IconAnchor, tone: 'dusk' },
-  { title: 'Utilities', desc: 'Water, power and distribution networks.', icon: IconGauge, tone: 'graphite' },
+export const INDUSTRIES: { title: string; desc: string; icon: Icon; tone: Tone; scene: string }[] = [
+  { title: 'Oil & Gas', desc: 'Upstream, midstream and downstream supply.', icon: IconDerrick, tone: 'dusk', scene: 'oil-gas' },
+  { title: 'Energy', desc: 'Power generation and energy infrastructure.', icon: IconPower, tone: 'navy', scene: 'energy' },
+  { title: 'Petrochemical', desc: 'Refining, processing and chemical plants.', icon: IconCompressor, tone: 'copper', scene: 'petrochemical' },
+  { title: 'Industrial', desc: 'Manufacturing and heavy industry.', icon: IconFactory, tone: 'graphite', scene: 'industrial' },
+  { title: 'Construction', desc: 'EPC contractors and site operations.', icon: IconBuilding, tone: 'steel', scene: 'construction' },
+  { title: 'Infrastructure', desc: 'Utilities, pipelines and public works.', icon: IconPipe, tone: 'navy', scene: 'infrastructure' },
+  { title: 'Marine', desc: 'Ports, offshore and vessel supply.', icon: IconAnchor, tone: 'dusk', scene: 'marine' },
+  { title: 'Utilities', desc: 'Water, power and distribution networks.', icon: IconGauge, tone: 'graphite', scene: 'utilities' },
 ]
 
-export const PRODUCTS: { title: string; icon: Icon; tone: Tone }[] = [
-  { title: 'Valves', icon: IconValve, tone: 'navy' },
-  { title: 'Pumps', icon: IconPump, tone: 'dusk' },
-  { title: 'Pipes & Fittings', icon: IconPipe, tone: 'graphite' },
-  { title: 'Flanges', icon: IconFlange, tone: 'steel' },
-  { title: 'Instrumentation', icon: IconGauge, tone: 'navy' },
-  { title: 'Electrical Equipment', icon: IconBolt, tone: 'copper' },
-  { title: 'Industrial Motors', icon: IconMotor, tone: 'graphite' },
-  { title: 'Compressors', icon: IconCompressor, tone: 'dusk' },
-  { title: 'Safety Equipment', icon: IconShield, tone: 'navy' },
-  { title: 'Industrial Tools', icon: IconTools, tone: 'steel' },
-  { title: 'Mechanical Components', icon: IconGear, tone: 'graphite' },
-  { title: 'Spare Parts', icon: IconParts, tone: 'copper' },
+export const PRODUCTS: { title: string; icon: Icon; tone: Tone; scene: string }[] = [
+  { title: 'Valves', icon: IconValve, tone: 'navy', scene: 'valves' },
+  { title: 'Pumps', icon: IconPump, tone: 'dusk', scene: 'pumps' },
+  { title: 'Pipes & Fittings', icon: IconPipe, tone: 'graphite', scene: 'pipes' },
+  { title: 'Flanges', icon: IconFlange, tone: 'steel', scene: 'flanges' },
+  { title: 'Instrumentation', icon: IconGauge, tone: 'navy', scene: 'instrumentation' },
+  { title: 'Electrical Equipment', icon: IconBolt, tone: 'copper', scene: 'electrical' },
+  { title: 'Industrial Motors', icon: IconMotor, tone: 'graphite', scene: 'motors' },
+  { title: 'Compressors', icon: IconCompressor, tone: 'dusk', scene: 'compressors' },
+  { title: 'Safety Equipment', icon: IconShield, tone: 'navy', scene: 'safety' },
+  { title: 'Industrial Tools', icon: IconTools, tone: 'steel', scene: 'tools' },
+  { title: 'Mechanical Components', icon: IconGear, tone: 'graphite', scene: 'mechanical' },
+  { title: 'Spare Parts', icon: IconParts, tone: 'copper', scene: 'spare-parts' },
 ]
 
 export const PROCESS: { step: string; title: string; desc: string; icon: Icon }[] = [
