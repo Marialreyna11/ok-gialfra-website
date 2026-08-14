@@ -16,7 +16,15 @@ export default function GlobalSourcing() {
         <div>
           <SectionHeading
             eyebrow="Global Sourcing"
-            title="One Network. Worldwide Supply."
+            title={
+              <>
+                One Network.{' '}
+                {/* Forced break on desktop (where the column fits "Worldwide Supply.");
+                    inactive below so narrower widths wrap naturally without overflow. */}
+                <br className="hidden min-[1280px]:block" />
+                Worldwide Supply.
+              </>
+            }
             intro="We source equipment, materials and industrial solutions through a global supplier network — connecting each requirement with the right technical and commercial source."
             balance={false}
             titleClassName="lg:text-[3.375rem]"
