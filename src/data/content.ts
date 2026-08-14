@@ -37,7 +37,7 @@ export const CAPABILITIES: { title: string; desc: string; icon: Icon; tone: Tone
   { title: 'Spare Parts', desc: 'Hard-to-find, obsolete and critical spares matched by part number and specification.', icon: IconParts, tone: 'steel' },
   { title: 'Project Support', desc: 'Dedicated procurement support for capital projects, turnarounds and expansions.', icon: IconClipboard, tone: 'navy' },
   { title: 'Logistics Coordination', desc: 'Freight, consolidation, export documentation and delivery management end to end.', icon: IconTruck, tone: 'dusk' },
-  { title: 'Vendor Sourcing', desc: 'Qualified vendor identification, evaluation and management for every requirement.', icon: IconHandshake, tone: 'graphite' },
+  { title: 'Technical & Specification Support', desc: 'Technical sourcing based on specifications, datasheets, standards, OEM requirements and approved equivalents.', icon: IconDoc, tone: 'graphite' },
 ]
 
 export const INDUSTRIES: { title: string; desc: string; icon: Icon; tone: Tone; scene: string }[] = [
