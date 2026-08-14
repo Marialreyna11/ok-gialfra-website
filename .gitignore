@@ -12,9 +12,6 @@ dist-ssr
 *.tsbuildinfo
 vite.config.d.ts
 
-# Section photography fetched at build time by the deploy pipeline (Unsplash)
-public/images/about/
-
 # Logs
 logs
 *.log
