@@ -79,10 +79,10 @@ export const PROCESS: { step: string; title: string; desc: string; icon: Icon }[
 export const WHY: { title: string; desc: string; icon: Icon }[] = [
   { title: 'Responsive Sales Support', desc: 'A dedicated point of contact and fast, accurate quotations.', icon: IconHandshake },
   { title: 'Competitive Sourcing', desc: 'Multiple qualified offers to secure the best value on every line.', icon: IconScale },
-  { title: 'Reliable Suppliers', desc: 'Vetted OEMs and distributors with proven track records.', icon: IconShield },
+  { title: 'Reliable Suppliers', desc: 'Qualified manufacturers, distributors and specialized suppliers selected according to project requirements.', icon: IconShield },
   { title: 'Technical Procurement', desc: 'Specification-driven sourcing that gets the right item, first time.', icon: IconGauge },
   { title: 'Global Supply Network', desc: 'International reach with consolidated logistics and documentation.', icon: IconGlobe },
-  { title: 'Project-Focused Service', desc: 'Structured support for turnarounds, capital projects and expansions.', icon: IconClipboard },
+  { title: 'Project-Focused Service', desc: 'Structured procurement support for maintenance, turnarounds, capital projects and operational requirements.', icon: IconClipboard },
 ]
 
 export const STATS = [
