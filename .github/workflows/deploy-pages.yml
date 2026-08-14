@@ -41,13 +41,30 @@ jobs:
 
       - name: Fetch section photography (Unsplash License, free commercial use)
         run: |
+          set -euo pipefail
           mkdir -p public/images/about
           ua="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+          # The /photos/<id>/download API now requires an app key (returns 401).
+          # Instead resolve each photo's public, auth-free images.unsplash.com CDN
+          # URL from the server-rendered og:image meta tag, then request our crop.
           fetch() {
-            echo "Downloading $2 ..."
+            id="$1"; out="$2"
+            echo "Resolving $out ($id) ..."
+            page="$(curl -fsSL --retry 5 --retry-delay 3 -A "$ua" "https://unsplash.com/photos/$id")"
+            cdn="$(printf '%s' "$page" | grep -oE 'https://images\.unsplash\.com/photo-[A-Za-z0-9_-]+' | head -n1)"
+            if [ -z "$cdn" ]; then
+              echo "::error::Could not resolve CDN URL for $id"; exit 1
+            fi
+            echo "  -> $cdn"
             curl -fSL --retry 5 --retry-delay 3 -A "$ua" \
-              "https://unsplash.com/photos/$1/download?fm=jpg&w=1200&q=80&fit=crop" \
-              -o "public/images/about/$2"
+              "${cdn}?fm=jpg&w=1200&q=80&fit=crop&crop=entropy" \
+              -o "public/images/about/$out"
+            # Validate: must be a real JPEG of reasonable size, not an error page.
+            sz="$(wc -c < "public/images/about/$out")"
+            if [ "$sz" -lt 20000 ] || ! file "public/images/about/$out" | grep -qi 'JPEG'; then
+              echo "::error::$out is not a valid JPEG (size=$sz)"; exit 1
+            fi
+            echo "  ok ($sz bytes)"
           }
           # 1 Oil & Gas (Zbyněk Burival) 2 Industrial (Jakub Żerdzicki)
           # 3 Logistics (Ozren Cuculic)  4 Technical (Simon Infanger)
@@ -57,7 +74,7 @@ jobs:
           fetch DkTmBA443g4 technical.jpg
           echo "--- fetched section photos ---"
           ls -la public/images/about
-          file public/images/about/*.jpg || true
+          file public/images/about/*.jpg
 
       - name: Build
         # Project site served at https://<owner>.github.io/ok-gialfra-website/
