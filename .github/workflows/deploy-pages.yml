@@ -39,6 +39,26 @@ jobs:
           # Automatically enable Pages (source = GitHub Actions) if not already enabled
           enablement: true
 
+      - name: Fetch section photography (Unsplash License, free commercial use)
+        run: |
+          mkdir -p public/images/about
+          ua="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+          fetch() {
+            echo "Downloading $2 ..."
+            curl -fSL --retry 5 --retry-delay 3 -A "$ua" \
+              "https://unsplash.com/photos/$1/download?fm=jpg&w=1200&q=80&fit=crop" \
+              -o "public/images/about/$2"
+          }
+          # 1 Oil & Gas (Zbyněk Burival) 2 Industrial (Jakub Żerdzicki)
+          # 3 Logistics (Ozren Cuculic)  4 Technical (Simon Infanger)
+          fetch GrmwVnVSSdU oil-gas.jpg
+          fetch XmmL7iNeFWc industrial.jpg
+          fetch eBKxooPEU5w logistics.jpg
+          fetch DkTmBA443g4 technical.jpg
+          echo "--- fetched section photos ---"
+          ls -la public/images/about
+          file public/images/about/*.jpg || true
+
       - name: Build
         # Project site served at https://<owner>.github.io/ok-gialfra-website/
         run: npm run build -- --base=/ok-gialfra-website/
