@@ -71,10 +71,10 @@ export const PROCESS: { step: string; title: string; desc: string; icon: Icon }[
   { step: '02', title: 'Technical Review', desc: 'Specifications, part numbers and standards are verified in detail.', icon: IconSearch },
   { step: '03', title: 'Global Supplier Sourcing', desc: 'We engage OEMs and qualified suppliers across our network.', icon: IconGlobe },
   { step: '04', title: 'Commercial Evaluation', desc: 'Offers are compared on price, lead time, quality and terms.', icon: IconScale },
-  { step: '05', title: 'Procurement', desc: 'Purchase orders are placed and expedited with the selected vendor.', icon: IconHandshake },
+  { step: '05', title: 'Procurement', desc: 'Purchase orders are placed and actively managed with the selected supplier.', icon: IconHandshake },
   { step: '06', title: 'Inspection / Documentation', desc: 'Quality checks, certificates and export paperwork are prepared.', icon: IconClipboard },
   { step: '07', title: 'Logistics Coordination', desc: 'Consolidation, freight and customs are managed end to end.', icon: IconTruck },
-  { step: '08', title: 'Delivery', desc: 'Goods are delivered to your site, on specification and on schedule.', icon: IconCheck },
+  { step: '08', title: 'Delivery', desc: 'Goods are coordinated through final delivery to the agreed destination, specification and schedule.', icon: IconCheck },
 ]
 
 export const WHY: { title: string; desc: string; icon: Icon }[] = [

@@ -12,7 +12,7 @@ export default function Procurement() {
         <SectionHeading
           eyebrow="Procurement Services"
           title="A Disciplined Procurement Workflow"
-          intro="Every enquiry moves through a structured, transparent process — from RFQ to on-site delivery."
+          intro="Every inquiry moves through a structured, transparent process — from RFQ to on-site delivery."
         />
 
         <div className="mt-16 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
