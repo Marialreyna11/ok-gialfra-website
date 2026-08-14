@@ -4,20 +4,20 @@ import WorldMap from './art/WorldMap'
 import { IconGlobe, IconHandshake, IconTruck } from './icons'
 
 const highlights = [
-  { icon: IconGlobe, title: 'International Reach', desc: 'Suppliers and OEMs across the Americas, Europe, the Middle East and Asia.' },
-  { icon: IconHandshake, title: 'Qualified Vendors', desc: 'A managed base of vetted manufacturers, distributors and stockists.' },
-  { icon: IconTruck, title: 'Consolidated Logistics', desc: 'Multi-origin orders combined into managed, documented shipments.' },
+  { icon: IconGlobe, title: 'International Reach', desc: 'Global sourcing capabilities across the Americas, Europe, the Middle East and Asia.' },
+  { icon: IconHandshake, title: 'Qualified Vendors', desc: 'A growing network of manufacturers, distributors and specialized stockists.' },
+  { icon: IconTruck, title: 'Consolidated Logistics', desc: 'Multi-origin orders coordinated into managed, documented shipments.' },
 ]
 
 export default function GlobalSourcing() {
   return (
     <section className="relative overflow-hidden border-y border-white/5 bg-graphite-950 py-24 lg:py-32">
-      <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+      <div className="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.28fr] lg:gap-16">
         <div>
           <SectionHeading
             eyebrow="Global Sourcing"
             title="One Network. Worldwide Supply."
-            intro="We locate, qualify and secure equipment and materials from suppliers around the globe — bringing international procurement capacity to every project."
+            intro="We source equipment, materials and industrial solutions through a global supplier network — connecting each requirement with the right technical and commercial source."
           />
           <div className="mt-10 space-y-6">
             {highlights.map((h, i) => (
