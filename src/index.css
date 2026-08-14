@@ -17,7 +17,7 @@
   @media (min-width: 1400px) {
     :root {
       /* Brand-forward two-row header (nav row + large logo/name block) */
-      --nav-h: 244px;
+      --nav-h: 279px;
     }
   }
 

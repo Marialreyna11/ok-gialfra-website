@@ -60,9 +60,9 @@ export default function Navbar() {
             aria-label={`${COMPANY.name} home`}
             className="-mt-1 flex items-center gap-7 pb-5"
           >
-            <Logo className="[--lw:250px]" />
+            <Logo className="[--lw:300px]" />
             <span className="flex min-w-0 flex-col justify-center leading-none">
-              <span className="whitespace-nowrap font-display text-[68px] font-bold uppercase leading-[0.9] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              <span className="whitespace-nowrap font-display text-[76px] font-bold uppercase leading-[0.9] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                 OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
               </span>
               <span className="mt-3 flex items-center gap-3">
