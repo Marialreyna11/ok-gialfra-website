@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nav-h: 76px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-navy-950 text-steel-200 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display uppercase text-white;
+    letter-spacing: 0.01em;
+    line-height: 1.02;
+  }
+
+  ::selection {
+    background: rgba(249, 115, 22, 0.85);
+    color: #0a1222;
+  }
+
+  /* Custom scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a1222;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a434f;
+    border-radius: 999px;
+    border: 3px solid #0a1222;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest2 text-copper-400;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-px w-8 bg-copper-500;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold uppercase tracking-widest2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-400;
+  }
+
+  .btn-primary {
+    @apply btn bg-copper-500 text-white hover:bg-copper-400 hover:shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply btn border border-steel-500/40 bg-white/5 text-white backdrop-blur hover:border-copper-400/70 hover:bg-white/10;
+  }
+
+  .section-title {
+    @apply font-display text-4xl leading-[1.03] text-white sm:text-5xl lg:text-6xl;
+  }
+
+  .card-surface {
+    @apply relative overflow-hidden rounded-lg border border-white/10 bg-graphite-900/70 backdrop-blur transition-all duration-300;
+  }
+
+  /* Image container helper — guarantees images crop/fit, never stretch */
+  .media {
+    @apply relative overflow-hidden;
+  }
+  .media > img,
+  .media > svg {
+    @apply absolute inset-0 h-full w-full object-cover;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
