@@ -8,15 +8,23 @@
     --nav-h: 130px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     :root {
-      --nav-h: 188px;
+      --nav-h: 160px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    :root {
+      /* Brand-forward two-row header (nav row + large logo/name block) */
+      --nav-h: 224px;
     }
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--nav-h);
+    /* anchor targets clear the compact (scrolled) header height */
+    scroll-padding-top: 100px;
     -webkit-text-size-adjust: 100%;
   }
 

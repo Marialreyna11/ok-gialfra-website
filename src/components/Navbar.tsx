@@ -22,55 +22,88 @@ export default function Navbar() {
     }
   }, [open])
 
+  const navList = (
+    <ul className="flex items-center gap-5 2xl:gap-6">
+      {NAV.map((item) => (
+        <li key={item.href}>
+          <a
+            href={item.href}
+            className="relative whitespace-nowrap text-[13px] font-semibold uppercase tracking-wide text-steel-300 transition-colors hover:text-white after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-copper-500 after:transition-all after:duration-300 hover:after:w-full"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+  const ctaBtn = (
+    <a href="#rfq" className="btn-primary shrink-0 !px-5 !py-2.5 text-xs">
+      Request a Quote
+    </a>
+  )
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled ? 'border-b border-white/10 bg-navy-950/90 backdrop-blur-md' : 'bg-gradient-to-b from-black/60 to-transparent'
       }`}
     >
+      {/* Desktop brand-forward header (>=1400, not scrolled): nav row on top, large logo + name block below */}
+      {!scrolled && (
+        <div className="mx-auto hidden w-full max-w-[1760px] px-10 min-[1400px]:block lg:px-12">
+          <div className="flex items-center justify-end gap-6 pt-5 2xl:gap-8">
+            {navList}
+            {ctaBtn}
+          </div>
+          <a
+            href="#home"
+            aria-label={`${COMPANY.name} home`}
+            className="-mt-[44px] flex items-center gap-6 pb-6"
+          >
+            <Logo className="h-[184px] shrink-0" />
+            <span className="flex min-w-0 flex-col justify-center leading-none">
+              <span className="whitespace-nowrap font-display text-[56px] font-bold uppercase leading-[0.92] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
+              </span>
+              <span className="mt-3 flex items-center gap-3">
+                <span className="h-px w-7 shrink-0 bg-copper-500" />
+                <span className="whitespace-nowrap text-sm font-semibold uppercase tracking-widest2 text-copper-400">
+                  Industrial Procurement &amp; Oilfield Supply
+                </span>
+                <span className="h-px w-24 max-w-[40%] flex-1 bg-copper-500/40" />
+              </span>
+            </span>
+          </a>
+        </div>
+      )}
+
+      {/* Compact / tablet / mobile single-row header (and the scrolled state at all widths) */}
       <nav
         className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] lg:h-[188px]'
+          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] sm:h-[160px] min-[1400px]:hidden'
         }`}
       >
         <a href="#home" className="flex min-w-0 shrink items-center gap-4 lg:gap-5" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`shrink-0 transition-all duration-300 ${
-              scrolled ? 'h-[58px] lg:h-[70px]' : 'h-[100px] sm:h-[140px] lg:h-[168px]'
+              scrolled ? 'h-[58px] lg:h-[70px]' : 'h-[100px] sm:h-[140px]'
             }`}
           />
           <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1850px]:flex">
             <span
               className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all duration-300 ${
-                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-2xl md:text-[34px] lg:text-[46px] min-[1850px]:text-[32px]'
+                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-3xl md:text-[38px]'
               }`}
             >
               OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
             </span>
-            {!scrolled && (
-              <span className="mt-2 hidden whitespace-nowrap text-xs font-semibold uppercase tracking-widest2 text-copper-400 min-[2100px]:block">
-                Industrial Procurement &amp; Oilfield Supply
-              </span>
-            )}
           </span>
         </a>
 
+        {/* full nav appears here only when scrolled at >=1400 */}
         <div className="hidden items-center gap-6 min-[1400px]:flex 2xl:gap-8">
-          <ul className="flex items-center gap-5 2xl:gap-6">
-            {NAV.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="relative whitespace-nowrap text-[13px] font-semibold uppercase tracking-wide text-steel-300 transition-colors hover:text-white after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-copper-500 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="#rfq" className="btn-primary shrink-0 !px-5 !py-2.5 text-xs">
-            Request a Quote
-          </a>
+          {navList}
+          {ctaBtn}
         </div>
 
         <button
