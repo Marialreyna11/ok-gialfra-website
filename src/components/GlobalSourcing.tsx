@@ -19,15 +19,16 @@ export default function GlobalSourcing() {
             title={
               <>
                 One Network.{' '}
-                {/* Forced break on desktop (where the column fits "Worldwide Supply.");
-                    inactive below so narrower widths wrap naturally without overflow. */}
-                <br className="hidden min-[1280px]:block" />
-                Worldwide Supply.
+                {/* Desktop (>=1024): force the break after "One Network." and keep
+                    "Worldwide Supply." on one unbreakable line. Below lg it wraps
+                    normally so mobile has no overflow. */}
+                <br className="hidden lg:block" />
+                <span className="lg:whitespace-nowrap">Worldwide Supply.</span>
               </>
             }
             intro="We source equipment, materials and industrial solutions through a global supplier network — connecting each requirement with the right technical and commercial source."
             balance={false}
-            titleClassName="lg:text-[3.375rem]"
+            titleClassName="lg:text-[2.625rem] min-[1280px]:text-[3.375rem]"
           />
           <div className="mt-10 space-y-6">
             {highlights.map((h, i) => (
