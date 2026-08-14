@@ -93,8 +93,8 @@ export const STATS = [
 export const SERVICES = [
   { title: 'Procurement Management', desc: 'End-to-end sourcing of equipment, materials and spares against your specifications and standards.' },
   { title: 'MRO & Consumables', desc: 'Reliable resupply of maintenance, repair and operations items to keep facilities running.' },
-  { title: 'Expediting & Inspection', desc: 'Order follow-up, quality verification and documentation control before shipment.' },
+  { title: 'Order Expediting & Inspection', desc: 'Order follow-up, quality verification and documentation control before shipment.' },
   { title: 'Logistics & Freight', desc: 'Consolidation, export packing, freight forwarding and delivery coordination worldwide.' },
-  { title: 'Vendor Management', desc: 'Qualification, evaluation and ongoing management of a reliable supplier base.' },
+  { title: 'Supplier Coordination', desc: 'Supplier qualification, quotation coordination and ongoing communication throughout the procurement process.' },
   { title: 'Kitting & Consolidation', desc: 'Multi-vendor orders consolidated into managed shipments to reduce cost and complexity.' },
 ]

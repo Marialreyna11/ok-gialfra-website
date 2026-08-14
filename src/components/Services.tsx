@@ -8,8 +8,8 @@ export default function Services() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Services"
-          title="Procurement, Managed End To End"
-          intro="Beyond sourcing, we manage the operational detail that keeps supply reliable and projects on track."
+          title="End-to-End Procurement & Supply Management"
+          intro="From sourcing and supplier coordination to inspection, logistics and delivery, we manage the procurement process from requirement to fulfillment."
         />
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
