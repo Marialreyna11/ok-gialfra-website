@@ -50,7 +50,7 @@ export default function Navbar() {
     >
       {/* Desktop brand-forward header (>=1400, not scrolled): nav row on top, large logo + name block below */}
       {!scrolled && (
-        <div className="mx-auto hidden w-full max-w-[1760px] px-10 min-[1400px]:block lg:px-12">
+        <div className="mx-auto hidden w-full max-w-[1760px] px-10 min-[1280px]:block lg:px-12">
           <div className="flex items-center justify-end gap-6 pt-5 2xl:gap-8">
             {navList}
             {ctaBtn}
@@ -80,14 +80,14 @@ export default function Navbar() {
       {/* Compact / tablet / mobile single-row header (and the scrolled state at all widths) */}
       <nav
         className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] sm:h-[160px] min-[1400px]:hidden'
+          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] sm:h-[160px] min-[1280px]:hidden'
         }`}
       >
         <a href="#home" className="flex min-w-0 shrink items-center gap-4 lg:gap-5" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`${scrolled ? '[--lw:82px] lg:[--lw:104px]' : '[--lw:108px] sm:[--lw:150px]'}`}
           />
-          <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1850px]:flex">
+          <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1280px]:hidden min-[1850px]:flex">
             <span
               className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all duration-300 ${
                 scrolled ? 'text-xl lg:text-2xl' : 'text-lg sm:text-2xl md:text-[34px]'
@@ -99,14 +99,14 @@ export default function Navbar() {
         </a>
 
         {/* full nav appears here only when scrolled at >=1400 */}
-        <div className="hidden items-center gap-6 min-[1400px]:flex 2xl:gap-8">
+        <div className="hidden items-center gap-6 min-[1280px]:flex 2xl:gap-8">
           {navList}
           {ctaBtn}
         </div>
 
         <button
           type="button"
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:border-copper-400/60 min-[1400px]:hidden"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:border-copper-400/60 min-[1280px]:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
@@ -118,7 +118,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 min-[1400px]:hidden"
+            className="fixed inset-0 z-50 min-[1280px]:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
