@@ -30,7 +30,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex h-[var(--nav-h)] w-full max-w-[1760px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">
         <a href="#home" className="shrink-0 py-1.5" aria-label={`${COMPANY.name} home`}>
-          <Logo className="h-[64px] sm:h-[70px] lg:h-[90px]" />
+          <Logo className="h-[88px] sm:h-[88px] lg:h-[90px]" />
         </a>
 
         <div className="hidden items-center gap-6 min-[1400px]:flex 2xl:gap-8">
@@ -53,12 +53,12 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/15 text-white min-[1400px]:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-white min-[1400px]:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
         >
-          <IconMenu className="h-6 w-6" />
+          <IconMenu className="h-5 w-5" />
         </button>
       </nav>
 

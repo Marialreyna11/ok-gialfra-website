@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Header height — raised to give the official logo room to read clearly */
-    --nav-h: 86px;
+    --nav-h: 100px;
   }
 
   @media (min-width: 1024px) {
