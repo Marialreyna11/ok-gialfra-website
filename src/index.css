@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    /* Header height — raised to give the official logo room to read clearly */
-    --nav-h: 100px;
+    /* Header height — enlarged to give the official logo strong presence */
+    --nav-h: 112px;
   }
 
   @media (min-width: 1024px) {
     :root {
-      --nav-h: 110px;
+      --nav-h: 132px;
     }
   }
 
