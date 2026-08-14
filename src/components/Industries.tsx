@@ -7,7 +7,7 @@ import { IconArrow } from './icons'
 // per industry, committed to public/images/industries/<scene>.jpg. Bump PHOTO_V when
 // an image is swapped so the browser/GitHub Pages CDN fetches the new bytes.
 const BASE = import.meta.env.BASE_URL
-const PHOTO_V = '2'
+const PHOTO_V = '3'
 
 // Per-card photographic treatment — CSS only, originals untouched, easy to tune later.
 // Slightly brightens midtones/contrast so the equipment reads clearly while keeping the
@@ -17,7 +17,7 @@ const DEFAULT_FILTER = 'brightness(1.16) contrast(1.06) saturate(1.04)'
 const CARD_FILTER: Record<string, string> = {
   'oil-gas': 'brightness(1.40) contrast(1.08) saturate(1.04)',
   'petrochemical': 'brightness(1.36) contrast(1.05) saturate(1.02)',
-  'infrastructure': 'brightness(1.30) contrast(1.06) saturate(1.04)',
+  'infrastructure': 'brightness(1.04) contrast(1.08) saturate(0.92)',
   'utilities': 'brightness(1.36) contrast(1.04) saturate(1.02)',
 }
 
