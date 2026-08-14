@@ -12,12 +12,14 @@ const highlights = [
 export default function GlobalSourcing() {
   return (
     <section className="relative overflow-hidden border-y border-white/5 bg-graphite-950 py-24 lg:py-32">
-      <div className="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.28fr] lg:gap-16">
+      <div className="container-x grid items-center gap-14 lg:grid-cols-[1.035fr_1fr] lg:gap-3">
         <div>
           <SectionHeading
             eyebrow="Global Sourcing"
             title="One Network. Worldwide Supply."
             intro="We source equipment, materials and industrial solutions through a global supplier network — connecting each requirement with the right technical and commercial source."
+            balance={false}
+            titleClassName="lg:text-[3.375rem]"
           />
           <div className="mt-10 space-y-6">
             {highlights.map((h, i) => (
@@ -35,7 +37,7 @@ export default function GlobalSourcing() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="relative rounded-2xl border border-white/10 bg-navy-950/60 p-4 shadow-card">
+          <div className="relative rounded-2xl border border-white/10 bg-navy-950/60 p-4 shadow-card lg:p-1">
             <WorldMap className="w-full" />
             <div className="absolute bottom-6 left-6 rounded-md border border-white/10 bg-navy-900/80 px-4 py-2 backdrop-blur">
               <div className="font-display text-sm uppercase tracking-wide text-copper-400">Homestead, FL</div>
