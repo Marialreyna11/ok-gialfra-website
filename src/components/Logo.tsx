@@ -9,9 +9,12 @@ type Props = {
  * the original proportions are always preserved — never stretched, cropped or recolored.
  */
 export default function Logo({ className = 'h-12' }: Props) {
+  // Base-aware path so the asset resolves both at the site root (dev) and under a
+  // sub-path deployment such as GitHub Pages (/<repo>/). BASE_URL always ends in "/".
+  const logoSrc = `${import.meta.env.BASE_URL}images/ok-gialfra-logo.png`
   return (
     <img
-      src="/images/ok-gialfra-logo.png"
+      src={logoSrc}
       alt="OK. GIALFRA LLC"
       className={`w-auto max-w-full select-none object-contain ${className}`}
       loading="eager"
