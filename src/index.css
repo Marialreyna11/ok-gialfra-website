@@ -17,7 +17,7 @@
   @media (min-width: 1400px) {
     :root {
       /* Brand-forward two-row header (nav row + large logo/name block) */
-      --nav-h: 224px;
+      --nav-h: 244px;
     }
   }
 
@@ -94,6 +94,28 @@
 
   .card-surface {
     @apply relative overflow-hidden rounded-lg border border-white/10 bg-graphite-900/70 backdrop-blur transition-all duration-300;
+  }
+
+  /* Official-logo crop: the source PNG has transparent padding (artwork bbox
+     x:60-954, y:123-740 of 1024). This frames the VISIBLE artwork tightly and
+     sizes it by its real width via --lw, without altering the artwork itself. */
+  .logo-crop {
+    --lw: 120px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: var(--lw);
+    height: calc(var(--lw) * 0.69051);
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+  .logo-crop > img {
+    position: absolute;
+    left: calc(var(--lw) * -0.06704);
+    top: calc(var(--lw) * -0.13744);
+    width: calc(var(--lw) * 1.14414);
+    height: auto;
+    max-width: none;
+    transition: all 0.3s ease;
   }
 
   /* Image container helper — guarantees images crop/fit, never stretch */

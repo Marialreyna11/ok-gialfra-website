@@ -58,16 +58,16 @@ export default function Navbar() {
           <a
             href="#home"
             aria-label={`${COMPANY.name} home`}
-            className="-mt-[44px] flex items-center gap-6 pb-6"
+            className="-mt-1 flex items-center gap-7 pb-5"
           >
-            <Logo className="h-[184px] shrink-0" />
+            <Logo className="[--lw:250px]" />
             <span className="flex min-w-0 flex-col justify-center leading-none">
-              <span className="whitespace-nowrap font-display text-[56px] font-bold uppercase leading-[0.92] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              <span className="whitespace-nowrap font-display text-[68px] font-bold uppercase leading-[0.9] tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                 OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
               </span>
               <span className="mt-3 flex items-center gap-3">
-                <span className="h-px w-7 shrink-0 bg-copper-500" />
-                <span className="whitespace-nowrap text-sm font-semibold uppercase tracking-widest2 text-copper-400">
+                <span className="h-px w-8 shrink-0 bg-copper-500" />
+                <span className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-widest2 text-copper-400">
                   Industrial Procurement &amp; Oilfield Supply
                 </span>
                 <span className="h-px w-24 max-w-[40%] flex-1 bg-copper-500/40" />
@@ -85,14 +85,12 @@ export default function Navbar() {
       >
         <a href="#home" className="flex min-w-0 shrink items-center gap-4 lg:gap-5" aria-label={`${COMPANY.name} home`}>
           <Logo
-            className={`shrink-0 transition-all duration-300 ${
-              scrolled ? 'h-[58px] lg:h-[70px]' : 'h-[100px] sm:h-[140px]'
-            }`}
+            className={`${scrolled ? '[--lw:82px] lg:[--lw:104px]' : '[--lw:108px] sm:[--lw:150px]'}`}
           />
           <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1850px]:flex">
             <span
               className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all duration-300 ${
-                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-3xl md:text-[38px]'
+                scrolled ? 'text-xl lg:text-2xl' : 'text-lg sm:text-2xl md:text-[34px]'
               }`}
             >
               OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
@@ -135,7 +133,7 @@ export default function Navbar() {
             >
               <div className="flex h-[76px] items-center justify-between border-b border-white/10 px-5">
                 <span className="flex items-center gap-2.5">
-                  <Logo className="h-12" />
+                  <Logo className="[--lw:64px]" />
                   <span className="font-display text-base font-bold uppercase tracking-wide text-white">
                     OK.&nbsp;GIALFRA <span className="text-steel-500">LLC</span>
                   </span>
