@@ -13,12 +13,12 @@ const PHOTO_V = '2'
 // Slightly brightens midtones/contrast so the equipment reads clearly while keeping the
 // dark cinematic look. Oil & Gas, Petrochemical and Infrastructure run brighter because
 // their source photos are darker.
-const DEFAULT_FILTER = 'brightness(1.12) contrast(1.06) saturate(1.02)'
+const DEFAULT_FILTER = 'brightness(1.16) contrast(1.06) saturate(1.04)'
 const CARD_FILTER: Record<string, string> = {
-  'oil-gas': 'brightness(1.34) contrast(1.08) saturate(1.03)',
-  'petrochemical': 'brightness(1.3) contrast(1.05) saturate(1.02)',
-  'infrastructure': 'brightness(1.24) contrast(1.07) saturate(1.02)',
-  'utilities': 'brightness(1.16) contrast(1.05) saturate(1.02)',
+  'oil-gas': 'brightness(1.40) contrast(1.08) saturate(1.04)',
+  'petrochemical': 'brightness(1.36) contrast(1.05) saturate(1.02)',
+  'infrastructure': 'brightness(1.30) contrast(1.06) saturate(1.04)',
+  'utilities': 'brightness(1.36) contrast(1.04) saturate(1.02)',
 }
 
 export default function Industries() {
@@ -48,8 +48,8 @@ export default function Industries() {
                   {/* Navy overlays keep the photos cohesive with the palette and the title legible.
                       Reduced ~15-20% from the original so the equipment reads more clearly; the
                       bottom gradient stays strong enough for white-title legibility. */}
-                  <div className="pointer-events-none absolute inset-0 bg-navy-950/[0.30] transition-colors duration-300 group-hover:bg-navy-950/[0.18]" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/[0.72] via-navy-950/[0.15] to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-navy-950/[0.26] transition-colors duration-300 group-hover:bg-navy-950/[0.16]" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/[0.64] via-navy-950/[0.12] to-transparent" />
                 </div>
                 <div className="pointer-events-none absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 bg-navy-950/50 text-copper-400 backdrop-blur-sm">
                   <ind.icon className="h-5 w-5" />
