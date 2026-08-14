@@ -12,21 +12,25 @@ import { COMPANY } from '../data/content'
 // 3. Cargo ship at port at night — Ozren Cuculic (...eBKxooPEU5w)
 // 4. Industrial valves & pipes — Simon Infanger (...DkTmBA443g4)
 const BASE = import.meta.env.BASE_URL
+// Cache-busting version. The real photos replaced earlier placeholder files at
+// these same URLs, so bump PHOTO_V whenever an image is swapped to force the
+// browser/GitHub Pages CDN to fetch the new bytes instead of the cached ones.
+const PHOTO_V = '3'
 const ABOUT_PHOTOS = {
   oilGas: {
-    src: `${BASE}images/about/oil-gas.jpg`,
+    src: `${BASE}images/about/oil-gas.jpg?v=${PHOTO_V}`,
     alt: 'Oil & gas pump jack silhouetted against a sunset at an oilfield',
   },
   industrial: {
-    src: `${BASE}images/about/industrial.jpg`,
+    src: `${BASE}images/about/industrial.jpg?v=${PHOTO_V}`,
     alt: 'Heavy industrial pipes and machinery at a processing facility',
   },
   logistics: {
-    src: `${BASE}images/about/logistics.jpg`,
+    src: `${BASE}images/about/logistics.jpg?v=${PHOTO_V}`,
     alt: 'Cargo ship and shipping containers at an illuminated port at night',
   },
   technical: {
-    src: `${BASE}images/about/technical.jpg`,
+    src: `${BASE}images/about/technical.jpg?v=${PHOTO_V}`,
     alt: 'Large industrial valves and pipework in a technical facility',
   },
 }
