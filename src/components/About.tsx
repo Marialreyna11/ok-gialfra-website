@@ -1,8 +1,35 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import ArtTile from './art/ArtTile'
-import { IconWarehouse, IconDerrick, IconTruck, IconCheck } from './icons'
+import { IconCheck } from './icons'
 import { COMPANY } from '../data/content'
+
+// Real royalty-free industrial photography (Unsplash License — free commercial use).
+// The image files live in public/images/about/ and are committed to the repo
+// (Unsplash / the CI runner cannot fetch them automatically). To update a photo,
+// replace the matching .jpg in that folder — the filename and layout stay the same.
+// 1. Oil pump jack at sunset — Zbyněk Burival (unsplash.com/photos/...GrmwVnVSSdU)
+// 2. Industrial pipes & machinery — Jakub Żerdzicki (...XmmL7iNeFWc)
+// 3. Cargo ship at port at night — Ozren Cuculic (...eBKxooPEU5w)
+// 4. Industrial valves & pipes — Simon Infanger (...DkTmBA443g4)
+const BASE = import.meta.env.BASE_URL
+const ABOUT_PHOTOS = {
+  oilGas: {
+    src: `${BASE}images/about/oil-gas.jpg`,
+    alt: 'Oil & gas pump jack silhouetted against a sunset at an oilfield',
+  },
+  industrial: {
+    src: `${BASE}images/about/industrial.jpg`,
+    alt: 'Heavy industrial pipes and machinery at a processing facility',
+  },
+  logistics: {
+    src: `${BASE}images/about/logistics.jpg`,
+    alt: 'Cargo ship and shipping containers at an illuminated port at night',
+  },
+  technical: {
+    src: `${BASE}images/about/technical.jpg`,
+    alt: 'Large industrial valves and pipework in a technical facility',
+  },
+}
 
 const points = [
   'Specification-driven sourcing of equipment, materials and spare parts',
@@ -10,6 +37,20 @@ const points = [
   'An international supplier network for competitive, reliable supply',
   'Dedicated procurement support for projects, turnarounds and MRO',
 ]
+
+type AboutPhoto = { src: string; alt: string }
+
+function PhotoCard({ photo, className = '' }: { photo: AboutPhoto; className?: string }) {
+  return (
+    <div className={`media rounded-lg border border-white/10 ${className}`}>
+      {/* object-cover (via .media > img) keeps the industrial equipment in frame, never stretched */}
+      <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="object-center" />
+      {/* subtle dark-navy overlays so all photos integrate with the existing palette and text stays legible */}
+      <div className="pointer-events-none absolute inset-0 bg-navy-950/35" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/75 via-navy-950/10 to-transparent" />
+    </div>
+  )
+}
 
 export default function About() {
   return (
@@ -19,12 +60,12 @@ export default function About() {
         <Reveal className="order-2 lg:order-1">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              <ArtTile icon={IconDerrick} tone="dusk" seed={1} className="aspect-[4/5] rounded-lg border border-white/10" />
-              <ArtTile icon={IconTruck} tone="graphite" seed={2} className="aspect-square rounded-lg border border-white/10" />
+              <PhotoCard photo={ABOUT_PHOTOS.oilGas} className="aspect-[4/5]" />
+              <PhotoCard photo={ABOUT_PHOTOS.industrial} className="aspect-square" />
             </div>
             <div className="space-y-4 pt-8">
-              <ArtTile icon={IconWarehouse} tone="navy" seed={3} className="aspect-square rounded-lg border border-white/10" />
-              <ArtTile icon={IconCheck} tone="copper" seed={4} className="aspect-[4/5] rounded-lg border border-white/10" />
+              <PhotoCard photo={ABOUT_PHOTOS.logistics} className="aspect-square" />
+              <PhotoCard photo={ABOUT_PHOTOS.technical} className="aspect-[4/5]" />
             </div>
           </div>
         </Reveal>
