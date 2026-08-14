@@ -80,17 +80,23 @@ export default function Navbar() {
       {/* Compact / tablet / mobile single-row header (and the scrolled state at all widths) */}
       <nav
         className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] sm:h-[160px] min-[1280px]:hidden'
+          scrolled
+            ? 'h-[80px] lg:h-[100px]'
+            : 'h-[132px] sm:h-[168px] md:h-[184px] min-[900px]:h-[204px] lg:h-[220px] min-[1280px]:hidden'
         }`}
       >
-        <a href="#home" className="flex min-w-0 shrink items-center gap-4 lg:gap-5" aria-label={`${COMPANY.name} home`}>
+        <a href="#home" className="flex min-w-0 shrink items-center gap-4 md:gap-5" aria-label={`${COMPANY.name} home`}>
           <Logo
-            className={`${scrolled ? '[--lw:82px] lg:[--lw:104px]' : '[--lw:108px] sm:[--lw:150px]'}`}
+            className={`${
+              scrolled
+                ? '[--lw:82px] lg:[--lw:104px]'
+                : '[--lw:112px] sm:[--lw:160px] md:[--lw:210px] min-[900px]:[--lw:240px] lg:[--lw:262px]'
+            }`}
           />
           <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1280px]:hidden min-[1850px]:flex">
             <span
               className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all duration-300 ${
-                scrolled ? 'text-xl lg:text-2xl' : 'text-lg sm:text-2xl md:text-[34px]'
+                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-3xl md:text-[42px] min-[900px]:text-[50px] lg:text-[56px]'
               }`}
             >
               OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>

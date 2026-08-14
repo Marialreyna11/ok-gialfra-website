@@ -4,13 +4,30 @@
 
 @layer base {
   :root {
-    /* Header height — sized tightly around the enlarged, dominant logo */
-    --nav-h: 130px;
+    /* Header height — sized tightly around the enlarged, dominant logo.
+       Tiers grow the single-row header so the branding stays large on medium
+       (tablet/laptop) widths, not just very wide desktops. */
+    --nav-h: 132px;
   }
 
   @media (min-width: 640px) {
     :root {
-      --nav-h: 160px;
+      --nav-h: 168px;
+    }
+  }
+  @media (min-width: 768px) {
+    :root {
+      --nav-h: 184px;
+    }
+  }
+  @media (min-width: 900px) {
+    :root {
+      --nav-h: 204px;
+    }
+  }
+  @media (min-width: 1024px) {
+    :root {
+      --nav-h: 220px;
     }
   }
 
