@@ -7,7 +7,19 @@ import { IconArrow } from './icons'
 // per industry, committed to public/images/industries/<scene>.jpg. Bump PHOTO_V when
 // an image is swapped so the browser/GitHub Pages CDN fetches the new bytes.
 const BASE = import.meta.env.BASE_URL
-const PHOTO_V = '1'
+const PHOTO_V = '2'
+
+// Per-card photographic treatment — CSS only, originals untouched, easy to tune later.
+// Slightly brightens midtones/contrast so the equipment reads clearly while keeping the
+// dark cinematic look. Oil & Gas, Petrochemical and Infrastructure run brighter because
+// their source photos are darker.
+const DEFAULT_FILTER = 'brightness(1.12) contrast(1.06) saturate(1.02)'
+const CARD_FILTER: Record<string, string> = {
+  'oil-gas': 'brightness(1.34) contrast(1.08) saturate(1.03)',
+  'petrochemical': 'brightness(1.3) contrast(1.05) saturate(1.02)',
+  'infrastructure': 'brightness(1.24) contrast(1.07) saturate(1.02)',
+  'utilities': 'brightness(1.16) contrast(1.05) saturate(1.02)',
+}
 
 export default function Industries() {
   return (
@@ -30,12 +42,14 @@ export default function Industries() {
                     alt={`${ind.title} — ${ind.desc}`}
                     loading="lazy"
                     decoding="async"
+                    style={{ filter: CARD_FILTER[ind.scene] ?? DEFAULT_FILTER }}
                     className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Navy overlays keep the photos cohesive with the palette and the title legible.
-                      Lightened slightly on hover so the photography reads a little brighter. */}
-                  <div className="pointer-events-none absolute inset-0 bg-navy-950/40 transition-colors duration-300 group-hover:bg-navy-950/25" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/25 to-transparent" />
+                      Reduced ~15-20% from the original so the equipment reads more clearly; the
+                      bottom gradient stays strong enough for white-title legibility. */}
+                  <div className="pointer-events-none absolute inset-0 bg-navy-950/[0.30] transition-colors duration-300 group-hover:bg-navy-950/[0.18]" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/[0.72] via-navy-950/[0.15] to-transparent" />
                 </div>
                 <div className="pointer-events-none absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 bg-navy-950/50 text-copper-400 backdrop-blur-sm">
                   <ind.icon className="h-5 w-5" />
