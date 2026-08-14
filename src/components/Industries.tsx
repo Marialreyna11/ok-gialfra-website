@@ -1,9 +1,13 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import Scene from './art/Scene'
-import type { SceneName } from './art/Scene'
 import { INDUSTRIES } from '../data/content'
 import { IconArrow } from './icons'
+
+// Real industrial photography (royalty-free, free commercial use). One unique photo
+// per industry, committed to public/images/industries/<scene>.jpg. Bump PHOTO_V when
+// an image is swapped so the browser/GitHub Pages CDN fetches the new bytes.
+const BASE = import.meta.env.BASE_URL
+const PHOTO_V = '1'
 
 export default function Industries() {
   return (
@@ -19,7 +23,20 @@ export default function Industries() {
           {INDUSTRIES.map((ind, i) => (
             <Reveal as="article" key={ind.title} delay={(i % 4) * 0.06}>
               <div className="group relative overflow-hidden rounded-lg border border-white/10">
-                <Scene name={ind.scene as SceneName} className="aspect-[4/5] transition-transform duration-500 group-hover:scale-105" />
+                {/* Real photograph replaces the illustrated scene; same 4:5 box, hover-scale and dark overlay. */}
+                <div className="relative aspect-[4/5]">
+                  <img
+                    src={`${BASE}images/industries/${ind.scene}.jpg?v=${PHOTO_V}`}
+                    alt={`${ind.title} — ${ind.desc}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Navy overlays keep the photos cohesive with the palette and the title legible.
+                      Lightened slightly on hover so the photography reads a little brighter. */}
+                  <div className="pointer-events-none absolute inset-0 bg-navy-950/40 transition-colors duration-300 group-hover:bg-navy-950/25" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/25 to-transparent" />
+                </div>
                 <div className="pointer-events-none absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 bg-navy-950/50 text-copper-400 backdrop-blur-sm">
                   <ind.icon className="h-5 w-5" />
                 </div>
