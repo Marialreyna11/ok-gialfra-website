@@ -8,7 +8,6 @@ const COLUMNS = [
     links: [
       { label: 'About Us', href: '#about' },
       { label: 'Why OK. GIALFRA', href: '#why' },
-      { label: 'Contact', href: '#contact' },
     ],
   },
   {

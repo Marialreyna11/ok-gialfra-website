@@ -9,7 +9,6 @@ import GlobalSourcing from './components/GlobalSourcing'
 import Services from './components/Services'
 import WhyUs from './components/WhyUs'
 import RFQ from './components/RFQ'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -33,7 +32,6 @@ export default function App() {
         <Services />
         <WhyUs />
         <RFQ />
-        <Contact />
       </main>
       <Footer />
     </div>
