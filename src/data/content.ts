@@ -24,7 +24,6 @@ export const NAV = [
   { label: 'Products', href: '#products' },
   { label: 'Procurement', href: '#procurement' },
   { label: 'Services', href: '#services' },
-  { label: 'Project Support', href: '#project-support' },
   { label: 'Contact', href: '#contact' },
 ]
 
