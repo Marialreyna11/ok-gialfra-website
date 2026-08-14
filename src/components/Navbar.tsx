@@ -30,25 +30,25 @@ export default function Navbar() {
     >
       <nav
         className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[74px] lg:h-[86px]' : 'h-[112px] lg:h-[132px]'
+          scrolled ? 'h-[80px] lg:h-[100px]' : 'h-[130px] lg:h-[188px]'
         }`}
       >
-        <a href="#home" className="flex min-w-0 shrink items-center gap-3.5 lg:gap-4" aria-label={`${COMPANY.name} home`}>
+        <a href="#home" className="flex min-w-0 shrink items-center gap-4 lg:gap-5" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`shrink-0 transition-all duration-300 ${
-              scrolled ? 'h-[54px] lg:h-[64px]' : 'h-[84px] sm:h-[100px] lg:h-[112px]'
+              scrolled ? 'h-[58px] lg:h-[70px]' : 'h-[100px] sm:h-[140px] lg:h-[168px]'
             }`}
           />
-          <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1700px]:flex">
+          <span className="hidden min-w-0 flex-col justify-center leading-none min-[380px]:flex min-[1400px]:hidden min-[1850px]:flex">
             <span
               className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all duration-300 ${
-                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-2xl md:text-3xl lg:text-[34px] min-[1700px]:text-[30px]'
+                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-2xl md:text-[34px] lg:text-[46px] min-[1850px]:text-[32px]'
               }`}
             >
               OK.&nbsp;GIALFRA <span className="text-steel-300">LLC</span>
             </span>
             {!scrolled && (
-              <span className="mt-1.5 hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-widest2 text-copper-400 min-[1900px]:block">
+              <span className="mt-2 hidden whitespace-nowrap text-xs font-semibold uppercase tracking-widest2 text-copper-400 min-[2100px]:block">
                 Industrial Procurement &amp; Oilfield Supply
               </span>
             )}
