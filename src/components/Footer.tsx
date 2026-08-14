@@ -35,7 +35,6 @@ const COLUMNS = [
     links: [
       { label: 'Global Sourcing', href: '#procurement' },
       { label: 'Services', href: '#services' },
-      { label: 'Brands', href: '#brands' },
       { label: 'Request a Quote', href: '#rfq' },
     ],
   },

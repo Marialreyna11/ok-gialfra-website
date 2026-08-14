@@ -7,7 +7,6 @@ import Products from './components/Products'
 import Procurement from './components/Procurement'
 import GlobalSourcing from './components/GlobalSourcing'
 import Services from './components/Services'
-import Brands from './components/Brands'
 import WhyUs from './components/WhyUs'
 import ProjectSupport from './components/ProjectSupport'
 import RFQ from './components/RFQ'
@@ -33,7 +32,6 @@ export default function App() {
         <Procurement />
         <GlobalSourcing />
         <Services />
-        <Brands />
         <WhyUs />
         <ProjectSupport />
         <RFQ />
