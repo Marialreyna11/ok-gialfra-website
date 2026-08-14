@@ -5,7 +5,7 @@ import { IconArrow } from './icons'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px]">
+    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-[var(--nav-h)]">
       {/* Background scene */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 animate-slow-pan">

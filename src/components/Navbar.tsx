@@ -28,9 +28,9 @@ export default function Navbar() {
         scrolled ? 'border-b border-white/10 bg-navy-950/90 backdrop-blur-md' : 'bg-gradient-to-b from-black/60 to-transparent'
       }`}
     >
-      <nav className="mx-auto flex h-[76px] w-full max-w-[1760px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">
-        <a href="#home" className="shrink-0" aria-label={`${COMPANY.name} home`}>
-          <Logo />
+      <nav className="mx-auto flex h-[var(--nav-h)] w-full max-w-[1760px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">
+        <a href="#home" className="shrink-0 py-1.5" aria-label={`${COMPANY.name} home`}>
+          <Logo className="h-[64px] sm:h-[70px] lg:h-[90px]" />
         </a>
 
         <div className="hidden items-center gap-6 min-[1400px]:flex 2xl:gap-8">
@@ -78,8 +78,8 @@ export default function Navbar() {
               exit={{ x: '100%' }}
               transition={{ type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.4 }}
             >
-              <div className="flex h-[76px] items-center justify-between border-b border-white/10 px-6">
-                <Logo mark={false} />
+              <div className="flex h-[var(--nav-h)] items-center justify-between border-b border-white/10 px-6">
+                <Logo className="h-12" />
                 <button
                   type="button"
                   onClick={() => setOpen(false)}

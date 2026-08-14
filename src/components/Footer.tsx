@@ -49,8 +49,8 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           {/* Brand block */}
           <div className="max-w-xs">
-            <Logo />
-            <p className="mt-5 text-sm leading-relaxed text-steel-400">
+            <Logo className="h-24 sm:h-28" />
+            <p className="mt-6 text-sm leading-relaxed text-steel-400">
               Procurement, oilfield equipment, industrial supply and project support — delivered with reliability and
               global reach.
             </p>
