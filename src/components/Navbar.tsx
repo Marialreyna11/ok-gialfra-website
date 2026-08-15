@@ -33,20 +33,26 @@ export default function Navbar() {
       {/* Thin industrial-orange accent line — understated brand detail */}
       <div className="h-[3px] w-full bg-copper-500" />
 
-      {/* Balanced three-zone bar on desktop: LOGO | centered NAV | CTA.
+      {/* Balanced three-zone bar on desktop: LARGE brand mark | centered NAV | CTA.
+          At the top of the page the logo is oversized and floats slightly below the
+          slim bar into the hero's empty upper area; on scroll it compacts.
           Below lg it collapses to logo + hamburger (tablet/mobile). */}
       <nav
         className={`mx-auto grid w-full max-w-[1640px] grid-cols-[1fr_auto] items-center gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-6 xl:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[112px]' : 'h-[116px] sm:h-[128px] lg:h-[196px] xl:h-[228px] 2xl:h-[250px]'
+          scrolled ? 'h-[80px] lg:h-[88px]' : 'h-[150px] sm:h-[168px] lg:h-[200px] xl:h-[240px] 2xl:h-[250px]'
         }`}
       >
-        {/* Logo — left, large and prominent */}
-        <a href="#home" className="flex min-w-0 shrink items-center" aria-label={`${COMPANY.name} home`}>
+        {/* Brand mark — left; floats (self-start) below the bar on desktop top state */}
+        <a
+          href="#home"
+          className={`flex min-w-0 shrink items-center ${scrolled ? '' : 'lg:self-start lg:pt-2'}`}
+          aria-label={`${COMPANY.name} home`}
+        >
           <Logo
             className={`${
               scrolled
                 ? '[--lw:104px] lg:[--lw:150px]'
-                : '[--lw:140px] sm:[--lw:158px] lg:[--lw:250px] xl:[--lw:300px] 2xl:[--lw:336px]'
+                : '[--lw:150px] sm:[--lw:172px] lg:[--lw:280px] xl:[--lw:370px] 2xl:[--lw:420px]'
             }`}
           />
         </a>
