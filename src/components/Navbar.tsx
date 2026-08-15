@@ -22,26 +22,6 @@ export default function Navbar() {
     }
   }, [open])
 
-  const navList = (
-    <ul className="flex items-center gap-5 2xl:gap-6">
-      {NAV.map((item) => (
-        <li key={item.href}>
-          <a
-            href={item.href}
-            className="relative whitespace-nowrap text-[13px] font-semibold uppercase tracking-wide text-ink/70 transition-colors hover:text-ink after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-copper-500 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
-  const ctaBtn = (
-    <a href="#rfq" className="btn-primary shrink-0 !px-5 !py-2.5 text-xs">
-      Request a Quote
-    </a>
-  )
-
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
@@ -53,33 +33,50 @@ export default function Navbar() {
       {/* Thin industrial-orange accent line — understated brand detail */}
       <div className="h-[3px] w-full bg-copper-500" />
 
-      {/* Single compact horizontal bar: large logo left, full nav + CTA right.
-          Hamburger only appears below 1080px (tablet/mobile). */}
+      {/* Balanced three-zone bar on desktop: LOGO | centered NAV | CTA.
+          Below lg it collapses to logo + hamburger (tablet/mobile). */}
       <nav
-        className={`mx-auto flex w-full max-w-[1600px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 xl:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[96px]' : 'h-[108px] sm:h-[118px] lg:h-[136px] xl:h-[158px]'
+        className={`mx-auto grid w-full max-w-[1640px] grid-cols-[1fr_auto] items-center gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-6 xl:px-10 ${
+          scrolled ? 'h-[80px] lg:h-[112px]' : 'h-[116px] sm:h-[128px] lg:h-[196px] xl:h-[228px] 2xl:h-[250px]'
         }`}
       >
+        {/* Logo — left, large and prominent */}
         <a href="#home" className="flex min-w-0 shrink items-center" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`${
               scrolled
-                ? '[--lw:104px] lg:[--lw:124px]'
-                : '[--lw:132px] sm:[--lw:150px] lg:[--lw:176px] xl:[--lw:210px]'
+                ? '[--lw:104px] lg:[--lw:150px]'
+                : '[--lw:140px] sm:[--lw:158px] lg:[--lw:250px] xl:[--lw:300px] 2xl:[--lw:336px]'
             }`}
           />
         </a>
 
-        {/* Desktop navigation + CTA */}
-        <div className="hidden items-center gap-7 lg:flex xl:gap-10">
-          {navList}
-          {ctaBtn}
-        </div>
+        {/* Navigation — centered between logo and CTA */}
+        <ul className="hidden items-center justify-center gap-4 lg:flex lg:justify-self-center xl:gap-6">
+          {NAV.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="relative whitespace-nowrap text-[12px] font-semibold uppercase tracking-wide text-ink/70 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-copper-500 after:transition-all after:duration-300 hover:text-ink hover:after:w-full xl:text-[13px]"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA — right */}
+        <a
+          href="#rfq"
+          className="btn-primary hidden shrink-0 !px-4 !py-2.5 text-xs lg:inline-flex lg:justify-self-end xl:!px-5"
+        >
+          Request a Quote
+        </a>
 
         {/* Tablet / mobile menu trigger */}
         <button
           type="button"
-          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ink/20 text-ink transition-colors hover:border-copper-500 hover:text-copper-600 lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center justify-self-end rounded-sm border border-ink/20 text-ink transition-colors hover:border-copper-500 hover:text-copper-600 lg:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
