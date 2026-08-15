@@ -3,6 +3,7 @@ import {
   IconTruck, IconHandshake, IconValve, IconPump, IconPipe, IconFlange, IconGauge,
   IconBolt, IconMotor, IconCompressor, IconShield, IconTools, IconGear, IconFactory,
   IconBuilding, IconPower, IconAnchor, IconSearch, IconScale, IconDoc, IconCheck,
+  IconBriefcase, IconNetwork, IconShieldCheck,
 } from '../components/icons'
 import type { ComponentType, SVGProps } from 'react'
 
@@ -83,11 +84,11 @@ export const WHY: { title: string; desc: string; icon: Icon }[] = [
   { title: 'Project-Focused Service', desc: 'Structured procurement support for maintenance, turnarounds, capital projects and operational requirements.', icon: IconClipboard },
 ]
 
-export const STATS = [
-  { value: '24/7', label: 'Sourcing Support' },
-  { value: '12+', label: 'Industries Served' },
-  { value: 'Global', label: 'Supplier Network' },
-  { value: '100%', label: 'Specification-Driven' },
+export const STATS: { value: string; label: string; icon: Icon }[] = [
+  { value: '24/7', label: 'Global Support', icon: IconGlobe },
+  { value: '12+', label: 'Industries Served', icon: IconBriefcase },
+  { value: 'Global', label: 'Supply Network', icon: IconNetwork },
+  { value: '100%', label: 'Commitment to Quality', icon: IconShieldCheck },
 ]
 
 export const SERVICES = [

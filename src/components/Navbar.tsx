@@ -30,45 +30,43 @@ export default function Navbar() {
           : 'border-line/70 bg-white/85 backdrop-blur-md'
       }`}
     >
-      {/* Thin industrial-orange accent line — understated brand detail */}
-      <div className="h-[3px] w-full bg-copper-500" />
-
-      {/* Balanced three-zone bar on desktop: LARGE brand mark | centered NAV | CTA.
-          At the top of the page the logo is oversized and floats slightly below the
-          slim bar into the hero's empty upper area; on scroll it compacts.
-          Below lg it collapses to logo + hamburger (tablet/mobile). */}
+      {/* Three-zone header: LARGE brand mark (left) | centered NAV | CTA (right).
+          The logo is a dominant branding element, fully contained in the clean
+          white bar (no top accent line). Compacts on scroll. Below lg it
+          collapses to logo + hamburger (tablet/mobile). */}
       <nav
         className={`mx-auto grid w-full max-w-[1640px] grid-cols-[1fr_auto] items-center gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-6 xl:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[88px]' : 'h-[150px] sm:h-[168px] lg:h-[200px] xl:h-[240px] 2xl:h-[250px]'
+          scrolled ? 'h-[80px] lg:h-[88px]' : 'h-[130px] sm:h-[150px] lg:h-[220px] xl:h-[276px] 2xl:h-[296px]'
         }`}
       >
-        {/* Brand mark — left; floats (self-start) below the bar on desktop top state */}
-        <a
-          href="#home"
-          className={`flex min-w-0 shrink items-center ${scrolled ? '' : 'lg:self-start lg:pt-2'}`}
-          aria-label={`${COMPANY.name} home`}
-        >
+        {/* Brand mark — left, large and dominant, vertically centered */}
+        <a href="#home" className="flex min-w-0 shrink items-center" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`${
               scrolled
                 ? '[--lw:104px] lg:[--lw:150px]'
-                : '[--lw:150px] sm:[--lw:172px] lg:[--lw:280px] xl:[--lw:370px] 2xl:[--lw:420px]'
+                : '[--lw:140px] sm:[--lw:158px] lg:[--lw:280px] xl:[--lw:360px] 2xl:[--lw:390px]'
             }`}
           />
         </a>
 
-        {/* Navigation — centered between logo and CTA */}
+        {/* Navigation — centered between logo and CTA; HOME shows the active underline */}
         <ul className="hidden items-center justify-center gap-4 lg:flex lg:justify-self-center xl:gap-6">
-          {NAV.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="relative whitespace-nowrap text-[12px] font-semibold uppercase tracking-wide text-ink/70 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-copper-500 after:transition-all after:duration-300 hover:text-ink hover:after:w-full xl:text-[13px]"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {NAV.map((item) => {
+            const active = item.href === '#home'
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className={`relative whitespace-nowrap text-[12px] font-semibold uppercase tracking-wide transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:bg-copper-500 after:transition-all after:duration-300 hover:text-ink hover:after:w-full xl:text-[13px] ${
+                    active ? 'text-ink after:w-full' : 'text-ink/70 after:w-0'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         {/* CTA — right */}

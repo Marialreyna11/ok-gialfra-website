@@ -275,3 +275,28 @@ export const IconUpload = (p: IconProps) => (
     <path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
   </svg>
 )
+
+export const IconBriefcase = (p: IconProps) => (
+  <svg {...base(p)}>
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7" />
+    <path d="M3 12.5h18" />
+  </svg>
+)
+
+export const IconNetwork = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="5" cy="12" r="2" />
+    <circle cx="19" cy="6" r="2" />
+    <circle cx="19" cy="18" r="2" />
+    <circle cx="12" cy="12" r="2.4" />
+    <path d="M7 12h2.6M14.3 11.2l2.9-3.8M14.3 12.8l2.9 3.8" />
+  </svg>
+)
+
+export const IconShieldCheck = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M12 3l7 3v5c0 4.6-3.1 7.6-7 9-3.9-1.4-7-4.4-7-9V6l7-3z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+)
