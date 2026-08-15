@@ -11,7 +11,7 @@ const highlights = [
 
 export default function GlobalSourcing() {
   return (
-    <section className="relative overflow-hidden border-y border-white/5 bg-graphite-950 py-24 lg:py-32">
+    <section className="relative overflow-hidden border-y border-line bg-paper py-24 lg:py-32">
       <div className="container-x grid items-center gap-14 lg:grid-cols-[1.035fr_1fr] lg:gap-3">
         <div>
           <SectionHeading
@@ -33,12 +33,12 @@ export default function GlobalSourcing() {
           <div className="mt-10 space-y-6">
             {highlights.map((h, i) => (
               <Reveal key={h.title} delay={i * 0.08} className="flex gap-4">
-                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-navy-900 text-copper-400">
+                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-line bg-navy-900 text-copper-400">
                   <h.icon className="h-6 w-6" />
                 </span>
                 <div>
-                  <h3 className="text-base text-white">{h.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-steel-400">{h.desc}</p>
+                  <h3 className="text-base text-ink">{h.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-mute">{h.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -46,11 +46,11 @@ export default function GlobalSourcing() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="relative rounded-2xl border border-white/10 bg-navy-950/60 p-4 shadow-card lg:p-1">
+          <div className="relative rounded-2xl border border-navy-700 bg-gradient-to-br from-navy-900 to-navy-950 p-4 shadow-card lg:p-1">
             <WorldMap className="w-full" />
-            <div className="absolute bottom-6 left-6 rounded-md border border-white/10 bg-navy-900/80 px-4 py-2 backdrop-blur">
+            <div className="absolute bottom-6 left-6 rounded-md border border-navy-700 bg-navy-900/80 px-4 py-2 backdrop-blur">
               <div className="font-display text-sm uppercase tracking-wide text-copper-400">Homestead, FL</div>
-              <div className="text-xs text-steel-400">Procurement Hub — United States</div>
+              <div className="text-xs text-steel-300">Procurement Hub — United States</div>
             </div>
           </div>
         </Reveal>

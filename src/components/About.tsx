@@ -46,20 +46,19 @@ type AboutPhoto = { src: string; alt: string }
 
 function PhotoCard({ photo, className = '' }: { photo: AboutPhoto; className?: string }) {
   return (
-    <div className={`media rounded-lg border border-white/10 ${className}`}>
+    <div className={`media rounded-lg border border-line ${className}`}>
       {/* object-cover (via .media > img) keeps the industrial equipment in frame, never stretched */}
       <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="object-center" />
-      {/* subtle dark-navy overlays so all photos integrate with the existing palette and text stays legible.
-          Kept light enough that the industrial photography reads clearly while preserving the dark aesthetic. */}
-      <div className="pointer-events-none absolute inset-0 bg-navy-950/20" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/55 via-navy-950/5 to-transparent" />
+      {/* very subtle bottom vignette for depth; the photography stays bright and
+          vivid to suit the light, premium palette. */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent" />
     </div>
   )
 }
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-navy-950 pt-32 pb-24 sm:pt-36 lg:pt-44 lg:pb-32">
+    <section id="about" className="relative bg-white pt-32 pb-24 sm:pt-36 lg:pt-44 lg:pb-32">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Visual montage */}
         <Reveal className="order-2 lg:order-1">
@@ -82,14 +81,14 @@ export default function About() {
             title="A Procurement Partner Built For Industrial Demand"
           />
           <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-steel-300">
+            <p className="mt-6 text-lg leading-relaxed text-mute">
               {COMPANY.name} provides procurement, sourcing, industrial supply and project support solutions for
               companies operating in the world&apos;s most demanding sectors. From a single critical spare to a full
               project scope, we source the right equipment — on specification, at the right price, on time.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mt-4 leading-relaxed text-steel-400">
+            <p className="mt-4 leading-relaxed text-mute">
               Our approach is built on reliability, responsiveness and technical accuracy. We combine disciplined
               procurement processes with an international network of qualified suppliers to give our clients
               competitive supply and dependable service on every requirement.
@@ -99,10 +98,10 @@ export default function About() {
           <ul className="mt-8 space-y-3">
             {points.map((p, i) => (
               <Reveal as="li" key={p} delay={0.2 + i * 0.06} className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-copper-500/15 text-copper-400">
+                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-copper-500/15 text-copper-600">
                   <IconCheck className="h-4 w-4" />
                 </span>
-                <span className="text-steel-200">{p}</span>
+                <span className="text-mute">{p}</span>
               </Reveal>
             ))}
           </ul>

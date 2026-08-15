@@ -29,7 +29,7 @@ const PROD_FILTER: Record<string, string> = {
 
 export default function Products() {
   return (
-    <section id="products" className="relative border-y border-white/5 bg-graphite-950 pt-24 pb-14 lg:pt-32 lg:pb-16">
+    <section id="products" className="relative border-y border-line bg-paper pt-24 pb-14 lg:pt-32 lg:pb-16">
       <div className="container-x">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -49,7 +49,7 @@ export default function Products() {
             <Reveal as="article" key={p.title} delay={(i % 4) * 0.05}>
               <a
                 href="#rfq"
-                className="group block overflow-hidden rounded-lg border border-white/10 bg-graphite-900 transition-all duration-300 hover:-translate-y-1 hover:border-copper-500/40 hover:shadow-card"
+                className="group block overflow-hidden rounded-lg border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-copper-500/40 hover:shadow-card"
               >
                 <div className="relative aspect-[5/4] overflow-hidden">
                   {/* Real product photograph replaces the illustrated scene; same 5:4 box + hover-scale. */}
@@ -64,14 +64,14 @@ export default function Products() {
                   {/* Light navy treatment (lighter than the Industries overlay) so the product stays clearly visible. */}
                   <div className="pointer-events-none absolute inset-0 bg-navy-950/[0.18] transition-colors duration-300 group-hover:bg-navy-950/[0.08]" />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/[0.35] to-transparent" />
-                  <div className="pointer-events-none absolute left-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-navy-950/50 text-copper-400 backdrop-blur-sm">
+                  <div className="pointer-events-none absolute left-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md border border-line bg-navy-950/50 text-copper-400 backdrop-blur-sm">
                     <p.icon className="h-4 w-4" />
                   </div>
                 </div>
                 <div className="relative flex items-center px-5 py-4">
-                  <h3 className="pr-2 text-base leading-tight text-white">{p.title}</h3>
+                  <h3 className="pr-2 text-base leading-tight text-ink">{p.title}</h3>
                   {/* Quote is absolutely placed so it never squeezes/clips the title; still fades in on hover. */}
-                  <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 bg-graphite-900 pl-2 text-xs font-semibold uppercase tracking-wide text-copper-400 opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 bg-white pl-2 text-xs font-semibold uppercase tracking-wide text-copper-600 opacity-0 transition-opacity group-hover:opacity-100">
                     Quote →
                   </span>
                 </div>

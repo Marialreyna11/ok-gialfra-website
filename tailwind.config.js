@@ -29,13 +29,20 @@ export default {
           200: '#dde3ea',
           100: '#eef1f5',
         },
-        // Copper / orange accent
+        // Copper / industrial orange accent (brand #F15A16)
         copper: {
-          600: '#c2410c',
-          500: '#ea580c',
-          400: '#f97316',
-          300: '#fb923c',
+          700: '#b8410f',
+          600: '#d64d12',
+          500: '#f15a16',
+          400: '#ff6f30',
+          300: '#ff8c54',
         },
+        // Light-theme semantic tokens
+        ink: '#152231', // primary text / headings on light surfaces
+        mute: '#4f5d6b', // secondary / body text (AA on paper & white)
+        line: '#e2e6ea', // subtle borders on light surfaces
+        paper: '#f5f6f7', // primary page background
+        panel: '#ffffff', // card / secondary background
       },
       fontFamily: {
         display: ['"Barlow Condensed"', 'Oswald', 'Impact', 'sans-serif'],
@@ -45,12 +52,13 @@ export default {
         widest2: '0.22em',
       },
       boxShadow: {
-        card: '0 10px 40px -12px rgba(0,0,0,0.35)',
-        glow: '0 0 0 1px rgba(249,115,22,0.35), 0 12px 40px -12px rgba(249,115,22,0.25)',
+        card: '0 12px 32px -16px rgba(21,34,49,0.14)',
+        'card-hover': '0 20px 44px -20px rgba(21,34,49,0.22)',
+        glow: '0 10px 26px -12px rgba(241,90,22,0.45)',
       },
       backgroundImage: {
         'grid-steel':
-          'linear-gradient(rgba(138,151,168,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(138,151,168,0.06) 1px, transparent 1px)',
+          'linear-gradient(rgba(21,34,49,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(21,34,49,0.045) 1px, transparent 1px)',
       },
       keyframes: {
         'fade-up': {

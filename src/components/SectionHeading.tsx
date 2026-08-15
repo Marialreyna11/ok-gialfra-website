@@ -21,11 +21,11 @@ export default function SectionHeading({ eyebrow, title, intro, align = 'left', 
         <span className="eyebrow">{eyebrow}</span>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className={`section-title mt-5 ${balance ? 'text-balance' : ''} ${titleClassName} ${invert ? 'text-navy-900' : 'text-white'}`}>{title}</h2>
+        <h2 className={`section-title mt-5 ${balance ? 'text-balance' : ''} ${titleClassName} ${invert ? 'text-navy-900' : 'text-ink'}`}>{title}</h2>
       </Reveal>
       {intro && (
         <Reveal delay={0.1}>
-          <p className={`mt-6 text-lg leading-relaxed ${invert ? 'text-graphite-700' : 'text-steel-400'}`}>{intro}</p>
+          <p className={`mt-6 text-lg leading-relaxed ${invert ? 'text-graphite-700' : 'text-mute'}`}>{intro}</p>
         </Reveal>
       )}
     </div>

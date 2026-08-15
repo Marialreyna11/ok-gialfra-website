@@ -7,34 +7,34 @@
     /* Header height — sized tightly around the enlarged, dominant logo.
        Tiers grow the single-row header so the branding stays large on medium
        (tablet/laptop) widths, not just very wide desktops. */
-    --nav-h: 132px;
+    --nav-h: 150px;
   }
 
   @media (min-width: 640px) {
     :root {
-      --nav-h: 168px;
+      --nav-h: 190px;
     }
   }
   @media (min-width: 768px) {
     :root {
-      --nav-h: 184px;
+      --nav-h: 220px;
     }
   }
   @media (min-width: 900px) {
     :root {
-      --nav-h: 204px;
+      --nav-h: 248px;
     }
   }
   @media (min-width: 1024px) {
     :root {
-      --nav-h: 220px;
+      --nav-h: 272px;
     }
   }
 
   @media (min-width: 1280px) {
     :root {
       /* Brand-forward two-row header (nav row + large logo/name block) */
-      --nav-h: 279px;
+      --nav-h: 356px;
     }
   }
 
@@ -46,19 +46,19 @@
   }
 
   body {
-    @apply bg-navy-950 text-steel-200 font-sans antialiased;
+    @apply bg-paper text-mute font-sans antialiased;
     text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4 {
-    @apply font-display uppercase text-white;
+    @apply font-display uppercase text-ink;
     letter-spacing: 0.01em;
     line-height: 1.02;
   }
 
   ::selection {
-    background: rgba(249, 115, 22, 0.85);
-    color: #0a1222;
+    background: rgba(241, 90, 22, 0.9);
+    color: #ffffff;
   }
 
   /* Custom scrollbar for a premium feel */
@@ -67,15 +67,15 @@
     height: 11px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a1222;
+    background: #eceef1;
   }
   ::-webkit-scrollbar-thumb {
-    background: #3a434f;
+    background: #c3ccd8;
     border-radius: 999px;
-    border: 3px solid #0a1222;
+    border: 3px solid #eceef1;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #ea580c;
+    background: #f15a16;
   }
 }
 
@@ -85,7 +85,7 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest2 text-copper-400;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest2 text-copper-500;
   }
 
   .eyebrow::before {
@@ -94,23 +94,23 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold uppercase tracking-widest2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-400;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold uppercase tracking-widest2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-500;
   }
 
   .btn-primary {
-    @apply btn bg-copper-500 text-white hover:bg-copper-400 hover:shadow-glow;
+    @apply btn bg-copper-500 text-white shadow-[0_6px_18px_-8px_rgba(241,90,22,0.55)] hover:bg-copper-600 hover:shadow-glow;
   }
 
   .btn-ghost {
-    @apply btn border border-steel-500/40 bg-white/5 text-white backdrop-blur hover:border-copper-400/70 hover:bg-white/10;
+    @apply btn border border-ink/25 bg-transparent text-ink hover:border-copper-500 hover:bg-copper-500/[0.06] hover:text-copper-600;
   }
 
   .section-title {
-    @apply font-display text-4xl leading-[1.03] text-white sm:text-5xl lg:text-6xl;
+    @apply font-display text-4xl leading-[1.03] text-ink sm:text-5xl lg:text-6xl;
   }
 
   .card-surface {
-    @apply relative overflow-hidden rounded-lg border border-white/10 bg-graphite-900/70 backdrop-blur transition-all duration-300;
+    @apply relative overflow-hidden rounded-lg border border-line bg-panel shadow-card transition-all duration-300;
   }
 
   /* Official-logo crop: the source PNG has transparent padding (artwork bbox

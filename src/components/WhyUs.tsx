@@ -4,7 +4,7 @@ import { WHY } from '../data/content'
 
 export default function WhyUs() {
   return (
-    <section id="why" className="relative bg-navy-950 py-24 lg:py-32">
+    <section id="why" className="relative bg-paper py-24 lg:py-32">
       <div className="container-x">
         <SectionHeading
           eyebrow="Why OK. GIALFRA"
@@ -21,8 +21,8 @@ export default function WhyUs() {
                   <w.icon className="h-6 w-6" />
                 </span>
                 <div>
-                  <h3 className="text-base text-white">{w.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-steel-400">{w.desc}</p>
+                  <h3 className="text-base text-ink">{w.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-mute">{w.desc}</p>
                 </div>
               </div>
             </Reveal>
