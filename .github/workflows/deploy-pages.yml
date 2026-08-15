@@ -40,8 +40,8 @@ jobs:
           enablement: true
 
       - name: Build
-        # Project site served at https://<owner>.github.io/ok-gialfra-website/
-        run: npm run build -- --base=/ok-gialfra-website/
+        # Served at the custom apex domain https://okgialfra.com/ (root path)
+        run: npm run build -- --base=/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
