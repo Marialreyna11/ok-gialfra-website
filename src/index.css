@@ -23,13 +23,13 @@
 
   @media (min-width: 1280px) {
     :root {
-      --nav-h: 276px;
+      --nav-h: 288px;
     }
   }
 
   @media (min-width: 1536px) {
     :root {
-      --nav-h: 296px;
+      --nav-h: 308px;
     }
   }
 

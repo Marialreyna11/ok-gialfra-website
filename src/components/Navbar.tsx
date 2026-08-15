@@ -36,7 +36,7 @@ export default function Navbar() {
           collapses to logo + hamburger (tablet/mobile). */}
       <nav
         className={`mx-auto grid w-full max-w-[1640px] grid-cols-[1fr_auto] items-center gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-6 xl:px-10 ${
-          scrolled ? 'h-[80px] lg:h-[88px]' : 'h-[130px] sm:h-[150px] lg:h-[220px] xl:h-[276px] 2xl:h-[296px]'
+          scrolled ? 'h-[80px] lg:h-[88px]' : 'h-[130px] sm:h-[150px] lg:h-[220px] xl:h-[288px] 2xl:h-[308px]'
         }`}
       >
         {/* Brand mark — left, large and dominant, vertically centered */}
@@ -45,7 +45,7 @@ export default function Navbar() {
             className={`${
               scrolled
                 ? '[--lw:104px] lg:[--lw:150px]'
-                : '[--lw:140px] sm:[--lw:158px] lg:[--lw:280px] xl:[--lw:360px] 2xl:[--lw:390px]'
+                : '[--lw:140px] sm:[--lw:158px] lg:[--lw:280px] xl:[--lw:384px] 2xl:[--lw:408px]'
             }`}
           />
         </a>

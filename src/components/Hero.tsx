@@ -9,7 +9,9 @@ export default function Hero() {
           and cool-graded, with a very slow subconscious zoom. Blends seamlessly
           into the clean editorial light area on the left. */}
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 right-0 h-full w-full overflow-hidden lg:w-[58%]">
+        {/* Full-bleed photo (no hard container edge) so the only visible
+            transition is the soft gradient itself. */}
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src={`${import.meta.env.BASE_URL}images/about/oil-gas.jpg?v=3`}
             alt=""
@@ -17,16 +19,17 @@ export default function Hero() {
             decoding="async"
             fetchPriority="high"
             style={{ filter: 'saturate(0.42) brightness(0.88) contrast(1.06)' }}
-            className="h-full w-full animate-slow-pan object-cover object-center will-change-transform"
+            className="h-full w-full animate-slow-pan object-cover object-[64%_center] will-change-transform"
           />
           {/* charcoal/steel grade so the warm photo reads premium, not poster-like */}
           <div className="pointer-events-none absolute inset-0 bg-navy-950/30 mix-blend-multiply" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/35 via-transparent to-navy-900/15" />
         </div>
-        {/* Seamless left→right blend: clean light editorial zone on the left,
-            atmospheric fade in the centre, photography on the right. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/92 to-paper/72 lg:from-paper lg:from-[38%] lg:via-paper/55 lg:via-[66%] lg:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-paper/50 via-transparent to-paper/15 lg:to-transparent" />
+        {/* Seamless, WIDE left→right blend: clean editorial light holds on the left,
+            then fades gradually across a broad band into the photograph — no hard
+            vertical division. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/88 to-paper/64 lg:from-paper lg:from-[30%] lg:via-paper/52 lg:via-[62%] lg:to-transparent lg:to-[98%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/48 via-transparent to-paper/12 lg:to-transparent" />
       </div>
 
       <div className="container-x relative z-10 py-20">
