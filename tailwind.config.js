@@ -29,14 +29,14 @@ export default {
           200: '#dde3ea',
           100: '#eef1f5',
         },
-        // Copper / industrial orange accent — brighter, cleaner CTA orange (#FF6F26).
+        // Copper / industrial orange accent — lighter, premium warm CTA orange (#FF8C38).
         // 600/700 stay deeper for orange text-on-white (hover states) to keep contrast.
         copper: {
-          700: '#b8410f',
-          600: '#d64d12',
-          500: '#ff6f26',
-          400: '#ff8140',
-          300: '#ff9a60',
+          700: '#c9640f',
+          600: '#ef7a1f',
+          500: '#ff8c38',
+          400: '#ffa863',
+          300: '#ffc089',
         },
         // Light-theme semantic tokens
         ink: '#152231', // primary text / headings on light surfaces
@@ -55,7 +55,7 @@ export default {
       boxShadow: {
         card: '0 12px 32px -16px rgba(21,34,49,0.14)',
         'card-hover': '0 20px 44px -20px rgba(21,34,49,0.22)',
-        glow: '0 10px 26px -12px rgba(255,111,38,0.5)',
+        glow: '0 10px 26px -12px rgba(255,140,56,0.55)',
       },
       backgroundImage: {
         'grid-steel':

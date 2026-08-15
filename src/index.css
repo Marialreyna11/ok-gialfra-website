@@ -52,8 +52,20 @@
   }
 
   ::selection {
-    background: rgba(255, 111, 38, 0.9);
+    background: rgba(255, 140, 56, 0.9);
     color: #ffffff;
+  }
+
+  /* Honor reduced-motion: disable the cinematic/HUD/count-up motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   /* Custom scrollbar for a premium feel */
@@ -70,7 +82,7 @@
     border: 3px solid #eceef1;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff6f26;
+    background: #ff8c38;
   }
 }
 
@@ -93,7 +105,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-copper-500 text-white shadow-[0_6px_18px_-8px_rgba(255,111,38,0.5)] hover:-translate-y-0.5 hover:bg-copper-600 hover:shadow-glow;
+    @apply btn bg-copper-500 text-white shadow-[0_6px_18px_-8px_rgba(255,140,56,0.55)] hover:-translate-y-0.5 hover:bg-copper-600 hover:shadow-glow;
   }
 
   .btn-ghost {
