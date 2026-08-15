@@ -56,16 +56,16 @@ export default function Navbar() {
       {/* Single compact horizontal bar: large logo left, full nav + CTA right.
           Hamburger only appears below 1080px (tablet/mobile). */}
       <nav
-        className={`mx-auto flex w-full max-w-[1600px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled ? 'h-[68px] lg:h-[80px]' : 'h-[92px] sm:h-[100px] lg:h-[116px] xl:h-[126px]'
+        className={`mx-auto flex w-full max-w-[1600px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 xl:px-10 ${
+          scrolled ? 'h-[80px] lg:h-[96px]' : 'h-[108px] sm:h-[118px] lg:h-[136px] xl:h-[158px]'
         }`}
       >
         <a href="#home" className="flex min-w-0 shrink items-center" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`${
               scrolled
-                ? '[--lw:84px] lg:[--lw:100px]'
-                : '[--lw:112px] sm:[--lw:124px] lg:[--lw:148px] xl:[--lw:162px]'
+                ? '[--lw:104px] lg:[--lw:124px]'
+                : '[--lw:132px] sm:[--lw:150px] lg:[--lw:176px] xl:[--lw:210px]'
             }`}
           />
         </a>

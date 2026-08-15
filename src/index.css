@@ -7,23 +7,23 @@
     /* Header height — sized tightly around the enlarged, dominant logo.
        Tiers grow the single-row header so the branding stays large on medium
        (tablet/laptop) widths, not just very wide desktops. */
-    --nav-h: 96px;
+    --nav-h: 112px;
   }
 
   @media (min-width: 640px) {
     :root {
-      --nav-h: 104px;
+      --nav-h: 122px;
     }
   }
   @media (min-width: 1024px) {
     :root {
-      --nav-h: 120px;
+      --nav-h: 140px;
     }
   }
 
   @media (min-width: 1280px) {
     :root {
-      --nav-h: 130px;
+      --nav-h: 162px;
     }
   }
 
