@@ -47,10 +47,6 @@ export default function Footer() {
           {/* Brand block */}
           <div className="max-w-xs">
             <Logo className="[--lw:115px] sm:[--lw:140px]" />
-            <p className="mt-6 text-sm leading-relaxed text-steel-400">
-              Procurement, oilfield equipment, industrial supply and project support — delivered with reliability and
-              global reach.
-            </p>
             <div className="mt-6 space-y-2 text-sm">
               <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 text-steel-300 hover:text-copper-400">
                 <IconMail className="h-4 w-4 text-copper-400" /> {COMPANY.email}
@@ -96,10 +92,6 @@ export default function Footer() {
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-steel-500 sm:flex-row">
           <p>
             © {year} {COMPANY.name}. All rights reserved.
-          </p>
-          <p className="text-center sm:text-right">
-            {COMPANY.name} is a procurement and industrial supply company. All manufacturer names, brands and trademarks
-            are the property of their respective owners.
           </p>
         </div>
       </div>
