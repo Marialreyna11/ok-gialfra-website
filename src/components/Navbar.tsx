@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Logo from './Logo'
 import { NAV, COMPANY } from '../data/content'
-import { IconMenu, IconClose, IconMail } from './icons'
+import { IconMenu, IconClose, IconMail, IconArrow } from './icons'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -72,9 +72,10 @@ export default function Navbar() {
         {/* CTA — right */}
         <a
           href="#rfq"
-          className="btn-primary hidden shrink-0 !px-4 !py-2.5 text-xs lg:inline-flex lg:justify-self-end xl:!px-5"
+          className="btn-primary group hidden shrink-0 !px-4 !py-2.5 text-xs lg:inline-flex lg:justify-self-end xl:!px-5"
         >
           Request a Quote
+          <IconArrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
         </a>
 
         {/* Tablet / mobile menu trigger */}

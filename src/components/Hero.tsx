@@ -5,21 +5,28 @@ import { IconArrow } from './icons'
 export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-[var(--nav-h)]">
-      {/* Background — oilfield photograph on the right, blended into the light
-          text side on the left (matches the reference composition). */}
+      {/* Background — oilfield photograph on the right, cinematically de-saturated
+          and cool-graded, with a very slow subconscious zoom. Blends seamlessly
+          into the clean editorial light area on the left. */}
       <div className="absolute inset-0">
-        <img
-          src={`${import.meta.env.BASE_URL}images/about/oil-gas.jpg?v=3`}
-          alt=""
-          aria-hidden="true"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-y-0 right-0 h-full w-full object-cover object-center lg:w-[60%]"
-        />
-        {/* Smooth horizontal blend: solid light on the left for the headline,
-            fading to reveal the photo on the right. Heavier veil on mobile. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/90 to-paper/70 lg:from-paper lg:from-40% lg:via-paper/55 lg:via-[68%] lg:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-paper/55 via-transparent to-paper/20 lg:to-transparent" />
+        <div className="absolute inset-y-0 right-0 h-full w-full overflow-hidden lg:w-[58%]">
+          <img
+            src={`${import.meta.env.BASE_URL}images/about/oil-gas.jpg?v=3`}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            fetchPriority="high"
+            style={{ filter: 'saturate(0.42) brightness(0.88) contrast(1.06)' }}
+            className="h-full w-full animate-slow-pan object-cover object-center will-change-transform"
+          />
+          {/* charcoal/steel grade so the warm photo reads premium, not poster-like */}
+          <div className="pointer-events-none absolute inset-0 bg-navy-950/30 mix-blend-multiply" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/35 via-transparent to-navy-900/15" />
+        </div>
+        {/* Seamless left→right blend: clean light editorial zone on the left,
+            atmospheric fade in the centre, photography on the right. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/92 to-paper/72 lg:from-paper lg:from-[38%] lg:via-paper/55 lg:via-[66%] lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/50 via-transparent to-paper/15 lg:to-transparent" />
       </div>
 
       <div className="container-x relative z-10 py-20">
@@ -33,7 +40,7 @@ export default function Hero() {
             Procurement &amp; Oilfield Supply
           </motion.span>
 
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[0.98] text-ink sm:text-6xl lg:text-7xl">
+          <h1 className="mt-7 font-display text-5xl font-bold leading-[1.0] tracking-[-0.01em] text-ink sm:text-6xl lg:text-[4.7rem]">
             {['GLOBAL PROCUREMENT.', 'INDUSTRIAL SOLUTIONS.', 'DELIVERED.'].map((line, i) => (
               <motion.span
                 key={line}
@@ -73,19 +80,19 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* floating statistics / trust panel */}
+        {/* floating statistics / trust panel — premium corporate dashboard feel */}
         <motion.div
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line shadow-card sm:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line shadow-[0_20px_50px_-28px_rgba(21,34,49,0.28)] sm:grid-cols-4"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
         >
           {STATS.map((s) => (
-            <div key={s.label} className="flex items-center gap-3.5 bg-white px-5 py-5 sm:gap-4 sm:px-6">
-              <s.icon className="h-8 w-8 shrink-0 text-copper-500 sm:h-9 sm:w-9" />
+            <div key={s.label} className="flex items-center gap-4 bg-white px-6 py-7">
+              <s.icon className="h-6 w-6 shrink-0 text-copper-500" />
               <div className="min-w-0">
-                <div className="font-display text-2xl font-bold leading-none text-ink sm:text-3xl">{s.value}</div>
-                <div className="mt-1 text-xs leading-tight text-mute sm:text-sm">{s.label}</div>
+                <div className="font-display text-2xl font-bold leading-none text-ink sm:text-[1.75rem]">{s.value}</div>
+                <div className="mt-1.5 text-xs leading-tight text-mute">{s.label}</div>
               </div>
             </div>
           ))}

@@ -67,8 +67,8 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'slow-pan': {
-          '0%': { transform: 'scale(1.08) translate3d(0,0,0)' },
-          '100%': { transform: 'scale(1.16) translate3d(-2%, -2%, 0)' },
+          '0%': { transform: 'scale(1) translate3d(0,0,0)' },
+          '100%': { transform: 'scale(1.025) translate3d(-0.6%, -0.6%, 0)' },
         },
         marquee: {
           '0%': { transform: 'translateX(0)' },
@@ -77,7 +77,7 @@ export default {
       },
       animation: {
         'fade-up': 'fade-up 0.7s ease-out both',
-        'slow-pan': 'slow-pan 24s ease-in-out infinite alternate',
+        'slow-pan': 'slow-pan 16s ease-in-out infinite alternate',
         marquee: 'marquee 30s linear infinite',
       },
     },

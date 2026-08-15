@@ -93,11 +93,11 @@
   }
 
   .btn-primary {
-    @apply btn bg-copper-500 text-white shadow-[0_6px_18px_-8px_rgba(255,111,38,0.5)] hover:bg-copper-600 hover:shadow-glow;
+    @apply btn bg-copper-500 text-white shadow-[0_6px_18px_-8px_rgba(255,111,38,0.5)] hover:-translate-y-0.5 hover:bg-copper-600 hover:shadow-glow;
   }
 
   .btn-ghost {
-    @apply btn border border-ink/25 bg-transparent text-ink hover:border-copper-500 hover:bg-copper-500/[0.06] hover:text-copper-600;
+    @apply btn border border-ink/20 bg-transparent text-ink hover:-translate-y-0.5 hover:border-ink/40 hover:bg-ink/[0.03];
   }
 
   .section-title {
