@@ -39,14 +39,14 @@ const COLUMNS = [
 ]
 
 export default function Footer() {
-  const year = 2025
+  const year = 2026
   return (
     <footer className="border-t border-white/10 bg-navy-950">
       <div className="container-x py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           {/* Brand block */}
           <div className="max-w-xs">
-            <Logo className="[--lw:150px] sm:[--lw:180px]" />
+            <Logo className="[--lw:115px] sm:[--lw:140px]" />
             <p className="mt-6 text-sm leading-relaxed text-steel-400">
               Procurement, oilfield equipment, industrial supply and project support — delivered with reliability and
               global reach.
