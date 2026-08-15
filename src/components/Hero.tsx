@@ -11,11 +11,12 @@ export default function Hero() {
         <div className="absolute inset-0 animate-slow-pan">
           <HeroScene className="h-full w-full" />
         </div>
-        {/* light readability wash — keeps the industrial scene visible while
-            lifting the text side to a bright, premium tone */}
-        <div className="absolute inset-0 bg-gradient-to-br from-paper via-paper/88 to-paper/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-paper/95 via-transparent to-paper/55" />
-        <div className="absolute inset-0 bg-grid-steel [background-size:60px_60px] opacity-30" />
+        {/* Light readability wash — holds the left/text zone bright for the ink
+            headline while letting the industrial scene read clearly on the right.
+            More veil on mobile (text spans full width); clearer imagery on desktop. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/90 to-paper/50 lg:via-paper/88 lg:to-paper/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/80 via-transparent to-paper/35" />
+        <div className="absolute inset-0 bg-grid-steel [background-size:60px_60px] opacity-25" />
       </div>
 
       <div className="container-x relative z-10 py-20">

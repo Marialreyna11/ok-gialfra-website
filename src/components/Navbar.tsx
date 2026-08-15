@@ -44,89 +44,54 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? 'border-b border-line bg-white/95 shadow-[0_2px_16px_-8px_rgba(21,34,49,0.25)] backdrop-blur-md'
-          : 'border-b border-line/60 bg-paper/80 backdrop-blur-md'
+          ? 'border-line bg-white/95 shadow-[0_2px_18px_-10px_rgba(21,34,49,0.35)] backdrop-blur-md'
+          : 'border-line/70 bg-white/85 backdrop-blur-md'
       }`}
     >
-      {/* Desktop brand-forward header (>=1400, not scrolled): nav row on top, large logo + name block below */}
-      {!scrolled && (
-        <div className="mx-auto hidden w-full max-w-[1760px] px-10 min-[1280px]:block lg:px-12">
-          <div className="flex items-center justify-end gap-6 pt-5 2xl:gap-8">
-            {navList}
-            {ctaBtn}
-          </div>
-          <a
-            href="#home"
-            aria-label={`${COMPANY.name} home`}
-            className="-mt-1 flex items-center gap-7 pb-5"
-          >
-            <Logo className="[--lw:390px]" />
-            <span className="flex min-w-0 flex-col justify-center leading-none">
-              <span className="whitespace-nowrap font-display text-[76px] font-bold uppercase leading-[0.9] tracking-wide text-ink">
-                OK.&nbsp;GIALFRA <span className="text-mute">LLC</span>
-              </span>
-              <span className="mt-3 flex items-center gap-3">
-                <span className="h-px w-8 shrink-0 bg-copper-500" />
-                <span className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-widest2 text-copper-500">
-                  Industrial Procurement &amp; Oilfield Supply
-                </span>
-                <span className="h-px w-24 max-w-[40%] flex-1 bg-copper-500/40" />
-              </span>
-            </span>
-          </a>
-        </div>
-      )}
+      {/* Thin industrial-orange accent line — understated brand detail */}
+      <div className="h-[3px] w-full bg-copper-500" />
 
-      {/* Compact / tablet / mobile single-row header (and the scrolled state at all widths) */}
+      {/* Single compact horizontal bar: large logo left, full nav + CTA right.
+          Hamburger only appears below 1080px (tablet/mobile). */}
       <nav
-        className={`mx-auto flex w-full max-w-[1760px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
-          scrolled
-            ? 'h-[80px] lg:h-[100px]'
-            : 'h-[150px] sm:h-[190px] md:h-[220px] min-[900px]:h-[248px] lg:h-[272px] min-[1280px]:hidden'
+        className={`mx-auto flex w-full max-w-[1600px] items-center justify-between gap-4 px-5 transition-[height] duration-300 sm:px-8 lg:px-10 ${
+          scrolled ? 'h-[68px] lg:h-[80px]' : 'h-[92px] sm:h-[100px] lg:h-[116px] xl:h-[126px]'
         }`}
       >
-        <a href="#home" className="flex min-w-0 shrink items-center gap-4 md:gap-5" aria-label={`${COMPANY.name} home`}>
+        <a href="#home" className="flex min-w-0 shrink items-center" aria-label={`${COMPANY.name} home`}>
           <Logo
             className={`${
               scrolled
-                ? '[--lw:96px] lg:[--lw:120px]'
-                : '[--lw:145px] sm:[--lw:205px] md:[--lw:270px] min-[900px]:[--lw:310px] lg:[--lw:340px]'
+                ? '[--lw:84px] lg:[--lw:100px]'
+                : '[--lw:112px] sm:[--lw:124px] lg:[--lw:148px] xl:[--lw:162px]'
             }`}
           />
-          <span className="hidden min-w-0 flex-col justify-center leading-none min-[1850px]:flex">
-            <span
-              className={`whitespace-nowrap font-display font-bold uppercase tracking-wide text-ink transition-all duration-300 ${
-                scrolled ? 'text-xl lg:text-2xl' : 'text-xl sm:text-3xl md:text-[42px] min-[900px]:text-[50px] lg:text-[56px]'
-              }`}
-            >
-              OK.&nbsp;GIALFRA <span className="text-mute">LLC</span>
-            </span>
-          </span>
         </a>
 
-        {/* full nav appears here only when scrolled at >=1400 */}
-        <div className="hidden items-center gap-6 min-[1280px]:flex 2xl:gap-8">
+        {/* Desktop navigation + CTA */}
+        <div className="hidden items-center gap-7 lg:flex xl:gap-10">
           {navList}
           {ctaBtn}
         </div>
 
+        {/* Tablet / mobile menu trigger */}
         <button
           type="button"
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-ink/20 text-ink transition-colors hover:border-copper-500 hover:text-copper-600 min-[1280px]:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ink/20 text-ink transition-colors hover:border-copper-500 hover:text-copper-600 lg:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
         >
-          <IconMenu className="h-[18px] w-[18px]" />
+          <IconMenu className="h-5 w-5" />
         </button>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 min-[1280px]:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
