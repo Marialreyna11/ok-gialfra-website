@@ -1,11 +1,11 @@
+import { IconGlobe } from './icons'
+
 /**
  * Subtle "Global Supply Network" HUD — thin technical rings that rotate slowly in
  * opposite directions, a few restrained orange nodes and a soft glow. Sits over the
- * darker right side of the hero photograph. Motion is slow and elegant and is
- * disabled automatically under prefers-reduced-motion (see index.css).
- *
- * NOTE: the central figure is a NON-FACTUAL placeholder — the project has no
- * verified "active partners" metric. Replace once a real number is supplied.
+ * right side of the hero photograph. Motion is slow and elegant and is disabled
+ * automatically under prefers-reduced-motion (see index.css). No numeric metric is
+ * shown (none is verified) — the label itself is the focal element.
  */
 export default function HeroHud({ className = '' }: { className?: string }) {
   return (
@@ -34,18 +34,16 @@ export default function HeroHud({ className = '' }: { className?: string }) {
         <circle cx="150" cy="41" r="1.2" fill="rgba(255,255,255,0.6)" />
       </svg>
 
-      {/* centre content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <div className="font-semibold uppercase leading-[1.5] tracking-[0.3em] text-white/70 text-[10px] sm:text-[11px]">
+      {/* centre content — label only (no fabricated metric) */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+        <IconGlobe className="h-7 w-7 text-copper-400" />
+        <div className="mt-4 font-display text-xl font-bold uppercase leading-[1.2] tracking-[0.22em] text-white sm:text-2xl">
           Global Supply
           <br />
           Network
         </div>
-        <div className="mt-3 font-display text-6xl font-bold leading-none text-white">
-          —<span className="align-top text-2xl text-copper-400">+</span>
-        </div>
-        <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/55">Active Partners</div>
-        <div className="mt-1 text-[9px] italic tracking-wide text-white/40">figure to confirm</div>
+        <div className="mt-3 h-px w-10 bg-copper-500/70" />
+        <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/60">Worldwide Reach</div>
       </div>
     </div>
   )

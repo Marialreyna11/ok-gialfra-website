@@ -29,12 +29,13 @@ export default function Hero() {
             aria-hidden="true"
             decoding="async"
             fetchPriority="high"
-            style={{ filter: 'saturate(0.32) brightness(0.82) contrast(1.08)' }}
+            style={{ filter: 'saturate(0.5) brightness(1.06) contrast(1.02)' }}
             className="h-full w-full animate-slow-pan object-cover object-[64%_center] will-change-transform"
           />
-          {/* steel/navy grade so the warm photo reads premium and technical */}
-          <div className="pointer-events-none absolute inset-0 bg-navy-950/45 mix-blend-multiply" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/45 via-transparent to-navy-900/20" />
+          {/* light steel grade — keeps it premium/cinematic while staying bright and
+              clean so the oilfield equipment reads clearly */}
+          <div className="pointer-events-none absolute inset-0 bg-navy-950/16 mix-blend-multiply" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/22 via-transparent to-transparent" />
         </div>
         {/* Wide, seamless left→right blend — no hard vertical division */}
         <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/88 to-paper/64 lg:from-paper lg:from-[28%] lg:via-paper/50 lg:via-[60%] lg:to-transparent lg:to-[96%]" />
@@ -54,7 +55,7 @@ export default function Hero() {
               Procurement &amp; Oilfield Supply
             </motion.span>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.02] tracking-[-0.01em] text-ink sm:text-5xl lg:text-[3.5rem]">
+            <h1 className="mt-6 font-display text-3xl font-bold leading-[1.04] tracking-[-0.01em] text-ink sm:text-4xl lg:text-[2.9rem]">
               {headline.map((line, i) => (
                 <motion.span
                   key={line}
@@ -96,12 +97,14 @@ export default function Hero() {
 
           {/* Right — Global Supply Network HUD (over the photograph) */}
           <motion.div
-            className="hidden justify-center lg:flex"
+            className="relative hidden justify-center lg:flex"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.35, ease: 'easeOut' }}
           >
-            <HeroHud />
+            {/* soft scrim keeps the white HUD label legible over the brighter photo */}
+            <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_center,rgba(13,27,42,0.42),transparent_62%)]" />
+            <HeroHud className="relative" />
           </motion.div>
         </div>
 
@@ -129,22 +132,6 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
-      </div>
-
-      {/* Bottom live-information strip.
-          PLACEHOLDER — no approved current update / event date exists in the
-          project, so neutral copy is shown and no countdown is invented. */}
-      <div className="relative z-10 border-t border-white/10 bg-navy-950">
-        <div className="container-x flex flex-col gap-2 py-4 text-sm sm:flex-row sm:items-center sm:gap-5">
-          <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold uppercase tracking-widest2 text-copper-400">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-400" />
-            Latest Update
-          </span>
-          <span className="text-steel-300">
-            Add a current approved company update here.
-            <span className="ml-2 italic text-steel-500">(placeholder — content to confirm)</span>
-          </span>
-        </div>
       </div>
     </section>
   )
