@@ -2,9 +2,11 @@
  * Generates the static assets the brochure depends on, so that
  * brochure/index.html renders identically offline and in print:
  *
- *   assets/fonts.css   Barlow Condensed + Inter, base64-embedded woff2
- *   assets/qr.svg      real QR code pointing at https://www.okgialfra.com/
- *   assets/world.svg   vector dot-matrix world map (Natural Earth 110m via world-atlas)
+ *   assets/fonts.css     Barlow Condensed + Inter, base64-embedded woff2
+ *   assets/qr.svg        real QR code pointing at https://www.okgialfra.com/
+ *   assets/world.svg     vector dot-matrix world map (Natural Earth 110m via world-atlas)
+ *   assets/img/print/    photography resampled to ~230 dpi at placed size
+ *   assets/img/web/      the same set at ~110 dpi, for the e-mail-sized PDF
  *
  * Run:  node brochure/build-assets.mjs
  */
@@ -152,9 +154,10 @@ async function buildWorldMap() {
     }
   }
 
-  // Colours are baked in so the plate can be dropped in as a plain <img>.
+  // Colours are baked in so the plate can be dropped in as a plain <img>, and
+  // are pitched to read against the lighter petroleum-navy page ground.
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
-<style>circle{fill:#22375c}circle.e{fill:#3d6199}</style>
+<style>circle{fill:#4a72ad}circle.e{fill:#7ba0d8}</style>
 <g>${dots}</g>
 </svg>`
   fs.writeFileSync(path.join(OUT, 'world.svg'), svg)
@@ -162,7 +165,98 @@ async function buildWorldMap() {
   return { W, H, LON0, LON1, LAT0, LAT1 }
 }
 
+/* -------------------------------------------------------------- images -- */
+
+// Every photograph, with the width it is actually placed at on the page. The
+// source files are 1500–2000 px, which at a 56 mm product card works out to
+// roughly 900 dpi — resolution the PDF pays for and no press can use.
+const SRC = path.join(__dirname, '..', 'public', 'images')
+
+// Colour grading is baked in here rather than applied as a CSS `filter`.
+// A filtered image cannot be handed to the PDF as its original JPEG — Chromium
+// has to rasterise the filtered result and embed it uncompressed, which inflated
+// the file roughly nine-fold. Grading at build time keeps the JPEG passthrough.
+const GRADE = {
+  cover: 'saturate(0.5) hue-rotate(-25deg) contrast(1.08) brightness(1.06)',
+  sector: 'saturate(1.02) contrast(1.03)',
+  product: 'saturate(1) contrast(1.03) brightness(0.98)',
+  strip: 'saturate(0.92) brightness(0.92)',
+}
+const IMAGES = [
+  { file: 'industries/oil-gas.jpg', mm: 210, filter: GRADE.cover }, // cover, full bleed
+  { file: 'about/logistics.jpg', mm: 210, filter: GRADE.strip }, // page 6 closing strip
+  { file: 'about/oil-gas.jpg', mm: 176, filter: GRADE.sector }, // page 3 lead card
+  { file: 'about/technical.jpg', mm: 176 }, // page 7 band, ungraded
+  { file: 'industries/energy.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'industries/petrochemical.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'industries/industrial.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'industries/infrastructure.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'about/industrial.jpg', mm: 82 }, // page 2 portrait, ungraded
+  ...['valves', 'pipes', 'flanges', 'pumps', 'compressors', 'motors',
+      'instrumentation', 'electrical', 'mechanical', 'spare-parts', 'tools', 'safety']
+    .map((n) => ({ file: `products/${n}.jpg`, mm: 56, filter: GRADE.product })),
+  { file: 'ok-gialfra-logo.png', mm: 74, png: true }, // largest placement, back cover
+]
+
+// 230 dpi is press-grade at final size; 110 dpi stays crisp on screen.
+const SETS = { print: { dpi: 230, q: 0.88 }, web: { dpi: 110, q: 0.78 } }
+const flat = (f) => f.replace(/\//g, '-')
+
+async function buildImages() {
+  const browser = await chromium.launch({
+    executablePath: CHROME,
+    args: ['--allow-file-access-from-files'], // canvas must stay untainted to read pixels back
+  })
+  const page = await browser.newPage()
+  // The scratch page must itself be served from file:// — an about:blank
+  // document cannot load file:// images even with file access allowed.
+  const scratch = path.join(OUT, '.resize.html')
+  fs.writeFileSync(scratch, '<!doctype html><meta charset="utf-8"><title>resize</title>')
+  await page.goto(`file://${scratch}`)
+
+  for (const [set, { dpi, q }] of Object.entries(SETS)) {
+    const dir = path.join(OUT, 'img', set)
+    fs.mkdirSync(dir, { recursive: true })
+    let total = 0
+
+    for (const im of IMAGES) {
+      const want = Math.round((im.mm / 25.4) * dpi)
+      const res = await page.evaluate(
+        async ({ url, want, q, png, filter }) => {
+          const img = new Image()
+          img.src = url
+          await img.decode()
+          // Never upscale: a source smaller than the target is already the ceiling.
+          const w = Math.min(want, img.naturalWidth)
+          const h = Math.round((img.naturalHeight * w) / img.naturalWidth)
+          const c = document.createElement('canvas')
+          c.width = w
+          c.height = h
+          const ctx = c.getContext('2d')
+          ctx.imageSmoothingEnabled = true
+          ctx.imageSmoothingQuality = 'high'
+          if (filter) ctx.filter = filter
+          ctx.drawImage(img, 0, 0, w, h)
+          return {
+            uri: png ? c.toDataURL('image/png') : c.toDataURL('image/jpeg', q),
+            w,
+            src: img.naturalWidth,
+          }
+        },
+        { url: `file://${path.join(SRC, im.file)}`, want, q, png: !!im.png, filter: im.filter || null }
+      )
+      const buf = Buffer.from(res.uri.split(',')[1], 'base64')
+      fs.writeFileSync(path.join(dir, flat(im.file)), buf)
+      total += buf.length
+    }
+    console.log(`img/${set.padEnd(5)}   ${IMAGES.length} files, ${(total / 1024 / 1024).toFixed(2)} MB @ ${dpi} dpi`)
+  }
+  await browser.close()
+  fs.rmSync(scratch, { force: true })
+}
+
 await buildFonts()
 await buildQR()
 await buildWorldMap()
+await buildImages()
 console.log('\nAssets written to brochure/assets/')

@@ -15,8 +15,25 @@ npm run brochure:pdf      # solo el PDF y las vistas previas
 | --- | --- |
 | `index.html` | El brochure. Fuente única de contenido y diseño. |
 | `build-assets.mjs` | Genera `assets/` (fuentes embebidas, QR, mapa mundial). |
-| `build-pdf.mjs` | Renderiza el PDF A4 y un PNG por página en `preview/`. |
-| `OK-GIALFRA-Brochure-Corporativo.pdf` | Entregable final, 8 páginas A4. |
+| `build-pdf.mjs` | Renderiza las dos ediciones y un PNG por página en `preview/`. |
+| `OK-GIALFRA-Brochure-Corporativo.pdf` | Edición de impresión — imágenes a ~230 dpi, 3,6 MB. |
+| `OK-GIALFRA-Brochure-Web.pdf` | Edición ligera — imágenes a ~110 dpi, 1,5 MB, para correo y RFQ. |
+
+## Dos ediciones, una sola fuente
+
+Ambas salen del mismo `index.html` y son idénticas en maquetación y texto: sólo cambia
+la resolución de las fotografías. El script carga la página una vez, exporta la edición de
+impresión y luego repunta cada `<img>` a su gemela de menor resolución, de modo que las dos
+no pueden divergir.
+
+El peso se controla en el origen. Las fotos del repositorio miden 1500–2000 px, que en una
+tarjeta de producto de 56 mm equivale a unos 900 dpi: resolución que el PDF paga y que
+ninguna imprenta aprovecha. `build-assets.mjs` las remuestrea al tamaño real de colocación.
+
+El **grading de color también se hornea en el archivo**, no se aplica como `filter` de CSS.
+Una imagen filtrada no puede entregarse al PDF como su JPEG original: Chromium tiene que
+rasterizar el resultado y embeberlo sin comprimir, lo que multiplicaba el archivo por nueve.
+Con el grading horneado, la edición de impresión bajó de 18 MB a 3,6 MB **sin perder calidad**.
 
 `assets/` se versiona para que `index.html` se vea igual sin conexión:
 
@@ -25,6 +42,7 @@ npm run brochure:pdf      # solo el PDF y las vistas previas
 - **`world.svg`** — mapa mundial vectorial en matriz de puntos, generado desde Natural Earth
   110m (`world-atlas`). Los polígonos se rellenan uno por uno y las geometrías que cruzan el
   antimeridiano se "desenrollan", para evitar bandas espurias que atraviesan el plano.
+- **`img/print/` y `img/web/`** — la fotografía remuestreada y con el color ya aplicado.
 
 `preview/` no se versiona: se regenera con `npm run brochure:pdf`.
 
@@ -43,7 +61,9 @@ contenido comercial: industrias, familias de producto, proceso de procura, servi
 y el correo `sales@okgialfra.com`.
 
 Fotografías: `public/images/` (Unsplash, uso comercial libre). Se usan 17 imágenes
-distintas, sin repeticiones y sin marcas de agua. El logotipo es el archivo original
+distintas, sin repeticiones y sin marcas de agua. La imagen de portada llevaba una
+dominante magenta en el cielo que peleaba con la paleta; el grading la corrige hacia el
+azul petróleo en lugar de sustituir la fotografía. El logotipo es el archivo original
 `public/images/ok-gialfra-logo.png`, encuadrado con la misma técnica `--lw` del sitio y
 **sin recolorear, redibujar ni alterar sus proporciones**.
 
@@ -87,4 +107,8 @@ Decisiones tomadas con el cliente:
   página desborda el alto A4. El desborde horizontal se ignora a propósito: varias
   páginas sangran arte más allá del corte y se recortan con `overflow:hidden`.
 - Paleta y tipografías replican `tailwind.config.js` del sitio, de modo que el brochure y
-  `okgialfra.com` comparten identidad.
+  `okgialfra.com` comparten identidad. El fondo de las páginas oscuras usa un azul petróleo
+  propio del brochure (`--page-dark`), más claro que el `navy-900` del sitio: en pantalla el
+  near-black funciona, pero impreso se empasta.
+- Para reencuadrar o cambiar el color de una fotografía se edita el manifiesto `IMAGES` de
+  `build-assets.mjs` (ancho de colocación y `filter`), no el CSS.

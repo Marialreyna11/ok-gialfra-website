@@ -14,6 +14,9 @@
   --steel-500:#8a97a8; --steel-400:#a7b3c2; --steel-300:#c3ccd8; --steel-200:#dde3ea; --steel-100:#eef1f5;
   --copper-700:#c9640f; --copper-600:#ef7a1f; --copper-500:#ff8c38; --copper-400:#ffa863;
   --ink:#152231; --mute:#4f5d6b; --line:#e2e6ea; --paper:#f5f6f7; --panel:#ffffff;
+  /* Ground for the dark plates. Lighter than the site's navy-900 so the pages
+     read as petroleum blue on press instead of near-black. */
+  --page-dark:#16294a; --page-dark-soft:#1b3157;
   --pad:17mm;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,7 +31,7 @@ img{display:block;max-width:100%}
 .page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--panel);
   page-break-after:always;break-after:page}
 .page:last-child{page-break-after:auto;break-after:auto}
-.dark{background:var(--navy-900);color:#fff}
+.dark{background:var(--page-dark);color:#fff}
 .dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
 
 /* screen-only preview chrome */
@@ -74,12 +77,11 @@ img{display:block;max-width:100%}
 /* ============================================================ P1 cover == */
 .cover{background:var(--navy-950)}
 .cover .shot{position:absolute;inset:0}
-.cover .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.62) contrast(1.06) brightness(.82)}
+.cover .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cover .grade{position:absolute;inset:0;
   background:
-    linear-gradient(180deg,rgba(6,11,22,.90) 0%,rgba(6,11,22,.34) 32%,rgba(6,11,22,.72) 62%,rgba(6,11,22,.97) 88%),
-    linear-gradient(90deg,rgba(10,18,34,.78) 0%,rgba(10,18,34,0) 62%)}
+    linear-gradient(180deg,rgba(20,37,66,.80) 0%,rgba(20,37,66,.16) 30%,rgba(20,37,66,.60) 60%,var(--page-dark) 92%),
+    linear-gradient(90deg,rgba(20,37,66,.60) 0%,rgba(20,37,66,0) 62%)}
 .cover .net{position:absolute;top:-14mm;right:-30mm;width:150mm;opacity:.5}
 .cover-inner{position:absolute;inset:0;padding:var(--pad);display:flex;flex-direction:column}
 .cover .brandbar{display:flex;align-items:flex-start;justify-content:space-between}
@@ -114,7 +116,7 @@ img{display:block;max-width:100%}
   display:flex;align-items:center;justify-content:center;margin-top:1px}
 .check i svg{width:9px;height:9px;stroke:var(--copper-600);fill:none;stroke-width:2.4;
   stroke-linecap:round;stroke-linejoin:round}
-.legal{margin-top:auto;background:var(--navy-900);color:#fff;padding:6mm 7mm;
+.legal{margin-top:auto;background:var(--page-dark);color:#fff;padding:6mm 7mm;
   display:grid;grid-template-columns:repeat(5,1fr);gap:5mm}
 .legal .k{font-size:7.4px;letter-spacing:.19em;text-transform:uppercase;color:var(--steel-500);font-weight:700}
 .legal .v{margin-top:1.6mm;font-family:"Barlow Condensed",sans-serif;font-size:14px;letter-spacing:.04em;
@@ -125,10 +127,9 @@ img{display:block;max-width:100%}
 .ind-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:82mm 55mm 55mm;gap:4mm}
 .ind{position:relative;overflow:hidden;background:var(--navy-900)}
 .ind.wide{grid-column:1/3}
-.ind img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.7) contrast(1.05) brightness(.78)}
+.ind img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ind .ov{position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(6,11,22,.12) 30%,rgba(6,11,22,.88) 100%)}
+  background:linear-gradient(180deg,rgba(11,22,42,0) 34%,rgba(11,22,42,.55) 68%,rgba(11,22,42,.90) 100%)}
 .ind .cap{position:absolute;left:6mm;right:6mm;bottom:5mm}
 .ind .cap h3{font-size:21px;color:#fff;letter-spacing:.05em}
 .ind.wide .cap h3{font-size:30px}
@@ -138,12 +139,12 @@ img{display:block;max-width:100%}
 /* ======================================================== P4 productos == */
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3.6mm}
 .prod{position:relative;height:36mm;overflow:hidden;background:var(--navy-900)}
-.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.55) contrast(1.04) brightness(.72)}
-.prod .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,34,.28),rgba(10,18,34,.86))}
+.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prod .ov{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,22,42,.06) 38%,rgba(11,22,42,.52) 70%,rgba(11,22,42,.88) 100%)}
 .prod h4{position:absolute;left:4mm;right:4mm;bottom:3.6mm;font-size:13px;color:#fff;letter-spacing:.06em;line-height:1.05}
 .prod .num{position:absolute;right:3.6mm;top:3mm;font-family:"Barlow Condensed",sans-serif;
-  font-size:11px;color:rgba(255,255,255,.42);letter-spacing:.1em}
+  font-size:11px;color:rgba(255,255,255,.62);letter-spacing:.1em}
 .bands{margin-top:5mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
 .band{border:1px solid var(--line);border-left:3px solid var(--copper-500);padding:7mm 6mm;background:var(--paper)}
 .band h4{font-size:16px;letter-spacing:.05em}
@@ -156,7 +157,7 @@ img{display:block;max-width:100%}
 .step .dot::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
   background:rgba(255,255,255,.16)}
 .step .dot i{position:relative;z-index:1;width:9mm;height:9mm;border-radius:50%;
-  background:var(--navy-800);border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.26);
   display:flex;align-items:center;justify-content:center;
   font-family:"Barlow Condensed",sans-serif;font-size:13px;color:var(--steel-300);letter-spacing:.04em}
 .step.on i{background:var(--copper-500);border-color:var(--copper-500);color:#fff;font-weight:700}
@@ -199,7 +200,7 @@ img{display:block;max-width:100%}
 .cbar>div::before{content:"";display:block;width:14px;height:2px;background:var(--copper-500);margin-bottom:2.6mm}
 
 /* ======================================================== P8 contacto === */
-.back{background:var(--navy-950)}
+.back{background:var(--page-dark)}
 .back .net{position:absolute;left:50%;top:16mm;transform:translateX(-50%);width:190mm;opacity:.28}
 .back-inner{position:absolute;inset:0;padding:var(--pad);display:flex;flex-direction:column;
   align-items:center;text-align:center}
@@ -226,7 +227,7 @@ img{display:block;max-width:100%}
 
 <!-- ============================================================ PAGE 1 === -->
 <section class="page cover">
-  <div class="shot"><img src="../public/images/industries/oil-gas.jpg" alt=""></div>
+  <div class="shot"><img src="assets/img/print/industries-oil-gas.jpg" alt=""></div>
   <div class="grade"></div>
 
   <!-- Global supply network motif, echoing the site's hero graphic -->
@@ -249,7 +250,7 @@ img{display:block;max-width:100%}
 
   <div class="cover-inner">
     <div class="brandbar">
-      <span class="logo-crop" style="--lw:62mm"><img src="../public/images/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
+      <span class="logo-crop" style="--lw:62mm"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
       <div class="stamp">
         <b>Perfil Corporativo</b>
         Florida · Estados Unidos
@@ -309,7 +310,7 @@ img{display:block;max-width:100%}
       </div>
 
       <div>
-        <div class="media" style="height:86mm"><img src="../public/images/about/industrial.jpg" alt="Instalación industrial con tuberías y equipos de proceso"></div>
+        <div class="media" style="height:86mm"><img src="assets/img/print/about-industrial.jpg" alt="Instalación industrial con tuberías y equipos de proceso"></div>
         <div class="pillars" style="margin-top:6mm">
           <div class="pillar">
             <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -361,27 +362,27 @@ img{display:block;max-width:100%}
 
     <div class="ind-grid" style="margin-top:8mm">
       <div class="ind wide">
-        <img src="../public/images/about/oil-gas.jpg" alt="Unidad de bombeo en campo petrolero al atardecer">
+        <img src="assets/img/print/about-oil-gas.jpg" alt="Unidad de bombeo en campo petrolero al atardecer">
         <div class="ov"></div><div class="tick"></div>
         <div class="cap"><h3>Oil &amp; Gas</h3><p>Suministro para operaciones upstream, midstream y downstream.</p></div>
       </div>
       <div class="ind">
-        <img src="../public/images/industries/energy.jpg" alt="Subestación eléctrica de alta tensión">
+        <img src="assets/img/print/industries-energy.jpg" alt="Subestación eléctrica de alta tensión">
         <div class="ov"></div><div class="tick"></div>
         <div class="cap"><h3>Energía</h3><p>Generación e infraestructura energética.</p></div>
       </div>
       <div class="ind">
-        <img src="../public/images/industries/petrochemical.jpg" alt="Refinería petroquímica">
+        <img src="assets/img/print/industries-petrochemical.jpg" alt="Refinería petroquímica">
         <div class="ov"></div><div class="tick"></div>
         <div class="cap"><h3>Petroquímica</h3><p>Refinación, procesamiento y plantas químicas.</p></div>
       </div>
       <div class="ind">
-        <img src="../public/images/industries/industrial.jpg" alt="Planta industrial de proceso">
+        <img src="assets/img/print/industries-industrial.jpg" alt="Planta industrial de proceso">
         <div class="ov"></div><div class="tick"></div>
         <div class="cap"><h3>Industrial</h3><p>Manufactura e industria pesada.</p></div>
       </div>
       <div class="ind">
-        <img src="../public/images/industries/infrastructure.jpg" alt="Vista aérea de patio de tanques de almacenamiento">
+        <img src="assets/img/print/industries-infrastructure.jpg" alt="Vista aérea de patio de tanques de almacenamiento">
         <div class="ov"></div><div class="tick"></div>
         <div class="cap"><h3>Infraestructura</h3><p>Servicios, ductos y obras de infraestructura.</p></div>
       </div>
@@ -408,18 +409,18 @@ img{display:block;max-width:100%}
     </div>
 
     <div class="prod-grid" style="margin-top:8mm">
-      <div class="prod"><img src="../public/images/products/valves.jpg" alt="Válvula industrial"><div class="ov"></div><span class="num">01</span><h4>Válvulas</h4></div>
-      <div class="prod"><img src="../public/images/products/pipes.jpg" alt="Tuberías industriales"><div class="ov"></div><span class="num">02</span><h4>Tuberías y Accesorios</h4></div>
-      <div class="prod"><img src="../public/images/products/flanges.jpg" alt="Bridas industriales"><div class="ov"></div><span class="num">03</span><h4>Flanges y Conexiones</h4></div>
-      <div class="prod"><img src="../public/images/products/pumps.jpg" alt="Bombas industriales"><div class="ov"></div><span class="num">04</span><h4>Bombas</h4></div>
-      <div class="prod"><img src="../public/images/products/compressors.jpg" alt="Compresor industrial"><div class="ov"></div><span class="num">05</span><h4>Compresores</h4></div>
-      <div class="prod"><img src="../public/images/products/motors.jpg" alt="Motor industrial"><div class="ov"></div><span class="num">06</span><h4>Motores Industriales</h4></div>
-      <div class="prod"><img src="../public/images/products/instrumentation.jpg" alt="Instrumentación de proceso"><div class="ov"></div><span class="num">07</span><h4>Instrumentación</h4></div>
-      <div class="prod"><img src="../public/images/products/electrical.jpg" alt="Tableros eléctricos industriales"><div class="ov"></div><span class="num">08</span><h4>Equipos Eléctricos</h4></div>
-      <div class="prod"><img src="../public/images/products/mechanical.jpg" alt="Componentes mecánicos"><div class="ov"></div><span class="num">09</span><h4>Componentes Mecánicos</h4></div>
-      <div class="prod"><img src="../public/images/products/spare-parts.jpg" alt="Repuestos industriales"><div class="ov"></div><span class="num">10</span><h4>Repuestos y Partes</h4></div>
-      <div class="prod"><img src="../public/images/products/tools.jpg" alt="Herramientas industriales"><div class="ov"></div><span class="num">11</span><h4>Herramientas Industriales</h4></div>
-      <div class="prod"><img src="../public/images/products/safety.jpg" alt="Equipos de protección industrial"><div class="ov"></div><span class="num">12</span><h4>Equipos de Seguridad</h4></div>
+      <div class="prod"><img src="assets/img/print/products-valves.jpg" alt="Válvula industrial"><div class="ov"></div><span class="num">01</span><h4>Válvulas</h4></div>
+      <div class="prod"><img src="assets/img/print/products-pipes.jpg" alt="Tuberías industriales"><div class="ov"></div><span class="num">02</span><h4>Tuberías y Accesorios</h4></div>
+      <div class="prod"><img src="assets/img/print/products-flanges.jpg" alt="Bridas industriales"><div class="ov"></div><span class="num">03</span><h4>Flanges y Conexiones</h4></div>
+      <div class="prod"><img src="assets/img/print/products-pumps.jpg" alt="Bombas industriales"><div class="ov"></div><span class="num">04</span><h4>Bombas</h4></div>
+      <div class="prod"><img src="assets/img/print/products-compressors.jpg" alt="Compresor industrial"><div class="ov"></div><span class="num">05</span><h4>Compresores</h4></div>
+      <div class="prod"><img src="assets/img/print/products-motors.jpg" alt="Motor industrial"><div class="ov"></div><span class="num">06</span><h4>Motores Industriales</h4></div>
+      <div class="prod"><img src="assets/img/print/products-instrumentation.jpg" alt="Instrumentación de proceso"><div class="ov"></div><span class="num">07</span><h4>Instrumentación</h4></div>
+      <div class="prod"><img src="assets/img/print/products-electrical.jpg" alt="Tableros eléctricos industriales"><div class="ov"></div><span class="num">08</span><h4>Equipos Eléctricos</h4></div>
+      <div class="prod"><img src="assets/img/print/products-mechanical.jpg" alt="Componentes mecánicos"><div class="ov"></div><span class="num">09</span><h4>Componentes Mecánicos</h4></div>
+      <div class="prod"><img src="assets/img/print/products-spare-parts.jpg" alt="Repuestos industriales"><div class="ov"></div><span class="num">10</span><h4>Repuestos y Partes</h4></div>
+      <div class="prod"><img src="assets/img/print/products-tools.jpg" alt="Herramientas industriales"><div class="ov"></div><span class="num">11</span><h4>Herramientas Industriales</h4></div>
+      <div class="prod"><img src="assets/img/print/products-safety.jpg" alt="Equipos de protección industrial"><div class="ov"></div><span class="num">12</span><h4>Equipos de Seguridad</h4></div>
     </div>
 
     <div class="bands">
@@ -498,7 +499,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============================================================ PAGE 6 === -->
-<section class="page dark" style="background:var(--navy-950)">
+<section class="page dark">
   <div class="runner top"><span class="n">Red</span><span>OK. GIALFRA LLC</span></div>
 
   <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
@@ -558,9 +559,8 @@ img{display:block;max-width:100%}
     </p>
 
     <div class="media" style="height:36mm;margin:auto calc(var(--pad)*-1) 0">
-      <img src="../public/images/about/logistics.jpg" alt="Terminal portuaria de contenedores en operación nocturna"
-           style="filter:saturate(.55) brightness(.62)">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,11,22,.75),rgba(6,11,22,.35))"></div>
+      <img src="assets/img/print/about-logistics.jpg" alt="Terminal portuaria de contenedores en operación nocturna">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,var(--page-dark) 0%,rgba(22,41,74,.38) 55%,rgba(22,41,74,.20) 100%)"></div>
     </div>
   </div>
 
@@ -599,7 +599,7 @@ img{display:block;max-width:100%}
     </div>
 
     <div class="media" style="height:64mm;margin-top:9mm">
-      <img src="../public/images/about/technical.jpg" alt="Batería de válvulas y tuberías en instalación técnica">
+      <img src="assets/img/print/about-technical.jpg" alt="Batería de válvulas y tuberías en instalación técnica">
     </div>
 
     <div class="cbar" style="margin-top:8mm">
@@ -630,7 +630,7 @@ img{display:block;max-width:100%}
   </svg>
 
   <div class="back-inner">
-    <span class="logo-crop" style="--lw:74mm;margin-top:9mm"><img src="../public/images/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
+    <span class="logo-crop" style="--lw:74mm;margin-top:9mm"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
 
     <h2 style="margin-top:auto">Global Procurement<span>Industrial Solutions</span></h2>
 
