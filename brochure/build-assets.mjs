@@ -157,7 +157,7 @@ async function buildWorldMap() {
   // Colours are baked in so the plate can be dropped in as a plain <img>, and
   // are pitched to read against the lighter petroleum-navy page ground.
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
-<style>circle{fill:#4a72ad}circle.e{fill:#7ba0d8}</style>
+<style>circle{fill:#b3c1d2}circle.e{fill:#7f95b1}</style>
 <g>${dots}</g>
 </svg>`
   fs.writeFileSync(path.join(OUT, 'world.svg'), svg)
@@ -176,21 +176,26 @@ const SRC = path.join(__dirname, '..', 'public', 'images')
 // A filtered image cannot be handed to the PDF as its original JPEG — Chromium
 // has to rasterise the filtered result and embed it uncompressed, which inflated
 // the file roughly nine-fold. Grading at build time keeps the JPEG passthrough.
+// Light direction: the photography is left bright and open. Only the caption
+// zone is darkened, and that is done with a CSS scrim, not by dimming the file.
 const GRADE = {
-  cover: 'saturate(0.5) hue-rotate(-25deg) contrast(1.08) brightness(1.06)',
-  sector: 'saturate(1.02) contrast(1.03)',
-  product: 'saturate(1) contrast(1.03) brightness(0.98)',
-  strip: 'saturate(0.92) brightness(0.92)',
+  cover: 'saturate(1.02) contrast(1.02) brightness(1.03)',
+  sector: 'saturate(1.04) contrast(1.02) brightness(1.05)',
+  product: 'saturate(1.02) contrast(1.02) brightness(1.06)',
+  strip: 'saturate(1.02) contrast(1.02) brightness(1.04)',
+  // The page 7 frame is a dense black-and-white interior; lifting it and
+  // easing contrast opens the shadows so it sits in the lighter document.
+  monoLift: 'brightness(1.12) contrast(0.95)',
 }
 const IMAGES = [
-  { file: 'industries/oil-gas.jpg', mm: 210, filter: GRADE.cover }, // cover, full bleed
-  { file: 'about/logistics.jpg', mm: 210, filter: GRADE.strip }, // page 6 closing strip
+  { file: 'industries/infrastructure.jpg', mm: 210, filter: GRADE.cover }, // cover band
+  { file: 'industries/marine.jpg', mm: 210, filter: GRADE.strip }, // page 6 closing strip
   { file: 'about/oil-gas.jpg', mm: 176, filter: GRADE.sector }, // page 3 lead card
-  { file: 'about/technical.jpg', mm: 176 }, // page 7 band, ungraded
+  { file: 'about/technical.jpg', mm: 176, filter: GRADE.monoLift }, // page 7 band
   { file: 'industries/energy.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/petrochemical.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/industrial.jpg', mm: 86, filter: GRADE.sector },
-  { file: 'industries/infrastructure.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'industries/utilities.jpg', mm: 86, filter: GRADE.sector },
   { file: 'about/industrial.jpg', mm: 82 }, // page 2 portrait, ungraded
   ...['valves', 'pipes', 'flanges', 'pumps', 'compressors', 'motors',
       'instrumentation', 'electrical', 'mechanical', 'spare-parts', 'tools', 'safety']
