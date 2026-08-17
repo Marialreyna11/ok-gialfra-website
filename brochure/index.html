@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OK. GIALFRA LLC — Perfil Corporativo</title>
+<meta name="description" content="Perfil corporativo de OK. GIALFRA LLC — procura industrial, Oil &amp; Gas, equipos, materiales y logística.">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* ============================================================ tokens ==== */
+:root{
+  --navy-950:#060b16; --navy-900:#0a1222; --navy-800:#0f1c33; --navy-700:#152743;
+  --navy-600:#1d3358; --navy-500:#274573;
+  --graphite-950:#0b0d10; --graphite-900:#14171c;
+  --steel-500:#8a97a8; --steel-400:#a7b3c2; --steel-300:#c3ccd8; --steel-200:#dde3ea; --steel-100:#eef1f5;
+  --copper-700:#c9640f; --copper-600:#ef7a1f; --copper-500:#ff8c38; --copper-400:#ffa863;
+  --ink:#152231; --mute:#4f5d6b; --line:#e2e6ea; --paper:#f5f6f7; --panel:#ffffff;
+  --pad:17mm;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#8c929b}
+h1,h2,h3,h4{font-family:"Barlow Condensed",Oswald,Impact,sans-serif;text-transform:uppercase;
+  letter-spacing:.01em;line-height:1.02;font-weight:700;color:var(--ink)}
+img{display:block;max-width:100%}
+
+/* ============================================================== page ==== */
+@page{size:A4 portrait;margin:0}
+.page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--panel);
+  page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto;break-after:auto}
+.dark{background:var(--navy-900);color:#fff}
+.dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
+
+/* screen-only preview chrome */
+@media screen{
+  body{padding:26px 0;display:flex;flex-direction:column;align-items:center;gap:26px}
+  .page{box-shadow:0 18px 50px -18px rgba(0,0,0,.55)}
+}
+@media print{ body{background:none;padding:0;display:block} .page{box-shadow:none} }
+
+/* =========================================================== helpers ==== */
+.logo-crop{--lw:120px;position:relative;display:block;overflow:hidden;
+  width:var(--lw);height:calc(var(--lw)*.69051)}
+.logo-crop>img{position:absolute;left:calc(var(--lw)*-.06704);top:calc(var(--lw)*-.13744);
+  width:calc(var(--lw)*1.14414);height:auto;max-width:none}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.22em;color:var(--copper-500)}
+.eyebrow::before{content:"";display:block;width:26px;height:1px;background:var(--copper-500)}
+
+.title{font-size:41px;line-height:.96;letter-spacing:.005em}
+.lede{font-size:12.4px;line-height:1.72;color:var(--mute)}
+.dark .lede{color:var(--steel-300)}
+.body{font-size:11.2px;line-height:1.72;color:var(--mute)}
+.dark .body{color:var(--steel-400)}
+.rule{height:1px;background:var(--line);border:0}
+.dark .rule{background:rgba(255,255,255,.12)}
+
+.media{position:relative;overflow:hidden}
+.media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* running header / footer on interior pages */
+.runner{position:absolute;left:var(--pad);right:var(--pad);display:flex;align-items:center;
+  justify-content:space-between;font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--steel-500);font-weight:600}
+.runner.top{top:11mm}
+.runner.bot{bottom:11mm}
+.runner .n{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.dark .runner .n{color:#fff}
+.runner .n::before{content:"";display:block;width:16px;height:2px;background:var(--copper-500)}
+.pageno{font-family:"Barlow Condensed",sans-serif;font-size:15px;letter-spacing:.05em;color:var(--ink)}
+.dark .pageno{color:#fff}
+
+/* ============================================================ P1 cover == */
+.cover{background:var(--navy-950)}
+.cover .shot{position:absolute;inset:0}
+.cover .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.62) contrast(1.06) brightness(.82)}
+.cover .grade{position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(6,11,22,.90) 0%,rgba(6,11,22,.34) 32%,rgba(6,11,22,.72) 62%,rgba(6,11,22,.97) 88%),
+    linear-gradient(90deg,rgba(10,18,34,.78) 0%,rgba(10,18,34,0) 62%)}
+.cover .net{position:absolute;top:-14mm;right:-30mm;width:150mm;opacity:.5}
+.cover-inner{position:absolute;inset:0;padding:var(--pad);display:flex;flex-direction:column}
+.cover .brandbar{display:flex;align-items:flex-start;justify-content:space-between}
+.cover .stamp{text-align:right;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--steel-400);font-weight:600;line-height:1.9}
+.cover .stamp b{display:block;color:#fff;font-weight:700}
+.cover h1{font-size:58px;line-height:.94;color:#fff;max-width:150mm}
+.cover h1 em{font-style:normal;color:var(--copper-500)}
+.cover .sub{margin-top:9mm;font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--steel-300);font-weight:600}
+.cover .sub span{color:var(--copper-500);margin:0 7px}
+.cover .msg{margin-top:6mm;font-size:13px;line-height:1.65;color:var(--steel-200);max-width:118mm}
+.cover .foot{margin-top:11mm;display:flex;align-items:flex-end;justify-content:space-between;
+  padding-top:6mm;border-top:1px solid rgba(255,255,255,.16)}
+.cover .foot .web{font-family:"Barlow Condensed",sans-serif;font-size:20px;letter-spacing:.1em;
+  text-transform:uppercase;color:#fff}
+.cover .foot .loc{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-400);
+  font-weight:600;text-align:right;line-height:1.8}
+
+/* ========================================================= P2 nosotros == */
+.p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:11mm;align-items:start}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);
+  border-left:1px solid var(--line)}
+.pillar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:7.5mm 5.5mm}
+.pillar svg{width:19px;height:19px;stroke:var(--copper-500);fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round}
+.pillar h4{margin-top:4mm;font-size:15px;letter-spacing:.06em}
+.pillar p{margin-top:2mm;font-size:9.6px;line-height:1.62;color:var(--mute)}
+.checks{margin-top:7mm;display:grid;gap:3.4mm}
+.check{display:flex;gap:9px;align-items:flex-start;font-size:10.6px;line-height:1.6;color:var(--mute)}
+.check i{flex:0 0 auto;width:15px;height:15px;border-radius:50%;background:rgba(255,140,56,.14);
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+.check i svg{width:9px;height:9px;stroke:var(--copper-600);fill:none;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+.legal{margin-top:auto;background:var(--navy-900);color:#fff;padding:6mm 7mm;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:5mm}
+.legal .k{font-size:7.4px;letter-spacing:.19em;text-transform:uppercase;color:var(--steel-500);font-weight:700}
+.legal .v{margin-top:1.6mm;font-family:"Barlow Condensed",sans-serif;font-size:14px;letter-spacing:.04em;
+  text-transform:uppercase;color:#fff;line-height:1.15}
+.legal .v.ok{color:var(--copper-500)}
+
+/* ======================================================= P3 industrias == */
+.ind-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:82mm 55mm 55mm;gap:4mm}
+.ind{position:relative;overflow:hidden;background:var(--navy-900)}
+.ind.wide{grid-column:1/3}
+.ind img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.7) contrast(1.05) brightness(.78)}
+.ind .ov{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,11,22,.12) 30%,rgba(6,11,22,.88) 100%)}
+.ind .cap{position:absolute;left:6mm;right:6mm;bottom:5mm}
+.ind .cap h3{font-size:21px;color:#fff;letter-spacing:.05em}
+.ind.wide .cap h3{font-size:30px}
+.ind .cap p{margin-top:1.4mm;font-size:9.2px;line-height:1.5;color:var(--steel-300);max-width:78mm}
+.ind .tick{position:absolute;left:6mm;top:5mm;width:20px;height:2px;background:var(--copper-500)}
+
+/* ======================================================== P4 productos == */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3.6mm}
+.prod{position:relative;height:36mm;overflow:hidden;background:var(--navy-900)}
+.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.55) contrast(1.04) brightness(.72)}
+.prod .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,34,.28),rgba(10,18,34,.86))}
+.prod h4{position:absolute;left:4mm;right:4mm;bottom:3.6mm;font-size:13px;color:#fff;letter-spacing:.06em;line-height:1.05}
+.prod .num{position:absolute;right:3.6mm;top:3mm;font-family:"Barlow Condensed",sans-serif;
+  font-size:11px;color:rgba(255,255,255,.42);letter-spacing:.1em}
+.bands{margin-top:5mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.band{border:1px solid var(--line);border-left:3px solid var(--copper-500);padding:7mm 6mm;background:var(--paper)}
+.band h4{font-size:16px;letter-spacing:.05em}
+.band p{margin-top:2mm;font-size:9.6px;line-height:1.62;color:var(--mute)}
+
+/* ====================================================== P5 procurement == */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.step{position:relative;padding:0 4mm 0 0}
+.step .dot{position:relative;height:9mm;display:flex;align-items:center}
+.step .dot::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:rgba(255,255,255,.16)}
+.step .dot i{position:relative;z-index:1;width:9mm;height:9mm;border-radius:50%;
+  background:var(--navy-800);border:1px solid rgba(255,255,255,.22);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Barlow Condensed",sans-serif;font-size:13px;color:var(--steel-300);letter-spacing:.04em}
+.step.on i{background:var(--copper-500);border-color:var(--copper-500);color:#fff;font-weight:700}
+.step h4{margin-top:4mm;font-size:13.5px;letter-spacing:.05em;line-height:1.06;color:#fff}
+.step p{margin-top:1.6mm;font-size:8.8px;line-height:1.55;color:var(--steel-400);padding-right:2mm}
+.flow-gap{height:12mm}
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.14);
+  border-left:1px solid rgba(255,255,255,.14)}
+.cap-cell{border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);
+  padding:6.4mm 5mm}
+.cap-cell svg{width:18px;height:18px;stroke:var(--copper-500);fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round}
+.cap-cell h4{margin-top:3.4mm;font-size:13.5px;letter-spacing:.05em;color:#fff}
+.cap-cell p{margin-top:1.6mm;font-size:9px;line-height:1.58;color:var(--steel-400)}
+
+/* ============================================================= P6 map === */
+.mapwrap{position:relative;margin:0 calc(var(--pad)*-1);padding:0 var(--pad)}
+.mapstage{position:relative}
+.mapstage img.world{width:100%;opacity:.92}
+.mapstage svg.arcs{position:absolute;inset:0;width:100%;height:100%}
+.maplegend{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid rgba(255,255,255,.14);border-left:1px solid rgba(255,255,255,.14)}
+.maplegend>div{border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);
+  padding:7mm 5.5mm}
+.maplegend h4{font-size:15px;letter-spacing:.06em;color:#fff}
+.maplegend p{margin-top:1.6mm;font-size:8.8px;line-height:1.56;color:var(--steel-400)}
+.note{margin-top:5mm;padding:4mm 5mm;border-left:2px solid var(--copper-500);
+  background:rgba(255,255,255,.04);font-size:8.8px;line-height:1.62;color:var(--steel-400)}
+
+/* ====================================================== P7 compromiso === */
+.commit{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);
+  border-left:1px solid var(--line)}
+.commit>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9mm 6.5mm}
+.commit .no{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;color:var(--copper-500)}
+.commit h3{margin-top:3mm;font-size:24px;letter-spacing:.05em}
+.commit p{margin-top:2.4mm;font-size:10px;line-height:1.65;color:var(--mute)}
+.cbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-left:1px solid var(--line)}
+.cbar>div{border-right:1px solid var(--line);padding:5mm 3.4mm;font-size:8.6px;line-height:1.45;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.cbar>div::before{content:"";display:block;width:14px;height:2px;background:var(--copper-500);margin-bottom:2.6mm}
+
+/* ======================================================== P8 contacto === */
+.back{background:var(--navy-950)}
+.back .net{position:absolute;left:50%;top:16mm;transform:translateX(-50%);width:190mm;opacity:.28}
+.back-inner{position:absolute;inset:0;padding:var(--pad);display:flex;flex-direction:column;
+  align-items:center;text-align:center}
+.back h2{font-size:34px;color:#fff;letter-spacing:.07em;line-height:1.06}
+.back h2 span{display:block;color:var(--copper-500)}
+.back .qrbox{background:#fff;padding:4mm;width:34mm}
+.back .qrbox img{width:100%}
+.back .qrcap{margin-top:2.6mm;font-size:7.6px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--steel-500);font-weight:600}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;
+  border-top:1px solid rgba(255,255,255,.14);border-left:1px solid rgba(255,255,255,.14)}
+/* direct children only — .k/.v are divs and must not inherit the cell frame */
+.info>div{border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);
+  padding:9mm 6mm;text-align:left}
+.info .k{font-size:7.4px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper-500);font-weight:700}
+.info .v{margin-top:2.4mm;font-size:10.4px;line-height:1.62;color:#fff}
+.info .v a{color:#fff;text-decoration:none}
+.back .legalfoot{margin-top:9mm;width:100%;padding-top:5mm;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:7.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-500);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ PAGE 1 === -->
+<section class="page cover">
+  <div class="shot"><img src="../public/images/industries/oil-gas.jpg" alt=""></div>
+  <div class="grade"></div>
+
+  <!-- Global supply network motif, echoing the site's hero graphic -->
+  <svg class="net" viewBox="0 0 600 420" fill="none" aria-hidden="true">
+    <g stroke="#4a7ac0" stroke-opacity=".30">
+      <circle cx="300" cy="210" r="60"/><circle cx="300" cy="210" r="105"/>
+      <circle cx="300" cy="210" r="150"/><circle cx="300" cy="210" r="195"/>
+      <ellipse cx="300" cy="210" rx="195" ry="72"/><ellipse cx="300" cy="210" rx="195" ry="140"/>
+      <line x1="105" y1="210" x2="495" y2="210"/><line x1="300" y1="15" x2="300" y2="405"/>
+    </g>
+    <g stroke="#ff8c38" stroke-opacity=".55" stroke-dasharray="4 6">
+      <path d="M175 265 Q 300 90 425 175"/><path d="M175 265 Q 250 320 400 285"/>
+      <path d="M175 265 Q 210 150 330 120"/>
+    </g>
+    <g fill="#ff8c38"><circle cx="175" cy="265" r="4.2"/></g>
+    <g fill="#8ab4e8" fill-opacity=".85">
+      <circle cx="425" cy="175" r="2.6"/><circle cx="400" cy="285" r="2.6"/><circle cx="330" cy="120" r="2.6"/>
+    </g>
+  </svg>
+
+  <div class="cover-inner">
+    <div class="brandbar">
+      <span class="logo-crop" style="--lw:62mm"><img src="../public/images/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
+      <div class="stamp">
+        <b>Perfil Corporativo</b>
+        Florida · Estados Unidos
+      </div>
+    </div>
+
+    <div style="margin-top:auto">
+      <span class="eyebrow">OK. GIALFRA LLC</span>
+      <h1 style="margin-top:6mm">Soluciones Globales<br>de Procura para la<br><em>Industria Energética</em></h1>
+      <div class="sub">Procura Industrial<span>•</span>Oil &amp; Gas<span>•</span>Equipos<span>•</span>Materiales<span>•</span>Logística</div>
+      <p class="msg">Conectando requerimientos industriales con soluciones confiables.</p>
+    </div>
+
+    <div class="foot">
+      <div class="web">www.okgialfra.com</div>
+      <div class="loc">OK. GIALFRA LLC<br>Homestead, Florida — USA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PAGE 2 === -->
+<section class="page">
+  <div class="runner top"><span class="n">Perfil Corporativo</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <span class="eyebrow">01 — Compañía</span>
+    <h2 class="title" style="margin-top:5mm">Quiénes Somos</h2>
+
+    <div class="p2-grid" style="margin-top:8mm">
+      <div>
+        <p class="lede">
+          OK. GIALFRA LLC es una compañía estadounidense, constituida en el estado de Florida, dedicada al
+          <b>sourcing, la procura y el suministro</b> de equipos, materiales y repuestos para compañías que
+          operan en sectores industriales exigentes.
+        </p>
+        <p class="body" style="margin-top:4mm">
+          Desde nuestra sede en Homestead, Florida, coordinamos requerimientos de procura para los sectores
+          Oil &amp; Gas, energía, industrial e infraestructura — desde un repuesto crítico individual hasta el
+          alcance completo de un proyecto.
+        </p>
+        <p class="body" style="margin-top:3mm">
+          Nuestro enfoque combina procesos de procura disciplinados con una red internacional de proveedores
+          calificados, orientada a la precisión técnica, la competitividad comercial y el cumplimiento de los
+          plazos acordados.
+        </p>
+
+        <div class="checks">
+          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
+            <span>Sourcing basado en especificaciones, datasheets, estándares y números de parte.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
+            <span>Atención comercial enfocada en precisión y tiempo de respuesta.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
+            <span>Red internacional de proveedores para un suministro competitivo y confiable.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
+            <span>Soporte de procura dedicado a proyectos, paradas de planta y MRO.</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="media" style="height:86mm"><img src="../public/images/about/industrial.jpg" alt="Instalación industrial con tuberías y equipos de proceso"></div>
+        <div class="pillars" style="margin-top:6mm">
+          <div class="pillar">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <h4>Sede en Florida</h4><p>Homestead, Florida — Estados Unidos.</p>
+          </div>
+          <div class="pillar">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>
+            <h4>Alcance Global</h4><p>Sourcing internacional de equipos y materiales.</p>
+          </div>
+          <div class="pillar">
+            <svg viewBox="0 0 24 24"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 13h2M7 17h2"/></svg>
+            <h4>Procura Industrial</h4><p>Equipos, materiales y repuestos para operación y proyecto.</p>
+          </div>
+          <div class="pillar">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M8 9h8M8 13h5"/></svg>
+            <h4>Soporte Comercial</h4><p>Cotización, seguimiento de órdenes y coordinación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <div><div class="k">Razón Social</div><div class="v">OK. GIALFRA LLC</div></div>
+      <div><div class="k">Tipo de Entidad</div><div class="v">Florida Limited<br>Liability Company</div></div>
+      <div><div class="k">N.º de Documento</div><div class="v">L23000444881</div></div>
+      <div><div class="k">Estatus</div><div class="v ok">Active</div></div>
+      <div><div class="k">Constitución</div><div class="v">26 Sep 2023</div></div>
+    </div>
+  </div>
+
+  <div class="runner bot"><span>Estado de Florida — Estados Unidos</span><span class="pageno">02</span></div>
+</section>
+
+<!-- ============================================================ PAGE 3 === -->
+<section class="page">
+  <div class="runner top"><span class="n">Sectores</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+      <div>
+        <span class="eyebrow">02 — Mercados</span>
+        <h2 class="title" style="margin-top:5mm">Industrias<br>que Atendemos</h2>
+      </div>
+      <p class="body" style="max-width:82mm;text-align:right">
+        Atendemos requerimientos de equipos, materiales y repuestos para operaciones y proyectos
+        en los sectores industriales de mayor exigencia técnica.
+      </p>
+    </div>
+
+    <div class="ind-grid" style="margin-top:8mm">
+      <div class="ind wide">
+        <img src="../public/images/about/oil-gas.jpg" alt="Unidad de bombeo en campo petrolero al atardecer">
+        <div class="ov"></div><div class="tick"></div>
+        <div class="cap"><h3>Oil &amp; Gas</h3><p>Suministro para operaciones upstream, midstream y downstream.</p></div>
+      </div>
+      <div class="ind">
+        <img src="../public/images/industries/energy.jpg" alt="Subestación eléctrica de alta tensión">
+        <div class="ov"></div><div class="tick"></div>
+        <div class="cap"><h3>Energía</h3><p>Generación e infraestructura energética.</p></div>
+      </div>
+      <div class="ind">
+        <img src="../public/images/industries/petrochemical.jpg" alt="Refinería petroquímica">
+        <div class="ov"></div><div class="tick"></div>
+        <div class="cap"><h3>Petroquímica</h3><p>Refinación, procesamiento y plantas químicas.</p></div>
+      </div>
+      <div class="ind">
+        <img src="../public/images/industries/industrial.jpg" alt="Planta industrial de proceso">
+        <div class="ov"></div><div class="tick"></div>
+        <div class="cap"><h3>Industrial</h3><p>Manufactura e industria pesada.</p></div>
+      </div>
+      <div class="ind">
+        <img src="../public/images/industries/infrastructure.jpg" alt="Vista aérea de patio de tanques de almacenamiento">
+        <div class="ov"></div><div class="tick"></div>
+        <div class="cap"><h3>Infraestructura</h3><p>Servicios, ductos y obras de infraestructura.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="runner bot"><span>Industrias que Atendemos</span><span class="pageno">03</span></div>
+</section>
+
+<!-- ============================================================ PAGE 4 === -->
+<section class="page">
+  <div class="runner top"><span class="n">Suministro</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+      <div>
+        <span class="eyebrow">03 — Portafolio</span>
+        <h2 class="title" style="margin-top:5mm">Capacidad<br>de Suministro</h2>
+      </div>
+      <p class="body" style="max-width:82mm;text-align:right">
+        Principales familias de productos gestionadas por la compañía. Cada requerimiento se procura
+        contra especificación, norma o número de parte.
+      </p>
+    </div>
+
+    <div class="prod-grid" style="margin-top:8mm">
+      <div class="prod"><img src="../public/images/products/valves.jpg" alt="Válvula industrial"><div class="ov"></div><span class="num">01</span><h4>Válvulas</h4></div>
+      <div class="prod"><img src="../public/images/products/pipes.jpg" alt="Tuberías industriales"><div class="ov"></div><span class="num">02</span><h4>Tuberías y Accesorios</h4></div>
+      <div class="prod"><img src="../public/images/products/flanges.jpg" alt="Bridas industriales"><div class="ov"></div><span class="num">03</span><h4>Flanges y Conexiones</h4></div>
+      <div class="prod"><img src="../public/images/products/pumps.jpg" alt="Bombas industriales"><div class="ov"></div><span class="num">04</span><h4>Bombas</h4></div>
+      <div class="prod"><img src="../public/images/products/compressors.jpg" alt="Compresor industrial"><div class="ov"></div><span class="num">05</span><h4>Compresores</h4></div>
+      <div class="prod"><img src="../public/images/products/motors.jpg" alt="Motor industrial"><div class="ov"></div><span class="num">06</span><h4>Motores Industriales</h4></div>
+      <div class="prod"><img src="../public/images/products/instrumentation.jpg" alt="Instrumentación de proceso"><div class="ov"></div><span class="num">07</span><h4>Instrumentación</h4></div>
+      <div class="prod"><img src="../public/images/products/electrical.jpg" alt="Tableros eléctricos industriales"><div class="ov"></div><span class="num">08</span><h4>Equipos Eléctricos</h4></div>
+      <div class="prod"><img src="../public/images/products/mechanical.jpg" alt="Componentes mecánicos"><div class="ov"></div><span class="num">09</span><h4>Componentes Mecánicos</h4></div>
+      <div class="prod"><img src="../public/images/products/spare-parts.jpg" alt="Repuestos industriales"><div class="ov"></div><span class="num">10</span><h4>Repuestos y Partes</h4></div>
+      <div class="prod"><img src="../public/images/products/tools.jpg" alt="Herramientas industriales"><div class="ov"></div><span class="num">11</span><h4>Herramientas Industriales</h4></div>
+      <div class="prod"><img src="../public/images/products/safety.jpg" alt="Equipos de protección industrial"><div class="ov"></div><span class="num">12</span><h4>Equipos de Seguridad</h4></div>
+    </div>
+
+    <div class="bands">
+      <div class="band">
+        <h4>Equipos Oilfield / Wellhead</h4>
+        <p>Equipos de cabezal de pozo, perforación, producción y completación para operaciones upstream.</p>
+      </div>
+      <div class="band">
+        <h4>Materiales y Consumibles MRO</h4>
+        <p>Consumibles, componentes y materiales industriales para el sostenimiento de operaciones continuas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="runner bot"><span>Capacidad de Suministro</span><span class="pageno">04</span></div>
+</section>
+
+<!-- ============================================================ PAGE 5 === -->
+<section class="page dark">
+  <div class="runner top"><span class="n">Proceso</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <span class="eyebrow">04 — Metodología</span>
+    <h2 class="title" style="margin-top:5mm;color:#fff">Procura Estratégica</h2>
+    <p class="lede" style="margin-top:6mm;max-width:135mm">
+      OK. GIALFRA LLC conecta los requerimientos técnicos de cada cliente con fuentes de suministro
+      competitivas y confiables, gestionando el proceso completo desde la recepción del requerimiento
+      hasta la entrega.
+    </p>
+
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:8mm">
+      <div class="flow">
+        <div class="step on"><div class="dot"><i>01</i></div><h4>Requerimiento</h4><p>Recepción y registro de la solicitud del cliente.</p></div>
+        <div class="step on"><div class="dot"><i>02</i></div><h4>Identificación Técnica</h4><p>Verificación de especificaciones, normas y números de parte.</p></div>
+        <div class="step on"><div class="dot"><i>03</i></div><h4>Sourcing</h4><p>Búsqueda de fuentes de suministro en la red internacional.</p></div>
+        <div class="step on"><div class="dot"><i>04</i></div><h4>Evaluación de Proveedores</h4><p>Selección según capacidad, alcance y condiciones.</p></div>
+      </div>
+      <div class="flow-gap"></div>
+      <div class="flow">
+        <div class="step on"><div class="dot"><i>05</i></div><h4>Cotización</h4><p>Comparación comercial y presentación de la oferta.</p></div>
+        <div class="step on"><div class="dot"><i>06</i></div><h4>Procura</h4><p>Emisión y gestión de la orden de compra.</p></div>
+        <div class="step on"><div class="dot"><i>07</i></div><h4>Coordinación Logística</h4><p>Consolidación, transporte y documentación de embarque.</p></div>
+        <div class="step on"><div class="dot"><i>08</i></div><h4>Entrega</h4><p>Coordinación hasta el destino y condiciones acordadas.</p></div>
+      </div>
+    </div>
+
+    <div class="caps" style="margin-top:6mm">
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg>
+        <h4>Sourcing Especializado</h4><p>Búsqueda orientada a la especificación técnica del requerimiento.</p>
+      </div>
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/></svg>
+        <h4>Fabricantes y Distribuidores</h4><p>Identificación de fuentes de suministro para cada familia de producto.</p>
+      </div>
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6ZM17 7l-3 7h6Z"/></svg>
+        <h4>Comparación Comercial</h4><p>Evaluación de precio, plazo de entrega y condiciones.</p>
+      </div>
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        <h4>Coordinación Documental</h4><p>Gestión de la documentación asociada al suministro.</p>
+      </div>
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><path d="M21 12a9 9 0 1 1-4-7.5"/></svg>
+        <h4>Seguimiento de Órdenes</h4><p>Expedición y control del avance hasta el despacho.</p>
+      </div>
+      <div class="cap-cell">
+        <svg viewBox="0 0 24 24"><path d="M1 7h13v10H1z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+        <h4>Coordinación Logística</h4><p>Consolidación, transporte y entrega hasta el destino acordado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="runner bot"><span>Procura Estratégica</span><span class="pageno">05</span></div>
+</section>
+
+<!-- ============================================================ PAGE 6 === -->
+<section class="page dark" style="background:var(--navy-950)">
+  <div class="runner top"><span class="n">Red</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <span class="eyebrow">05 — Alcance</span>
+    <h2 class="title" style="margin-top:5mm;color:#fff">Global Supply Network</h2>
+    <p class="lede" style="margin-top:6mm;max-width:140mm">
+      Una red de abastecimiento orientada a localizar soluciones industriales de acuerdo con los
+      requerimientos técnicos, comerciales y logísticos de cada proyecto.
+    </p>
+
+    <div class="mapstage" style="margin:9mm calc(var(--pad)*-1) 0">
+      <img class="world" src="assets/world.svg" alt="Mapa mundial de la red de abastecimiento">
+      <svg class="arcs" viewBox="0 0 1000 460" fill="none" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#ff8c38" stop-opacity=".95"/>
+            <stop offset="1" stop-color="#5b8fd6" stop-opacity=".35"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#arc)" stroke-width="1.5" stroke-dasharray="5 6">
+          <path d="M245 180 Q 225 110 173 78"/>
+          <path d="M245 180 Q 210 150 203 166"/>
+          <path d="M245 180 Q 380 40 492 98"/>
+          <path d="M245 180 Q 430 60 609 179"/>
+          <path d="M245 180 Q 520 20 788 166"/>
+          <path d="M245 180 Q 290 250 302 301"/>
+          <path d="M245 180 Q 400 210 525 250"/>
+          <path d="M245 180 Q 560 300 832 284"/>
+        </g>
+        <g fill="#8ab4e8">
+          <circle cx="173" cy="78" r="3.4"/><circle cx="203" cy="166" r="3.4"/>
+          <circle cx="492" cy="98" r="3.4"/><circle cx="609" cy="179" r="3.4"/>
+          <circle cx="788" cy="166" r="3.4"/><circle cx="302" cy="301" r="3.4"/>
+          <circle cx="525" cy="250" r="3.4"/><circle cx="832" cy="284" r="3.4"/>
+        </g>
+        <circle cx="245" cy="180" r="13" fill="#ff8c38" fill-opacity=".16"/>
+        <circle cx="245" cy="180" r="6" fill="#ff8c38"/>
+        <g stroke="#ff8c38" stroke-width="1"><path d="M245 180 v-34 h30"/></g>
+      </svg>
+      <div style="position:absolute;left:28.2%;top:31.7%;transform:translateY(-50%);
+                  font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.2em;
+                  color:#fff;text-transform:uppercase;white-space:nowrap">
+        Homestead, Florida — USA
+      </div>
+    </div>
+
+    <div class="maplegend" style="margin-top:9mm">
+      <div><h4>USA</h4><p>Sede operativa y base de coordinación de procura en Homestead, Florida.</p></div>
+      <div><h4>North America</h4><p>Acceso a fabricantes, distribuidores y stockistas de la región.</p></div>
+      <div><h4>International Sourcing</h4><p>Identificación de fuentes de suministro fuera de Norteamérica según el requerimiento.</p></div>
+    </div>
+
+    <p class="note">
+      El mapa representa <b>capacidad de sourcing internacional</b>: los nodos corresponden a orígenes
+      potenciales de suministro y no a oficinas propias. OK. GIALFRA LLC opera desde una única sede en
+      Homestead, Florida, Estados Unidos.
+    </p>
+
+    <div class="media" style="height:36mm;margin:auto calc(var(--pad)*-1) 0">
+      <img src="../public/images/about/logistics.jpg" alt="Terminal portuaria de contenedores en operación nocturna"
+           style="filter:saturate(.55) brightness(.62)">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,11,22,.75),rgba(6,11,22,.35))"></div>
+    </div>
+  </div>
+
+  <div class="runner bot"><span>Global Supply Network</span><span class="pageno">06</span></div>
+</section>
+
+<!-- ============================================================ PAGE 7 === -->
+<section class="page">
+  <div class="runner top"><span class="n">Compromiso</span><span>OK. GIALFRA LLC</span></div>
+
+  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+    <span class="eyebrow">06 — Principios</span>
+    <h2 class="title" style="margin-top:5mm">Nuestro Compromiso</h2>
+    <p class="lede" style="margin-top:6mm;max-width:150mm">
+      Nuestro enfoque está orientado a suministrar soluciones que respondan a las especificaciones
+      técnicas, condiciones comerciales y requerimientos documentales establecidos por nuestros clientes.
+    </p>
+
+    <div class="commit" style="margin-top:8mm">
+      <div>
+        <div class="no">01</div><h3>Calidad</h3>
+        <p>Verificación de que lo suministrado corresponda a la especificación técnica solicitada por el cliente.</p>
+      </div>
+      <div>
+        <div class="no">02</div><h3>Trazabilidad</h3>
+        <p>Control de referencias, órdenes y documentación asociada a cada suministro.</p>
+      </div>
+      <div>
+        <div class="no">03</div><h3>Cumplimiento</h3>
+        <p>Atención a las condiciones comerciales, plazos y requisitos acordados para cada orden.</p>
+      </div>
+      <div>
+        <div class="no">04</div><h3>Respuesta</h3>
+        <p>Seguimiento activo y comunicación durante todo el proceso de procura.</p>
+      </div>
+    </div>
+
+    <div class="media" style="height:64mm;margin-top:9mm">
+      <img src="../public/images/about/technical.jpg" alt="Batería de válvulas y tuberías en instalación técnica">
+    </div>
+
+    <div class="cbar" style="margin-top:8mm">
+      <div>Atención a especificaciones técnicas</div>
+      <div>Seguimiento comercial</div>
+      <div>Documentación de suministro</div>
+      <div>Coordinación con proveedores</div>
+      <div>Soporte durante la procura</div>
+    </div>
+
+    <p class="body" style="margin-top:auto;font-size:9px;color:var(--steel-500)">
+      Los requisitos documentales aplicables a cada suministro se definen y acuerdan según las condiciones
+      de la orden y del cliente correspondiente.
+    </p>
+  </div>
+
+  <div class="runner bot"><span>Nuestro Compromiso</span><span class="pageno">07</span></div>
+</section>
+
+<!-- ============================================================ PAGE 8 === -->
+<section class="page back">
+  <svg class="net" viewBox="0 0 800 300" fill="none" aria-hidden="true">
+    <g stroke="#4a7ac0" stroke-opacity=".22">
+      <ellipse cx="400" cy="150" rx="360" ry="130"/><ellipse cx="400" cy="150" rx="260" ry="130"/>
+      <ellipse cx="400" cy="150" rx="150" ry="130"/><line x1="40" y1="150" x2="760" y2="150"/>
+      <path d="M40 95h720M40 205h720"/>
+    </g>
+  </svg>
+
+  <div class="back-inner">
+    <span class="logo-crop" style="--lw:74mm;margin-top:9mm"><img src="../public/images/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
+
+    <h2 style="margin-top:auto">Global Procurement<span>Industrial Solutions</span></h2>
+
+    <div style="margin-top:16mm;display:flex;flex-direction:column;align-items:center">
+      <div class="qrbox"><img src="assets/qr.svg" alt="Código QR de www.okgialfra.com"></div>
+      <div class="qrcap">Escanear para visitar www.okgialfra.com</div>
+    </div>
+
+    <div class="info" style="margin-top:auto">
+      <div>
+        <div class="k">Website</div>
+        <div class="v"><a href="https://www.okgialfra.com/">www.okgialfra.com</a></div>
+      </div>
+      <div>
+        <div class="k">Sales Department</div>
+        <div class="v"><a href="mailto:sales@okgialfra.com">sales@okgialfra.com</a></div>
+      </div>
+      <div>
+        <div class="k">Address</div>
+        <div class="v">2257 SE 30TH ST<br>HOMESTEAD, FL 33035<br>USA</div>
+      </div>
+    </div>
+
+    <div class="legalfoot">
+      <span>OK. GIALFRA LLC · Florida Limited Liability Company</span>
+      <span>Florida Document No. L23000444881</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -35,3 +35,6 @@ pnpm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# Brochure page previews (regenerate with: npm run brochure:pdf)
+brochure/preview
