@@ -178,30 +178,34 @@ const SRC = path.join(__dirname, '..', 'public', 'images')
 // the file roughly nine-fold. Grading at build time keeps the JPEG passthrough.
 // Light direction: the photography is left bright and open. Only the caption
 // zone is darkened, and that is done with a CSS scrim, not by dimming the file.
+// Contrast is eased to just under 1 on the darker frames: raising brightness on
+// its own only greys them, whereas easing contrast first actually opens shadows.
 const GRADE = {
-  cover: 'saturate(1.02) contrast(1.02) brightness(1.03)',
-  sector: 'saturate(1.04) contrast(1.02) brightness(1.05)',
-  product: 'saturate(1.02) contrast(1.02) brightness(1.06)',
-  strip: 'saturate(1.02) contrast(1.02) brightness(1.04)',
-  // The page 7 frame is a dense black-and-white interior; lifting it and
-  // easing contrast opens the shadows so it sits in the lighter document.
-  monoLift: 'brightness(1.12) contrast(0.95)',
+  cover: 'saturate(1.06) contrast(1.02) brightness(1.05)',
+  hero: 'saturate(1.06) contrast(1.01) brightness(1.07)',
+  sector: 'saturate(1.08) contrast(1.0) brightness(1.10)',
+  product: 'saturate(1.06) contrast(0.97) brightness(1.14)',
+  clean: 'saturate(1.06) contrast(0.99) brightness(1.10)',
+  // La toma de válvulas es la más cerrada del banco: hay que bajar bastante
+  // el contraste antes de subir el brillo, o sólo se agrisa.
+  lift: 'saturate(1.14) contrast(0.88) brightness(1.30)',
 }
 const IMAGES = [
   { file: 'industries/infrastructure.jpg', mm: 210, filter: GRADE.cover }, // cover band
-  { file: 'industries/marine.jpg', mm: 210, filter: GRADE.strip }, // page 6 closing strip
+  { file: 'industries/marine.jpg', mm: 210, filter: GRADE.hero }, // page 8 band
   { file: 'about/oil-gas.jpg', mm: 176, filter: GRADE.sector }, // page 3 lead card
-  { file: 'about/technical.jpg', mm: 176, filter: GRADE.monoLift }, // page 7 band
+  { file: 'industries/utilities.jpg', mm: 176, filter: GRADE.lift }, // page 7 band
   { file: 'industries/energy.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/petrochemical.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/industrial.jpg', mm: 86, filter: GRADE.sector },
-  { file: 'industries/utilities.jpg', mm: 86, filter: GRADE.sector },
-  { file: 'about/industrial.jpg', mm: 82 }, // page 2 portrait, ungraded
+  { file: 'industries/construction.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'about/industrial.jpg', mm: 82, filter: GRADE.clean }, // page 2 portrait
   ...['valves', 'pipes', 'flanges', 'pumps', 'compressors', 'motors',
       'instrumentation', 'electrical', 'mechanical', 'spare-parts', 'tools', 'safety']
     .map((n) => ({ file: `products/${n}.jpg`, mm: 56, filter: GRADE.product })),
   { file: 'ok-gialfra-logo.png', mm: 74, png: true }, // largest placement, back cover
 ]
+
 
 // 230 dpi is press-grade at final size; 110 dpi stays crisp on screen.
 const SETS = { print: { dpi: 230, q: 0.88 }, web: { dpi: 110, q: 0.78 } }

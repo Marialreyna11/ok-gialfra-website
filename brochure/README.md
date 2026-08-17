@@ -70,8 +70,13 @@ Todo el contenido proviene de dos fuentes, sin datos inventados.
 
 **Registro estatal (SUNBIZ)** — página 2 y contraportada:
 OK. GIALFRA LLC · Florida Limited Liability Company · Documento **L23000444881** ·
-Estatus **ACTIVE** · Constitución **26 de septiembre de 2023** ·
-2257 SE 30TH ST, HOMESTEAD, FL 33035, USA.
+Estatus **ACTIVE** · Constitución **26 de septiembre de 2023**.
+
+> **Privacidad.** La dirección de calle y el ZIP registrados **no aparecen** en el
+> brochure ni en este documento, por decisión del cliente. Donde hace falta indicar
+> ubicación se usa únicamente `Homestead, Florida — USA`. El nombre legal y el Florida
+> Document Number sí se conservan. Nota: el ZIP sigue publicado en el sitio web
+> (`src/data/content.ts`); si también debe retirarse de ahí, es un cambio aparte.
 
 **Sitio web oficial** — este repositorio es el código fuente de `okgialfra.com`
 (ver `public/CNAME`), por lo que `src/data/content.ts` es la fuente autorizada del
@@ -101,6 +106,9 @@ Decisiones tomadas con el cliente:
 - **Página 6.** El mapa comunica capacidad de sourcing internacional, no presencia física.
   Una nota al pie lo declara de forma explícita: los nodos son orígenes potenciales de
   suministro y la compañía opera desde una única sede en Homestead, Florida.
+- **Bloque "International Sourcing" retirado** de la página 6 a petición del cliente. La
+  leyenda quedó en dos bloques —USA y North America— repartidos a todo el ancho.
+- **Dirección física retirada** del documento completo (ver arriba).
 
 ## Estructura
 
@@ -113,14 +121,38 @@ Decisiones tomadas con el cliente:
 | 5 | Procura Estratégica (flujo de 8 etapas) | Blanco + panel gris claro |
 | 6 | Global Supply Network | Gris azulado muy claro |
 | 7 | Nuestro Compromiso | Blanco |
-| 8 | Contacto / Contraportada con QR | Off-white + banda navy |
+| 8 | Contraportada — cierre editorial con QR | Banda fotográfica + off-white + banda navy |
 
-### Fotografías de portada y cierre
+La contraportada se compone **en flujo, no en posiciones absolutas**. La placa de marca
+cabalga sobre la banda fotográfica mediante un margen negativo, pero su altura sigue
+contando en el flujo, de modo que no puede solaparse con el bloque de llamada a la acción
+por mucho que crezca el texto. Una versión anterior sí se solapaba y cortaba el rótulo.
 
-La portada usa una vista aérea diurna de una terminal de almacenamiento. Sustituyó a una
-toma nocturna de equipo de perforación, que ni siquiera aclarada dejaba de leerse como
-escena nocturna. Por el mismo motivo la banda de cierre de la página 6 pasó a un puerto
-diurno, y la página 3 tomó la fotografía de servicios industriales para Infraestructura.
+### Fotografía: qué se pudo y qué no
+
+El banco fotográfico se limita a los 24 archivos de `public/images/`. Este entorno bloquea
+el acceso a bancos de imágenes externos, así que **no fue posible incorporar fotografías
+nuevas**: sólo reasignar y reencuadrar las existentes, y rehacer el grading.
+
+Reasignaciones hechas para retirar las tomas nocturnas y el blanco y negro:
+
+| Ubicación | Fotografía | Motivo |
+| --- | --- | --- |
+| Página 7 | Válvulas y tubería de proceso, en color | Sustituye el interior en blanco y negro |
+| Página 8 | Puerto diurno, panorámico | Cierre editorial; libera la página 6 |
+| Página 3 · Infraestructura | Obra con grúas, diurna | Libera la toma de válvulas para la página 7 |
+| Retiradas | Equipo de perforación al anochecer, puerto nocturno, interior en B/N | Nocturnas o monocromas |
+
+**Pendiente de nuevos assets.** Con este banco no se pueden resolver:
+
+- **Petroquímica (página 3)** sigue siendo una fotografía en blanco y negro; no hay
+  alternativa en color de una refinería.
+- **Varias familias de la página 4** —flanges, repuestos, seguridad, herramientas y
+  componentes mecánicos— muestran equipo desgastado u oxidado.
+- **Portada y página 2** usan ya la mejor opción disponible; no hay una toma más moderna
+  entre los assets.
+
+Para resolverlos hace falta aportar fotografías nuevas (o autorizar su compra).
 
 ## Notas de edición
 
