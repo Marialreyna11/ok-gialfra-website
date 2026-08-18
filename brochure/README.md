@@ -5,21 +5,21 @@ y exportado a PDF de alta calidad mediante Chromium.
 
 ## Dirección de color
 
-El documento es **claro primero**. El balance aproximado es:
+El documento es **claro primero**, con retícula editorial y el navy reservado al contraste:
 
 | Proporción | Rol | Dónde |
 | --- | --- | --- |
-| 55–65 % | Blanco / off-white / gris industrial muy claro | Fondo de todas las páginas |
-| 15–20 % | Azul acero (`--slate`) y gris claro (`--mist`) | Panel del proceso, mapa, líneas, subtítulos |
-| 10–15 % | Navy corporativo (`--navy-block`) | Títulos y cuatro bloques estratégicos |
-| 5–10 % | Naranja industrial (`--copper-500`) | Líneas, números, iconos, nodos del mapa |
+| 70–80 % | Blanco / off-white / gris industrial muy claro | Fondo de todas las páginas |
+| 10–15 % | Navy corporativo (`--navy`) | Titulares, etiquetas de sector, franja registral y pie |
+| 5–10 % | Naranja industrial (`--copper-500`) | Filetes, numeración, iconos y nodos del mapa |
+| resto | Azul acero (`--slate`) y gris claro (`--mist`) | Subtítulos, panel del proceso, plancha del mapa |
 
-El navy aparece **sólo** en cuatro bloques: la banda inferior de la portada, la franja de
-datos registrales de la página 2, el bloque de enunciado de la página 5 y la banda legal de
-la contraportada. Ninguna página tiene fondo navy completo.
+Ninguna página tiene fondo navy completo. La luminosidad media medida sobre las ocho
+páginas renderizadas va de 163 a 249 sobre 255.
 
-Las fotografías no se oscurecen en el archivo: van a brillo pleno y el texto se sostiene
-con un degradado (`--scrim`) que sólo cubre la franja del pie de foto.
+Portada y contraportada comparten un **corte diagonal** con filete naranja: la fotografía
+ocupa la mitad superior, una cuña blanca aloja el logotipo y el bloque de texto descansa
+sobre off-white. Las dos páginas se cierran como pareja.
 
 ## Cómo se construye
 
@@ -112,66 +112,50 @@ Decisiones tomadas con el cliente:
 
 ## Estructura
 
-| Pág. | Sección | Fondo |
+| Pág. | Sección | Composición |
 | --- | --- | --- |
-| 1 | Portada — Soluciones Globales de Procura | Blanco + diagrama de proceso + pie navy |
-| 2 | Quiénes Somos + franja de datos registrales | Blanco |
-| 3 | Industrias que Atendemos | Blanco |
-| 4 | Capacidad de Suministro | Blanco |
-| 5 | Procura Estratégica (flujo de 8 etapas) | Blanco + panel gris claro |
-| 6 | Global Supply Network | Gris azulado muy claro |
-| 7 | Nuestro Compromiso | Blanco |
-| 8 | Contraportada — cierre editorial con QR | Banda fotográfica + off-white + banda navy |
+| 1 | Portada — Soluciones Globales de Procura | Fotografía + corte diagonal + bloque blanco |
+| 2 | Quiénes Somos | Texto a la izquierda, fotografía y cuatro bloques a la derecha, franja registral navy |
+| 3 | Sectores Industriales | Cinco filas: etiqueta navy con icono + fotografía |
+| 4 | Capacidad de Suministro | Dos bandas destacadas + retícula de 12 categorías con iconos |
+| 5 | Procura Estratégica | Título e intro + seis capacidades; flujo de 8 etapas en panel claro |
+| 6 | Capacidad de Procura Global | Mapa de puntos en plancha clara + dos bloques + nota |
+| 7 | Nuestro Compromiso | Cuatro pilares con iconos + fotografía + barra de soporte |
+| 8 | Contraportada | Fotografía + corte diagonal + QR integrado + franja navy delgada |
 
-La contraportada se compone **en flujo, no en posiciones absolutas**. La placa de marca
-cabalga sobre la banda fotográfica mediante un margen negativo, pero su altura sigue
-contando en el flujo, de modo que no puede solaparse con el bloque de llamada a la acción
-por mucho que crezca el texto. Una versión anterior sí se solapaba y cortaba el rótulo.
+### Iconografía
 
-### Portada ilustrada, contraportada fotográfica
+Los iconos son los del propio sitio (`src/components/icons.tsx`), extraídos e insertados
+como SVG en línea. No se dibujó un set nuevo: el brochure y `okgialfra.com` comparten
+exactamente el mismo trazo.
 
-Ninguna fotografía del banco convencía para la portada —se compararon las seis posibles— y
-este entorno no permite incorporar imágenes nuevas: la política de egreso bloquea todos los
-bancos de imágenes. La portada pasa por tanto a **ilustración técnica original en SVG**,
-dibujada en el lenguaje gráfico de la industria: diagrama de proceso con almacenamiento,
-bombeo, válvula de compuerta en naranja de marca, bridas, reducción, válvula de bola en
-ramal, instrumentación e intercambio de calor, sobre retícula de plano. Es vectorial, así
-que imprime nítido a cualquier tamaño y no depende de banco alguno.
+La página 4 presenta las doce familias **con iconos, no con fotografías**. Además de
+alinearse con la referencia visual, resuelve el problema de fondo: las tomas de producto
+disponibles mostraban equipo desgastado u oxidado.
 
-La contraportada conserva **banda fotográfica** —izaje en obra, diurna— porque ahí la
-fotografía funciona como cierre atmosférico y la placa de marca se apoya sobre su zona de
-cielo. Al liberarse la portada, la vista aérea de la terminal de almacenamiento volvió a su
-encaje natural en Infraestructura (página 3).
+### Fotografía: qué se pudo y qué no
 
-El lienzo del diagrama está dimensionado a la proporción real de la banda (210×104). Una
-versión anterior usaba un `viewBox` de 2.38 con `preserveAspectRatio="slice"`, que recortaba
-el tanque y el intercambiador por ambos costados.
+Se usan **9 fotografías**, todas distintas, en color y de día. El banco se limita a los 24
+archivos de `public/images/`: este entorno bloquea por política de egreso el acceso a
+bancos de imágenes externos, así que **no fue posible incorporar fotografías nuevas** —
+sólo reasignar, reencuadrar y rehacer el grading.
 
-### El resto de la fotografía: qué se pudo y qué no
+Quedaron fuera todas las tomas nocturnas, en blanco y negro o con equipo oxidado. Dos se
+retiraron en esta revisión: las bandas de la página 4 usaban acero sobre fondo negro y
+tubería gris, que se leían como blanco y negro.
 
-El banco fotográfico se limita a los 24 archivos de `public/images/`. Este entorno bloquea
-el acceso a bancos de imágenes externos, así que **no fue posible incorporar fotografías
-nuevas**: sólo reasignar y reencuadrar las existentes, y rehacer el grading.
+**Pendiente de nuevos assets.** La referencia visual pide plataforma offshore, refinería
+moderna e inspección técnica con personal. Nada de eso existe en el banco actual: la
+portada usa la planta de proceso y la página 7, equipos de proceso en lugar de un técnico
+inspeccionando. Cerrarlo requiere aportar fotografías nuevas.
 
-Reasignaciones hechas para retirar las tomas nocturnas y el blanco y negro:
+## Control de calidad
 
-| Ubicación | Fotografía | Motivo |
-| --- | --- | --- |
-| Página 7 | Válvulas y tubería de proceso, en color | Sustituye el interior en blanco y negro |
-| Página 8 | Puerto diurno, panorámico | Cierre editorial; libera la página 6 |
-| Página 3 · Infraestructura | Obra con grúas, diurna | Libera la toma de válvulas para la página 7 |
-| Retiradas | Equipo de perforación al anochecer, puerto nocturno, interior en B/N | Nocturnas o monocromas |
-
-**Pendiente de nuevos assets.** Con este banco no se pueden resolver:
-
-- **Petroquímica (página 3)** sigue siendo una fotografía en blanco y negro; no hay
-  alternativa en color de una refinería.
-- **Varias familias de la página 4** —flanges, repuestos, seguridad, herramientas y
-  componentes mecánicos— muestran equipo desgastado u oxidado.
-- **Portada y página 2** usan ya la mejor opción disponible; no hay una toma más moderna
-  entre los assets.
-
-Para resolverlos hace falta aportar fotografías nuevas (o autorizar su compra).
+`npm run brochure:pdf` aborta si falta una imagen o una fuente y avisa si alguna página
+desborda el alto A4. Además, cada revisión se comprueba contra: textos cortados o fuera de
+página, imágenes deformadas (relación de aspecto contra `object-fit`), resolución efectiva
+por debajo de ~170 dpi en su tamaño de colocación, luminosidad media por página,
+fotografías repetidas, ausencia de dirección física, y decodificación real del QR.
 
 ## Notas de edición
 
