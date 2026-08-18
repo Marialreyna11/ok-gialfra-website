@@ -74,22 +74,18 @@ img{display:block;max-width:100%}
    contraportada. La separación del cielo la aporta el halo ya horneado en
    ok-gialfra-logo-halo.png, no un filtro de CSS. */
 .brandmark{position:absolute;left:var(--pad);top:var(--pad);--logo-w:46mm;
-  display:flex;align-items:center;gap:4.5mm}
+  display:flex;align-items:center;gap:10mm}
 .brandmark .rule{flex:none;width:.5mm;height:calc(var(--logo-w)*.34);
   background:var(--copper-500)}
-.brandmark .mark{position:relative;display:block}
-/* Claro difuso detrás del logotipo. Es una elipse que se apaga hasta alfa cero,
-   así que no tiene borde, esquina ni forma reconocible: sólo levanta el cielo lo
-   justo para que la firma se despegue. El último tramo se declara en blanco con
-   alfa 0 —y no como `transparent`— porque `transparent` es negro transparente y
-   dejaría una orla gris al interpolar. */
-.brandmark .mark::before{content:"";position:absolute;left:50%;top:50%;
-  width:calc(var(--logo-w)*2.05);height:calc(var(--logo-w)*1.46);
-  transform:translate(-50%,-50%);pointer-events:none;
-  background:radial-gradient(closest-side ellipse at center,
-    rgba(255,255,255,.33) 0%,rgba(255,255,255,.29) 26%,rgba(255,255,255,.17) 48%,
-    rgba(255,255,255,.07) 70%,rgba(255,255,255,.02) 86%,rgba(255,255,255,0) 100%)}
-.brandmark .logo-crop{--lw:var(--logo-w)}
+/* La caja mide el arte visible del logotipo; el archivo con halo trae lienzo de
+   más a su alrededor, así que se encuadra con sus propias constantes y SIN
+   overflow:hidden — recortarlo cuadraría el resplandor, que es justo lo que no
+   debe ocurrir. Ver el bloque HALO de build-assets.mjs. */
+.brandmark .mark{position:relative;display:block;width:var(--logo-w);
+  height:calc(var(--logo-w)*.69051)}
+.brandmark .mark img{position:absolute;left:calc(var(--logo-w)*-.2569);
+  top:calc(var(--logo-w)*-.32739);width:calc(var(--logo-w)*1.525);
+  height:auto;max-width:none}
 .stamp{position:absolute;right:var(--pad);top:calc(var(--pad) + 1mm);text-align:right;
   font-size:9.4px;letter-spacing:.26em;text-transform:uppercase;
   color:rgba(255,255,255,.94);font-weight:600;line-height:1.85}
@@ -252,7 +248,7 @@ img{display:block;max-width:100%}
   <div class="hero"><img src="assets/img/print/refinery-hero.jpg" alt="Columnas de proceso de una refinería moderna contra cielo despejado"></div>
   <div class="cut"></div>
   <div class="sheet"></div>
-  <div class="brandmark"><span class="rule"></span><span class="mark"><span class="logo-crop"><img src="assets/img/print/ok-gialfra-logo-halo.png" alt="OK. GIALFRA LLC"></span></span></div>
+  <div class="brandmark"><span class="rule"></span><span class="mark"><img src="assets/img/print/ok-gialfra-logo-halo.png" alt="OK. GIALFRA LLC"></span></div>
   <div class="stamp"><b>Perfil Corporativo</b>Florida &middot; Estados Unidos</div>
 
   <div class="cover-copy">
@@ -540,7 +536,7 @@ img{display:block;max-width:100%}
   <div class="hero"><img src="assets/img/print/industries-marine.jpg" alt="Terminal portuaria durante operaciones de carga industrial"></div>
   <div class="cut"></div>
   <div class="sheet"></div>
-  <div class="brandmark"><span class="rule"></span><span class="mark"><span class="logo-crop"><img src="assets/img/print/ok-gialfra-logo-halo.png" alt="OK. GIALFRA LLC"></span></span></div>
+  <div class="brandmark"><span class="rule"></span><span class="mark"><img src="assets/img/print/ok-gialfra-logo-halo.png" alt="OK. GIALFRA LLC"></span></div>
 
   <div class="back-body">
     <div class="co">OK. GIALFRA LLC</div>

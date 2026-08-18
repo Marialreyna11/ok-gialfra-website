@@ -90,15 +90,19 @@ distintas**, sin repeticiones y sin marcas de agua. El logotipo es el archivo or
 
 En portada y contraportada la firma corporativa descansa **directamente sobre la
 fotografía**: sin placa, tarjeta ni marco. Ocupa 46 mm —el 26 % del ancho útil— y la
-acompaña un filete naranja corto, idéntico en ambas páginas. La separación del fondo se
-construye en dos capas, ninguna con borde:
+acompaña un filete naranja corto, idéntico en ambas páginas.
 
-1. Un **halo blanco horneado en el archivo** (`ok-gialfra-logo-halo.png`), calculado por
-   Canvas a partir del propio alfa del logotipo, de modo que sigue la silueta.
-2. Una **elipse de luminosidad** en `radial-gradient` que se apaga hasta alfa cero, para
-   levantar el cielo alrededor de la firma. El último tramo se declara como blanco con
-   alfa 0 y no como `transparent` —que es negro transparente— para que no aparezca una
-   orla gris al interpolar. Se hornea por la misma razón que el grading: un elemento con `filter` de CSS deja
+La separación del fondo es un **resplandor exterior horneado en el archivo**
+(`ok-gialfra-logo-halo.png`). Canvas lo calcula a partir del propio canal alfa del
+logotipo, así que sigue la silueta real —torre, balancines, arco y lettering— y no puede
+dibujar un rectángulo, un círculo ni un borde. Medido sobre el archivo: **31 % de opacidad
+pegado al trazo, 20 % a 2 mm, 10 % a 4 mm y cero a partir de 8 mm**. Debajo lleva una
+micro-sombra al 18 % para dar profundidad. Cuatro pasadas: una sola de una gaussiana tan
+ancha reparte la energía y queda invisible.
+
+Para que el resplandor quepa, ese archivo se genera sobre un lienzo ampliado un 17 % por
+lado, y portada y contraportada lo encuadran con sus propias constantes y **sin
+`overflow:hidden`** — recortarlo cuadraría el halo, que es justo lo que no debe pasar. Se hornea por la misma razón que el grading: un elemento con `filter` de CSS deja
 de entregarse al PDF como su PNG original y el logotipo perdería nitidez en impresión.
 
 ## Exclusiones deliberadas

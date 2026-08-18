@@ -189,6 +189,22 @@ const GRADE = {
   // contraste antes de subir el brillo, o sólo se agrisa.
   lift: 'saturate(1.14) contrast(0.88) brightness(1.30)',
 }
+// Resplandor de la firma corporativa, horneado en el archivo.
+//
+// `pad` ensancha el lienzo: el glow tiene que llegar a 6–10 mm alrededor del
+// logotipo y el margen transparente del PNG original no da para tanto, así que
+// se añade sitio y el encuadre de portada y contraportada usa las constantes
+// propias de este archivo. Todas las medidas van en fracción del ancho del
+// lienzo original, de modo que impresión y web salen idénticas.
+const HALO = {
+  pad: 0.166, // 170 px sobre 1024 — algo más que el alcance del glow
+  glowBlur: 0.152, // ≈ 8 mm a tamaño de colocación
+  glowAlpha: 0.42,
+  glowPasses: 4, // una sola pasada de una gaussiana tan ancha queda casi invisible
+  dropBlur: 0.018,
+  dropOffset: 0.01,
+  dropAlpha: 0.18,
+}
 const IMAGES = [
   // Las tres aportadas por el cliente son 3:2 y de alta resolución. Van SIN
   // grading: se pidieron colores naturales y luminosos, y ya lo son.
@@ -207,7 +223,7 @@ const IMAGES = [
   // Se hornea aquí y no como filter de CSS: un elemento filtrado deja de
   // entregarse al PDF como su PNG original —Chromium lo rasteriza— y el
   // logotipo perdería nitidez en impresión.
-  { file: 'ok-gialfra-logo.png', as: 'ok-gialfra-logo-halo.png', mm: 74, png: true, halo: true },
+  { file: 'ok-gialfra-logo.png', as: 'ok-gialfra-logo-halo.png', mm: 74, png: true, halo: HALO },
 ]
 
 
@@ -244,31 +260,41 @@ async function buildImages() {
           // Never upscale: a source smaller than the target is already the ceiling.
           const w = Math.min(want, img.naturalWidth)
           const h = Math.round((img.naturalHeight * w) / img.naturalWidth)
+          // El halo necesita lienzo de sobra alrededor del logotipo; el resto
+          // de imágenes se dibujan a sangre.
+          const pad = halo ? Math.round(w * halo.pad) : 0
           const c = document.createElement('canvas')
-          c.width = w
-          c.height = h
+          c.width = w + pad * 2
+          c.height = h + pad * 2
           const ctx = c.getContext('2d')
           ctx.imageSmoothingEnabled = true
           ctx.imageSmoothingQuality = 'high'
           if (filter) ctx.filter = filter
-          // El halo sigue la silueta del logotipo, no una caja: es la sombra
-          // que Canvas calcula del propio alfa, sin desplazamiento y en blanco.
-          // Tres pasadas muy tenues lo hacen legible sin que se note. Cabe de
-          // sobra en el margen transparente del PNG original, así que no
-          // recorta ni desplaza nada.
+          // El halo sigue la SILUETA: es la sombra que Canvas calcula del
+          // propio canal alfa del logotipo —torre, balancines, arco y
+          // lettering incluidos—, no una forma dibujada aparte. Por eso no
+          // puede aparecer un rectángulo, un círculo ni un borde.
+          //
+          // Se dibuja el logotipo fuera del lienzo y se trae sólo su sombra con
+          // el desplazamiento, para no apilar copias y engrosar el antialias
+          // del propio logotipo.
           if (halo) {
-            // Se dibuja fuera del lienzo y se trae sólo la sombra con el
-            // desplazamiento, para no apilar copias del logotipo y engrosar su
-            // antialias. Tres pasadas muy tenues.
-            ctx.shadowColor = 'rgba(255,255,255,0.42)'
-            ctx.shadowBlur = Math.round(w * 0.022)
-            ctx.shadowOffsetX = w * 2
-            for (let i = 0; i < 3; i++) ctx.drawImage(img, -w * 2, 0, w, h)
+            const off = c.width * 2
+            ctx.shadowOffsetX = off
+            ctx.shadowColor = `rgba(255,255,255,${halo.glowAlpha})`
+            ctx.shadowBlur = Math.round(w * halo.glowBlur)
+            for (let i = 0; i < halo.glowPasses; i++) ctx.drawImage(img, pad - off, pad, w, h)
+            // Micro-sombra bajo el logotipo: sólo la profundidad justa.
+            ctx.shadowColor = `rgba(21,34,49,${halo.dropAlpha})`
+            ctx.shadowBlur = Math.round(w * halo.dropBlur)
+            ctx.shadowOffsetY = Math.round(w * halo.dropOffset)
+            ctx.drawImage(img, pad - off, pad, w, h)
             ctx.shadowColor = 'transparent'
             ctx.shadowBlur = 0
             ctx.shadowOffsetX = 0
+            ctx.shadowOffsetY = 0
           }
-          ctx.drawImage(img, 0, 0, w, h)
+          ctx.drawImage(img, pad, pad, w, h)
           return {
             uri: png ? c.toDataURL('image/png') : c.toDataURL('image/jpeg', q),
             w,
@@ -281,7 +307,7 @@ async function buildImages() {
           q,
           png: !!im.png,
           filter: im.filter || null,
-          halo: !!im.halo,
+          halo: im.halo || null,
         }
       )
       const buf = Buffer.from(res.uri.split(',')[1], 'base64')
