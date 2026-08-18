@@ -88,6 +88,14 @@ distintas**, sin repeticiones y sin marcas de agua. El logotipo es el archivo or
 `public/images/ok-gialfra-logo.png`, encuadrado con la misma técnica `--lw` del sitio y
 **sin recolorear, redibujar ni alterar sus proporciones**.
 
+En portada y contraportada la firma corporativa descansa **directamente sobre la
+fotografía**: sin placa, tarjeta ni marco. Ocupa 36 mm —el 20 % del ancho útil— y la
+acompaña un filete naranja vertical, idéntico en ambas páginas. La separación del cielo
+la da un **halo blanco horneado en el archivo** (`ok-gialfra-logo-halo.png`), calculado
+por Canvas a partir del propio alfa, de modo que sigue la silueta y nunca dibuja una
+caja. Se hornea por la misma razón que el grading: un elemento con `filter` de CSS deja
+de entregarse al PDF como su PNG original y el logotipo perdería nitidez en impresión.
+
 ## Exclusiones deliberadas
 
 El brochure está pensado para acompañar procesos de calificación de proveedores, por lo
@@ -114,7 +122,7 @@ Decisiones tomadas con el cliente:
 
 | Pág. | Sección | Composición |
 | --- | --- | --- |
-| 1 | Portada — Soluciones Globales de Procura | Fotografía + corte diagonal + bloque blanco |
+| 1 | Portada — Soluciones Globales de Procura | Fotografía + logotipo sobre la imagen + corte diagonal + bloque blanco |
 | 2 | Quiénes Somos | Texto a la izquierda, fotografía y cuatro bloques a la derecha, franja registral navy |
 | 3 | Sectores Industriales | Cinco filas: etiqueta navy con icono + fotografía |
 | 4 | Capacidad de Suministro | Dos bandas destacadas + retícula de 12 categorías con iconos |

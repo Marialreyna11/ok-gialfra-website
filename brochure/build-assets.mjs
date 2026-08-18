@@ -202,6 +202,12 @@ const IMAGES = [
   { file: 'products/pumps.jpg', mm: 118, filter: GRADE.sector },
   { file: 'industries/infrastructure.jpg', mm: 118, filter: GRADE.sector },
   { file: 'ok-gialfra-logo.png', mm: 74, png: true },
+  // Misma imagen, con un halo blanco muy suave horneado en el archivo. Va en
+  // portada y contraportada, donde el logotipo descansa sobre la fotografía.
+  // Se hornea aquí y no como filter de CSS: un elemento filtrado deja de
+  // entregarse al PDF como su PNG original —Chromium lo rasteriza— y el
+  // logotipo perdería nitidez en impresión.
+  { file: 'ok-gialfra-logo.png', as: 'ok-gialfra-logo-halo.png', mm: 74, png: true, halo: true },
 ]
 
 
@@ -231,7 +237,7 @@ async function buildImages() {
     for (const im of IMAGES) {
       const want = Math.round((im.mm / 25.4) * dpi)
       const res = await page.evaluate(
-        async ({ url, want, q, png, filter }) => {
+        async ({ url, want, q, png, filter, halo }) => {
           const img = new Image()
           img.src = url
           await img.decode()
@@ -245,6 +251,23 @@ async function buildImages() {
           ctx.imageSmoothingEnabled = true
           ctx.imageSmoothingQuality = 'high'
           if (filter) ctx.filter = filter
+          // El halo sigue la silueta del logotipo, no una caja: es la sombra
+          // que Canvas calcula del propio alfa, sin desplazamiento y en blanco.
+          // Tres pasadas muy tenues lo hacen legible sin que se note. Cabe de
+          // sobra en el margen transparente del PNG original, así que no
+          // recorta ni desplaza nada.
+          if (halo) {
+            // Se dibuja fuera del lienzo y se trae sólo la sombra con el
+            // desplazamiento, para no apilar copias del logotipo y engrosar su
+            // antialias. Tres pasadas muy tenues.
+            ctx.shadowColor = 'rgba(255,255,255,0.42)'
+            ctx.shadowBlur = Math.round(w * 0.022)
+            ctx.shadowOffsetX = w * 2
+            for (let i = 0; i < 3; i++) ctx.drawImage(img, -w * 2, 0, w, h)
+            ctx.shadowColor = 'transparent'
+            ctx.shadowBlur = 0
+            ctx.shadowOffsetX = 0
+          }
           ctx.drawImage(img, 0, 0, w, h)
           return {
             uri: png ? c.toDataURL('image/png') : c.toDataURL('image/jpeg', q),
@@ -252,10 +275,17 @@ async function buildImages() {
             src: img.naturalWidth,
           }
         },
-        { url: `file://${path.join(SRC, im.file)}`, want, q, png: !!im.png, filter: im.filter || null }
+        {
+          url: `file://${path.join(SRC, im.file)}`,
+          want,
+          q,
+          png: !!im.png,
+          filter: im.filter || null,
+          halo: !!im.halo,
+        }
       )
       const buf = Buffer.from(res.uri.split(',')[1], 'base64')
-      fs.writeFileSync(path.join(dir, flat(im.file)), buf)
+      fs.writeFileSync(path.join(dir, flat(im.as || im.file)), buf)
       total += buf.length
     }
     console.log(`img/${set.padEnd(5)}   ${IMAGES.length} files, ${(total / 1024 / 1024).toFixed(2)} MB @ ${dpi} dpi`)
