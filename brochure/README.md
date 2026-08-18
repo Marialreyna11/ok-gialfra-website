@@ -133,21 +133,30 @@ La página 4 presenta las doce familias **con iconos, no con fotografías**. Ade
 alinearse con la referencia visual, resuelve el problema de fondo: las tomas de producto
 disponibles mostraban equipo desgastado u oxidado.
 
-### Fotografía: qué se pudo y qué no
+### Fotografía
 
-Se usan **9 fotografías**, todas distintas, en color y de día. El banco se limita a los 24
-archivos de `public/images/`: este entorno bloquea por política de egreso el acceso a
-bancos de imágenes externos, así que **no fue posible incorporar fotografías nuevas** —
-sólo reasignar, reencuadrar y rehacer el grading.
+Se usan **9 fotografías**, todas distintas, en color y de día. Tres las aportó el cliente
+y ocupan las posiciones de mayor peso:
 
-Quedaron fuera todas las tomas nocturnas, en blanco y negro o con equipo oxidado. Dos se
-retiraron en esta revisión: las bandas de la página 4 usaban acero sobre fondo negro y
-tubería gris, que se leían como blanco y negro.
+| Archivo | Página | Recorte | Resolución efectiva |
+| --- | --- | --- | --- |
+| `refinery-hero.jpg` | 1 · Portada | 6,7 % | 1902 px para 210 mm |
+| `process-valves.jpg` | 2 · Quiénes Somos | 1,1 % | 743 px para 82 mm |
+| `technical-inspection.jpg` | 7 · Nuestro Compromiso | 12,4 % | 1594 px para 176 mm |
 
-**Pendiente de nuevos assets.** La referencia visual pide plataforma offshore, refinería
-moderna e inspección técnica con personal. Nada de eso existe en el banco actual: la
-portada usa la planta de proceso y la página 7, equipos de proceso en lugar de un técnico
-inspeccionando. Cerrarlo requiere aportar fotografías nuevas.
+Las tres van **sin grading**: se pidieron colores naturales y luminosos, y los archivos ya
+los tienen. Cada caja se dimensionó a la proporción 3:2 real de los originales, de modo que
+nada se estira y el recorte se mantiene por debajo del 15 %. En la página 7 el encuadre se
+bajó a propósito para que el recorte salga de los bordes y el técnico entre completo.
+
+Una primera versión de `refinery-hero.jpg` llegó con marcas de agua «Unsplash+» repetidas
+—una previsualización de la versión de pago— y se mantuvo fuera del build hasta que el
+cliente subió el archivo limpio.
+
+Las seis restantes salen de `public/images/`. El resto del banco quedó fuera: este entorno
+bloquea por política de egreso el acceso a bancos de imágenes, así que sólo pudieron
+reasignarse y regradarse las existentes, y las tomas nocturnas, en blanco y negro o con
+equipo oxidado se descartaron.
 
 ## Control de calidad
 

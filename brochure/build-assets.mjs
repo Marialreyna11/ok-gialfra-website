@@ -192,7 +192,7 @@ const GRADE = {
 const IMAGES = [
   // Las tres aportadas por el cliente son 3:2 y de alta resolución. Van SIN
   // grading: se pidieron colores naturales y luminosos, y ya lo son.
-  { file: 'industries/industrial.jpg', mm: 210, filter: GRADE.hero }, // portada (provisional)
+  { file: 'refinery-hero.jpg', mm: 210 }, // portada
   { file: 'technical-inspection.jpg', mm: 176 }, // página 7
   { file: 'process-valves.jpg', mm: 82 }, // página 2
   { file: 'industries/marine.jpg', mm: 210, filter: GRADE.hero }, // contraportada
