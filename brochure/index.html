@@ -81,6 +81,8 @@ img{display:block;max-width:100%}
   color:var(--steel-500);font-weight:600;line-height:1.9}
 .cover .stamp b{display:block;color:var(--navy-block);font-weight:700}
 .cover .shot{position:relative;height:104mm;margin-top:9mm;overflow:hidden;background:var(--steel-100)}
+.shot.art{background:#f4f6f9}
+.shot.art>svg{position:absolute;inset:0;width:100%;height:100%}
 .cover .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cover .shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3mm;background:var(--copper-500)}
 .cover .copy{position:relative;flex:1;padding:11mm var(--pad) 0;overflow:hidden}
@@ -256,8 +258,73 @@ img{display:block;max-width:100%}
     </div>
   </div>
 
-  <div class="shot">
-    <img src="assets/img/print/industries-infrastructure.jpg" alt="Vista aérea de una terminal de almacenamiento de hidrocarburos">
+  <div class="shot art">
+    <!-- Diagrama de proceso original, en el lenguaje gráfico de la industria:
+         almacenamiento, bombeo, válvula, bridas, reducción, instrumentación e
+         intercambio. Vectorial, así que imprime nítido a cualquier tamaño. -->
+    <svg viewBox="0 0 1000 495" preserveAspectRatio="xMidYMid meet" aria-label="Diagrama de proceso industrial">
+      <defs>
+        <pattern id="cgrid" width="25" height="25" patternUnits="userSpaceOnUse">
+          <path d="M25 0H0V25" fill="none" stroke="#dde4ed" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1000" height="495" fill="url(#cgrid)"/>
+
+      <g transform="translate(0,38)">
+      <g stroke="#1c3253" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M150 250 H860"/>
+        <path d="M470 250 V160 H576"/>
+        <path d="M300 250 V330 H700 V250"/>
+      </g>
+
+      <g stroke="#1c3253" fill="#fff" stroke-width="3">
+        <rect x="58" y="192" width="94" height="116" rx="6"/>
+        <path d="M58 218 H152" stroke-width="2"/>
+      </g>
+
+      <g stroke="#1c3253" fill="#fff" stroke-width="3">
+        <circle cx="235" cy="250" r="30"/>
+        <path d="M222 234 L258 250 L222 266 Z" fill="#1c3253" stroke="none"/>
+      </g>
+
+      <g stroke-width="3">
+        <path d="M330 228 L330 272 L378 228 L378 272 Z" fill="#ff8c38" stroke="#c9640f"/>
+        <path d="M354 228 V196" stroke="#1c3253" fill="none"/>
+        <circle cx="354" cy="188" r="15" fill="#fff" stroke="#1c3253"/>
+        <path d="M339 188 H369 M354 173 V203" stroke="#1c3253"/>
+      </g>
+
+      <g stroke="#1c3253" stroke-width="3">
+        <path d="M424 226 V274 M436 226 V274"/>
+        <path d="M704 226 V274 M716 226 V274"/>
+      </g>
+
+      <g stroke="#1c3253" fill="#fff" stroke-width="3">
+        <path d="M560 230 L612 239 L612 261 L560 270 Z"/>
+      </g>
+
+      <g stroke-width="3">
+        <circle cx="600" cy="160" r="24" fill="#fff" stroke="#1c3253"/>
+        <path d="M582 144 L582 176 L618 144 L618 176 Z" fill="#1c3253" stroke="none"/>
+      </g>
+
+      <g stroke="#1c3253" stroke-width="2" fill="none">
+        <path d="M770 250 V132" stroke-dasharray="6 6"/>
+        <circle cx="770" cy="112" r="27" fill="#fff"/>
+        <path d="M743 112 H797"/>
+      </g>
+
+      <g stroke="#1c3253" fill="#fff" stroke-width="3">
+        <rect x="806" y="210" width="122" height="80" rx="4"/>
+        <path d="M818 250 h18 l10 -19 l16 38 l16 -38 l10 19 h20" stroke-width="2.5" fill="none"/>
+      </g>
+
+      <g stroke="#8a97a8" stroke-width="1.5" fill="none">
+        <path d="M58 372 H928 M58 364 V380 M928 364 V380 M493 364 V380"/>
+      </g>
+      <g fill="#ff8c38"><circle cx="150" cy="250" r="5"/><circle cx="860" cy="250" r="5"/><circle cx="500" cy="330" r="5"/></g>
+      </g>
+    </svg>
   </div>
 
   <div class="copy">
@@ -640,8 +707,45 @@ img{display:block;max-width:100%}
 
 <!-- ============================================================ PAGE 8 === -->
 <section class="page back">
-  <div class="shot">
-    <img src="assets/img/print/industries-marine.jpg" alt="Buque de carga y grúas portuarias durante operaciones de embarque">
+  <div class="shot art dark">
+    <!-- Colector de válvulas: rima con el diagrama de la portada y cierra el
+         documento con el mismo lenguaje técnico, en negativo sobre navy. -->
+    <svg viewBox="0 0 1000 495" preserveAspectRatio="xMidYMid meet" aria-label="Colector de válvulas industrial">
+      <rect width="1000" height="495" fill="#1c3253"/>
+      <defs>
+        <pattern id="bgrid" width="25" height="25" patternUnits="userSpaceOnUse">
+          <path d="M25 0H0V25" fill="none" stroke="#2b4670" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1000" height="495" fill="url(#bgrid)"/>
+
+      <g transform="translate(0,38)">
+      <g stroke="#7f9bc4" fill="none" stroke-width="3" stroke-linecap="round">
+        <path d="M70 120 H930 M70 300 H930"/>
+        <path d="M220 120 V300 M430 120 V300 M640 120 V300 M850 120 V300"/>
+      </g>
+
+      <g stroke-width="3">
+        <path d="M196 186 L196 226 L244 186 L244 226 Z" fill="#ff8c38" stroke="#ff8c38"/>
+        <path d="M406 186 L406 226 L454 186 L454 226 Z" fill="none" stroke="#9fb6d6"/>
+        <path d="M616 186 L616 226 L664 186 L664 226 Z" fill="none" stroke="#9fb6d6"/>
+        <path d="M826 186 L826 226 L874 186 L874 226 Z" fill="#ff8c38" stroke="#ff8c38"/>
+      </g>
+
+      <g stroke="#9fb6d6" fill="none" stroke-width="2.5">
+        <circle cx="220" cy="152" r="14"/><circle cx="430" cy="152" r="14"/>
+        <circle cx="640" cy="152" r="14"/><circle cx="850" cy="152" r="14"/>
+        <path d="M206 152 H234 M220 138 V166 M416 152 H444 M430 138 V166
+                 M626 152 H654 M640 138 V166 M836 152 H864 M850 138 V166"/>
+      </g>
+
+      <g stroke="#7f9bc4" stroke-width="2.5" fill="none">
+        <path d="M150 100 V140 M162 100 V140 M150 280 V320 M162 280 V320"/>
+        <path d="M760 100 V140 M772 100 V140 M760 280 V320 M772 280 V320"/>
+      </g>
+      <g fill="#ff8c38"><circle cx="70" cy="120" r="5"/><circle cx="930" cy="300" r="5"/></g>
+      </g>
+    </svg>
   </div>
 
   <div class="back-body">

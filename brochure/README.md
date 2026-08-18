@@ -83,7 +83,7 @@ Estatus **ACTIVE** · Constitución **26 de septiembre de 2023**.
 contenido comercial: industrias, familias de producto, proceso de procura, servicios
 y el correo `sales@okgialfra.com`.
 
-Fotografías: `public/images/` (Unsplash, uso comercial libre). Se usan **21 imágenes
+Fotografías: `public/images/` (Unsplash, uso comercial libre). Se usan **19 imágenes
 distintas**, sin repeticiones y sin marcas de agua. El logotipo es el archivo original
 `public/images/ok-gialfra-logo.png`, encuadrado con la misma técnica `--lw` del sitio y
 **sin recolorear, redibujar ni alterar sus proporciones**.
@@ -114,21 +114,38 @@ Decisiones tomadas con el cliente:
 
 | Pág. | Sección | Fondo |
 | --- | --- | --- |
-| 1 | Portada — Soluciones Globales de Procura | Blanco + banda fotográfica + pie navy |
+| 1 | Portada — Soluciones Globales de Procura | Blanco + diagrama de proceso + pie navy |
 | 2 | Quiénes Somos + franja de datos registrales | Blanco |
 | 3 | Industrias que Atendemos | Blanco |
 | 4 | Capacidad de Suministro | Blanco |
 | 5 | Procura Estratégica (flujo de 8 etapas) | Blanco + panel gris claro |
 | 6 | Global Supply Network | Gris azulado muy claro |
 | 7 | Nuestro Compromiso | Blanco |
-| 8 | Contraportada — cierre editorial con QR | Banda fotográfica + off-white + banda navy |
+| 8 | Contraportada — cierre editorial con QR | Colector navy + off-white + banda navy |
 
 La contraportada se compone **en flujo, no en posiciones absolutas**. La placa de marca
 cabalga sobre la banda fotográfica mediante un margen negativo, pero su altura sigue
 contando en el flujo, de modo que no puede solaparse con el bloque de llamada a la acción
 por mucho que crezca el texto. Una versión anterior sí se solapaba y cortaba el rótulo.
 
-### Fotografía: qué se pudo y qué no
+### Portada y contraportada: ilustración, no fotografía
+
+Ninguna fotografía del banco convencía para la portada, y la del puerto tampoco
+funcionaba como cierre. Como este entorno no permite incorporar imágenes nuevas, ambas
+páginas pasaron a **ilustración técnica original en SVG**, dibujada en el lenguaje gráfico
+de la industria:
+
+- **Portada** — diagrama de proceso: almacenamiento, bombeo, válvula de compuerta (en
+  naranja de marca), bridas, reducción, válvula de bola en ramal, instrumentación e
+  intercambio de calor, sobre retícula de plano.
+- **Contraportada** — colector de válvulas en negativo sobre navy, que rima con la portada
+  y cierra el documento con el mismo lenguaje.
+
+Es vectorial: imprime nítido a cualquier tamaño, no depende de banco de imágenes y bajó el
+PDF de impresión a 2,8 MB. Las dos fotografías liberadas siguen en `assets/img/` por si se
+prefiere volver a una portada fotográfica.
+
+### El resto de la fotografía: qué se pudo y qué no
 
 El banco fotográfico se limita a los 24 archivos de `public/images/`. Este entorno bloquea
 el acceso a bancos de imágenes externos, así que **no fue posible incorporar fotografías
