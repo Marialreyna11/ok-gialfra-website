@@ -6,34 +6,26 @@
 <meta name="description" content="Perfil corporativo de OK. GIALFRA LLC — procura industrial, Oil &amp; Gas, equipos, materiales y logística.">
 <link rel="stylesheet" href="assets/fonts.css">
 <style>
-/* ============================================================ tokens ====
-   Light-first balance. Paper and white carry the document, steel blue does
-   the structural work, corporate navy is reserved for a handful of strategic
-   blocks, and industrial orange stays the single accent.                  */
+/* ============================================================ tokens ==== */
 :root{
   --steel-500:#8a97a8; --steel-400:#a7b3c2; --steel-300:#c3ccd8; --steel-200:#dde3ea; --steel-100:#eef1f5;
-  --copper-700:#c9640f; --copper-600:#ef7a1f; --copper-500:#ff8c38; --copper-400:#ffa863;
-  --ink:#152231; --mute:#4f5d6b; --line:#e2e6ea; --paper:#f5f6f7; --panel:#ffffff;
-  --navy-block:#1c3253;      /* corporate navy — strategic blocks only */
-  --slate:#41628f;           /* steel blue — structure, map, secondary marks */
-  --mist:#f1f4f8;            /* very light industrial grey-blue ground */
-  --on-navy:#c9d4e4;         /* secondary text inside a navy block */
-  --scrim:21,34,49;          /* caption scrim over photography */
-  --pad:17mm;
+  --copper-600:#ef7a1f; --copper-500:#ff8c38; --copper-400:#ffa863;
+  --ink:#152231; --mute:#4f5d6b; --line:#e2e6ea; --paper:#f7f8fa; --panel:#ffffff;
+  --navy:#1c3253; --slate:#41628f; --mist:#f1f4f8; --on-navy:#c9d4e4;
+  --scrim:16,28,48;
+  --pad:16mm;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#9aa1aa}
 h1,h2,h3,h4{font-family:"Barlow Condensed",Oswald,Impact,sans-serif;text-transform:uppercase;
-  letter-spacing:.01em;line-height:1.02;font-weight:700;color:var(--ink)}
+  letter-spacing:.01em;line-height:1.02;font-weight:700;color:var(--navy)}
 img{display:block;max-width:100%}
 
-/* ============================================================== page ==== */
 @page{size:A4 portrait;margin:0}
 .page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--panel);
   page-break-after:always;break-after:page}
 .page:last-child{page-break-after:auto;break-after:auto}
-
 @media screen{
   body{padding:26px 0;display:flex;flex-direction:column;align-items:center;gap:26px}
   .page{box-shadow:0 18px 50px -18px rgba(0,0,0,.4)}
@@ -46,325 +38,225 @@ img{display:block;max-width:100%}
 .logo-crop>img{position:absolute;left:calc(var(--lw)*-.06704);top:calc(var(--lw)*-.13744);
   width:calc(var(--lw)*1.14414);height:auto;max-width:none}
 
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:9px;font-weight:700;
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:8.5px;font-weight:700;
   text-transform:uppercase;letter-spacing:.22em;color:var(--copper-600)}
-.eyebrow::before{content:"";display:block;width:26px;height:2px;background:var(--copper-500)}
-
-.title{font-size:41px;line-height:.96;letter-spacing:.005em}
-.lede{font-size:12.4px;line-height:1.72;color:var(--mute)}
-.body{font-size:11.2px;line-height:1.72;color:var(--mute)}
-
-.media{position:relative;overflow:hidden}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--copper-500)}
+.title{font-size:38px;line-height:.98;letter-spacing:.005em}
+.lede{font-size:11.4px;line-height:1.72;color:var(--mute)}
+.body{font-size:10.6px;line-height:1.7;color:var(--mute)}
+.media{position:relative;overflow:hidden;background:var(--steel-100)}
 .media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-/* Reusable navy block — the document's contrast device, used sparingly. */
-.navyblock{background:var(--navy-block);color:#fff}
-.navyblock h4,.navyblock h3{color:#fff}
-.navyblock p{color:var(--on-navy)}
+/* the editorial head shared by every interior page */
+.phead{display:grid;grid-template-columns:1fr 78mm;gap:12mm;align-items:end}
+.phead .intro{font-size:10.2px;line-height:1.68;color:var(--mute);text-align:right}
 
-/* running header / footer */
 .runner{position:absolute;left:var(--pad);right:var(--pad);display:flex;align-items:center;
-  justify-content:space-between;font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+  justify-content:space-between;font-size:7.4px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--steel-500);font-weight:600}
-.runner.top{top:11mm}
-.runner.bot{bottom:11mm}
-.runner .n{display:flex;align-items:center;gap:8px;color:var(--ink)}
-.runner .n::before{content:"";display:block;width:16px;height:2px;background:var(--copper-500)}
-.pageno{font-family:"Barlow Condensed",sans-serif;font-size:15px;letter-spacing:.05em;color:var(--ink)}
+.runner.top{top:10mm}
+.runner.bot{bottom:10mm}
+.runner .n{display:flex;align-items:center;gap:8px;color:var(--navy)}
+.runner .n::before{content:"";display:block;width:15px;height:2px;background:var(--copper-500)}
+.pageno{font-family:"Barlow Condensed",sans-serif;font-size:14px;letter-spacing:.05em;color:var(--navy)}
+.sheetbox{position:absolute;left:var(--pad);right:var(--pad);top:22mm;bottom:20mm;
+  display:flex;flex-direction:column}
 
-/* ============================================================ P1 cover ==
-   Paper ground, photography in a full-bleed band with no scrim over it, and
-   a single navy foot band. The page reads light; the photograph reads clean. */
-.cover{background:var(--panel);display:flex;flex-direction:column}
-.cover .head{padding:var(--pad) var(--pad) 0;display:flex;align-items:flex-start;justify-content:space-between}
-.cover .stamp{text-align:right;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--steel-500);font-weight:600;line-height:1.9}
-.cover .stamp b{display:block;color:var(--navy-block);font-weight:700}
-.cover .shot{position:relative;height:104mm;margin-top:9mm;overflow:hidden;background:var(--steel-100)}
-.shot.art{background:#f4f6f9}
-.shot.art>svg{position:absolute;inset:0;width:100%;height:100%}
-.cover .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cover .shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3mm;background:var(--copper-500)}
-.cover .copy{position:relative;flex:1;padding:11mm var(--pad) 0;overflow:hidden}
-.cover .net{position:absolute;right:-26mm;bottom:-30mm;width:120mm;opacity:.75;pointer-events:none}
-.cover h1{position:relative;margin-top:6mm;font-size:53px;line-height:.95;color:var(--navy-block);max-width:150mm}
-.cover h1 em{font-style:normal;color:var(--copper-600)}
-.cover .sub{position:relative;margin-top:8mm;font-size:10px;letter-spacing:.19em;text-transform:uppercase;
-  color:var(--slate);font-weight:600}
-.cover .sub span{color:var(--copper-500);margin:0 7px}
-.cover .msg{position:relative;margin-top:5mm;font-size:12.5px;line-height:1.65;color:var(--mute);max-width:118mm}
-.cover .band{height:21mm;background:var(--navy-block);color:#fff;display:flex;align-items:center;
-  justify-content:space-between;padding:0 var(--pad)}
-.cover .band .web{font-family:"Barlow Condensed",sans-serif;font-size:19px;letter-spacing:.1em;
-  text-transform:uppercase;color:#fff}
-.cover .band .loc{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-navy);
-  font-weight:600;text-align:right;line-height:1.7}
+/* ==================================================== P1/P8 diagonal ==== */
+.hero{position:absolute;left:0;right:0;top:0;height:60%;overflow:hidden;background:var(--steel-100)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--scrim),.52) 0%,rgba(var(--scrim),.12) 22%,rgba(var(--scrim),0) 38%)}
+.cut{position:absolute;left:0;right:0;bottom:0;height:52%;background:var(--copper-500);
+  clip-path:polygon(0 14%,100% 0,100% 100%,0 100%)}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:52%;background:var(--panel);
+  clip-path:polygon(0 16.6%,100% 2.6%,100% 100%,0 100%)}
+.wedge{position:absolute;left:0;top:0;width:80mm;height:33mm;background:var(--panel);
+  clip-path:polygon(0 0,100% 0,72% 100%,0 100%)}
+.brandmark{position:absolute;left:var(--pad);top:9mm}
+.stamp{position:absolute;right:var(--pad);top:12mm;text-align:right;font-size:8px;
+  letter-spacing:.24em;text-transform:uppercase;color:#fff;font-weight:600;line-height:1.9;
+  text-shadow:0 1px 6px rgba(10,18,34,.5)}
+.stamp b{display:block;font-weight:700}
+
+/* ============================================================ P1 cover == */
+.cover-copy{position:absolute;left:var(--pad);right:var(--pad);top:188mm;bottom:14mm;
+  display:flex;flex-direction:column}
+.cover-copy h1{font-size:47px;line-height:.98;color:var(--navy);max-width:150mm}
+.cover-copy h1 em{font-style:normal;color:var(--copper-600)}
+.cover-copy .sub{margin-top:7mm;font-size:9.4px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--slate);font-weight:700}
+.cover-copy .sub span{color:var(--copper-500);margin:0 6px}
+.cover-copy .msg{margin-top:5mm;font-size:11px;line-height:1.6;color:var(--mute);max-width:96mm}
+.cover-foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;
+  padding-top:5mm;border-top:1px solid var(--line)}
+.cover-foot .web{display:flex;align-items:center;gap:8px;font-family:"Barlow Condensed",sans-serif;
+  font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.cover-foot .web i{width:16px;height:16px;color:var(--copper-500);display:block}
+.cover-foot .web i svg{width:100%;height:100%}
+.cover-foot .loc{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);
+  font-weight:700;text-align:right;line-height:1.8}
 
 /* ========================================================= P2 nosotros == */
 .p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:11mm;align-items:start}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);
   border-left:1px solid var(--line)}
-.pillar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:7.5mm 5.5mm}
-.pillar svg{width:19px;height:19px;stroke:var(--copper-500);fill:none;stroke-width:1.5;
-  stroke-linecap:round;stroke-linejoin:round}
-.pillar h4{margin-top:4mm;font-size:15px;letter-spacing:.06em}
-.pillar p{margin-top:2mm;font-size:9.6px;line-height:1.62;color:var(--mute)}
-.checks{margin-top:7mm;display:grid;gap:3.4mm}
-.check{display:flex;gap:9px;align-items:flex-start;font-size:10.6px;line-height:1.6;color:var(--mute)}
+.pillar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6.5mm 5mm}
+.pillar i{display:block;width:19px;height:19px;color:var(--copper-500)}
+.pillar i svg{width:100%;height:100%}
+.pillar h4{margin-top:3.5mm;font-size:14px;letter-spacing:.06em}
+.pillar p{margin-top:2mm;font-size:9px;line-height:1.58;color:var(--mute)}
+.checks{margin-top:6mm;display:grid;gap:3mm}
+.check{display:flex;gap:9px;align-items:flex-start;font-size:10px;line-height:1.58;color:var(--mute)}
 .check i{flex:0 0 auto;width:15px;height:15px;border-radius:50%;background:rgba(255,140,56,.16);
-  display:flex;align-items:center;justify-content:center;margin-top:1px}
-.check i svg{width:9px;height:9px;stroke:var(--copper-600);fill:none;stroke-width:2.4;
-  stroke-linecap:round;stroke-linejoin:round}
-.legal{margin-top:auto;background:var(--navy-block);color:#fff;padding:6mm 7mm;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;color:var(--copper-600)}
+.check i svg{width:9px;height:9px;stroke-width:2.6}
+.legal{margin-top:auto;background:var(--navy);color:#fff;padding:6mm 7mm;
   display:grid;grid-template-columns:repeat(5,1fr);gap:5mm}
-.legal .k{font-size:7.4px;letter-spacing:.19em;text-transform:uppercase;color:var(--on-navy);font-weight:700}
-.legal .v{margin-top:1.6mm;font-family:"Barlow Condensed",sans-serif;font-size:14px;letter-spacing:.04em;
+.legal .k{font-size:7px;letter-spacing:.19em;text-transform:uppercase;color:var(--on-navy);font-weight:700}
+.legal .v{margin-top:1.6mm;font-family:"Barlow Condensed",sans-serif;font-size:13px;letter-spacing:.04em;
   text-transform:uppercase;color:#fff;line-height:1.15}
 .legal .v.ok{color:var(--copper-400)}
 
-/* ======================================================= P3 industrias ==
-   The scrim now starts well down the frame, so the photography stays visible
-   and only the caption zone is darkened. */
-.ind-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:82mm 55mm 55mm;gap:4mm}
-.ind{position:relative;overflow:hidden;background:var(--steel-100)}
-.ind.wide{grid-column:1/3}
-.ind img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ind .ov{position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(var(--scrim),0) 50%,rgba(var(--scrim),.30) 74%,rgba(var(--scrim),.82) 100%)}
-.ind .cap{position:absolute;left:6mm;right:6mm;bottom:5mm}
-.ind .cap h3{font-size:21px;color:#fff;letter-spacing:.05em}
-.ind.wide .cap h3{font-size:30px}
-.ind .cap p{margin-top:1.4mm;font-size:9.2px;line-height:1.5;color:var(--steel-200);max-width:78mm}
-.ind .tick{position:absolute;left:6mm;top:5mm;width:20px;height:3px;background:var(--copper-500)}
+/* ========================================================== P3 sectores = */
+.sectors{margin-top:9mm;display:grid;gap:3.4mm}
+.srow{display:grid;grid-template-columns:66mm 1fr;height:39mm;overflow:hidden}
+.srow .label{background:var(--navy);padding:6mm 6mm;display:flex;flex-direction:column;justify-content:center}
+.srow .label i{display:block;width:22px;height:22px;color:var(--copper-500)}
+.srow .label i svg{width:100%;height:100%}
+.srow .label h3{margin-top:3mm;font-size:17px;color:#fff;letter-spacing:.06em}
+.srow .label p{margin-top:1.6mm;font-size:8.4px;line-height:1.5;color:var(--on-navy)}
+.srow .media{height:100%}
 
-/* ======================================================== P4 productos == */
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3.6mm}
-.prod{position:relative;height:36mm;overflow:hidden;background:var(--steel-100)}
-.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.prod .ov{position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(var(--scrim),0) 44%,rgba(var(--scrim),.34) 74%,rgba(var(--scrim),.84) 100%)}
-.prod h4{position:absolute;left:4mm;right:4mm;bottom:3.6mm;font-size:13px;color:#fff;letter-spacing:.06em;line-height:1.05}
-.prod .num{position:absolute;right:3.6mm;top:3mm;font-family:"Barlow Condensed",sans-serif;
-  font-size:11px;color:#fff;opacity:.85;letter-spacing:.1em}
-.bands{margin-top:5mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
-.band{border:1px solid var(--line);border-left:3px solid var(--copper-500);padding:7mm 6mm;background:var(--paper)}
-.band h4{font-size:16px;letter-spacing:.05em}
-.band p{margin-top:2mm;font-size:9.6px;line-height:1.62;color:var(--mute)}
+/* ========================================================= P4 portafolio */
+.fbands{margin-top:8mm;display:grid;gap:3.4mm}
+.fband{border:1px solid var(--line);border-left:3px solid var(--copper-500);
+  background:var(--paper);overflow:hidden}
+.fband .txt{padding:8mm 8mm;display:flex;flex-direction:column;justify-content:center}
+.fband .txt .row{display:flex;align-items:center;gap:8px}
+.fband .txt i{display:block;width:19px;height:19px;color:var(--copper-500)}
+.fband .txt i svg{width:100%;height:100%}
+.fband h4{font-size:16px;letter-spacing:.05em}
+.fband p{margin-top:2.4mm;font-size:9.4px;line-height:1.6;color:var(--mute);max-width:132mm}
+.pgrid{margin-top:5mm;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.pcell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:12mm 4mm;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pcell .no{font-family:"Barlow Condensed",sans-serif;font-size:10px;letter-spacing:.18em;
+  color:var(--copper-600);align-self:flex-start}
+.pcell i{display:block;width:28px;height:28px;color:var(--navy);margin-top:2mm}
+.pcell i svg{width:100%;height:100%;stroke-width:1.3}
+.pcell h4{margin-top:3.4mm;font-size:11px;letter-spacing:.05em;line-height:1.15}
 
-/* ====================================================== P5 procurement ==
-   Rebuilt light: the eight stages sit on a pale industrial panel with steel
-   hairlines, orange nodes and navy labels. */
-.p5-head{display:grid;grid-template-columns:1fr 1fr;gap:11mm;align-items:end}
-.p5-lead{padding:7mm 7mm;font-size:11px;line-height:1.7}
-.flowpanel{background:var(--mist);border-top:1px solid var(--steel-200);
-  border-bottom:1px solid var(--steel-200);padding:11mm 8mm;margin:0 calc(var(--pad)*-1);
-  flex:1;display:flex;flex-direction:column;justify-content:center}
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.step{position:relative;padding:0 4mm 0 0}
+/* ====================================================== P5 procurement == */
+.p5-grid{display:grid;grid-template-columns:1fr 82mm;gap:12mm;align-items:start}
+.caplist{display:grid;gap:8mm}
+.capitem{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start}
+.capitem i{width:20px;height:20px;color:var(--copper-500);display:block;margin-top:1px}
+.capitem i svg{width:100%;height:100%}
+.capitem h4{font-size:13px;letter-spacing:.05em}
+.capitem p{margin-top:1.6mm;font-size:9px;line-height:1.55;color:var(--mute)}
+.flowpanel{margin-top:12mm;flex:1;display:flex;flex-direction:column;justify-content:center;
+  background:var(--mist);border:1px solid var(--steel-200);padding:12mm 9mm}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step{position:relative;padding-right:4mm}
 .step .dot{position:relative;height:9mm;display:flex;align-items:center}
 .step .dot::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--steel-300)}
 .step .dot i{position:relative;z-index:1;width:9mm;height:9mm;border-radius:50%;
-  background:var(--copper-500);border:1px solid var(--copper-500);
-  display:flex;align-items:center;justify-content:center;
-  font-family:"Barlow Condensed",sans-serif;font-size:13px;color:#fff;font-weight:700;letter-spacing:.04em}
-.step h4{margin-top:4mm;font-size:13.5px;letter-spacing:.05em;line-height:1.06;color:var(--navy-block)}
-.step p{margin-top:1.6mm;font-size:8.8px;line-height:1.55;color:var(--mute);padding-right:2mm}
-.flow-gap{height:11mm}
-.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.cap-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6.4mm 5mm}
-.cap-cell svg{width:18px;height:18px;stroke:var(--copper-500);fill:none;stroke-width:1.5;
-  stroke-linecap:round;stroke-linejoin:round}
-.cap-cell h4{margin-top:3.4mm;font-size:13.5px;letter-spacing:.05em;color:var(--navy-block)}
-.cap-cell p{margin-top:1.6mm;font-size:9px;line-height:1.58;color:var(--mute)}
+  background:var(--copper-500);display:flex;align-items:center;justify-content:center;
+  font-family:"Barlow Condensed",sans-serif;font-size:12px;color:#fff;font-weight:700}
+.step h4{margin-top:3.8mm;font-size:12.5px;letter-spacing:.05em;line-height:1.08}
+.step p{margin-top:1.6mm;font-size:8.5px;line-height:1.52;color:var(--mute);padding-right:3mm}
+.flow-gap{height:13mm}
 
-/* ============================================================= P6 map ===
-   Rebuilt light: pale grey-blue ground, steel dot plate, orange reserved for
-   Homestead and the sourcing connections. */
+/* ============================================================= P6 map === */
+.mapplate{background:var(--mist);border-top:1px solid var(--steel-200);
+  border-bottom:1px solid var(--steel-200);padding:13mm 0}
 .mapstage{position:relative}
 .mapstage img.world{width:100%}
 .mapstage svg.arcs{position:absolute;inset:0;width:100%;height:100%}
-.maphub{position:absolute;font-family:"Barlow Condensed",sans-serif;font-size:11px;
-  letter-spacing:.2em;color:var(--navy-block);text-transform:uppercase;white-space:nowrap}
-.maplegend{display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:var(--panel);
-  border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.maplegend>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:15mm 8mm}
-.maplegend h4{font-size:19px;letter-spacing:.06em;color:var(--navy-block)}
-.maplegend p{margin-top:2.4mm;font-size:9.6px;line-height:1.6;color:var(--mute);max-width:72mm}
-.note{margin-top:5mm;padding:4.5mm 5mm;border-left:3px solid var(--copper-500);
-  background:var(--panel);font-size:8.8px;line-height:1.62;color:var(--mute)}
+.maphub{position:absolute;font-family:"Barlow Condensed",sans-serif;font-size:10px;
+  letter-spacing:.18em;color:var(--navy);text-transform:uppercase;white-space:nowrap;
+  background:var(--panel);border:1px solid var(--steel-200);padding:1.6mm 3mm}
+.gblocks{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.gblock{border:1px solid var(--line);background:var(--panel);padding:11mm 8mm;display:grid;
+  grid-template-columns:auto 1fr;gap:9px;align-items:start}
+.gblock i{width:24px;height:24px;color:var(--copper-500);display:block}
+.gblock i svg{width:100%;height:100%}
+.gblock h4{font-size:16px;letter-spacing:.06em}
+.gblock p{margin-top:1.8mm;font-size:9px;line-height:1.58;color:var(--mute)}
+.note{padding:5mm 6mm;border:1px solid var(--line);border-left:3px solid var(--copper-500);
+  background:var(--paper);font-size:8.6px;line-height:1.65;color:var(--mute)}
 
 /* ====================================================== P7 compromiso === */
-.commit{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);
-  border-left:1px solid var(--line)}
-.commit>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9mm 6.5mm}
-.commit .no{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;color:var(--copper-600)}
-.commit h3{margin-top:3mm;font-size:24px;letter-spacing:.05em;color:var(--navy-block)}
-.commit p{margin-top:2.4mm;font-size:10px;line-height:1.65;color:var(--mute)}
-.cbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-left:1px solid var(--line)}
-.cbar>div{border-right:1px solid var(--line);padding:5mm 3.4mm;font-size:8.6px;line-height:1.45;
-  letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--navy-block)}
-.cbar>div::before{content:"";display:block;width:14px;height:3px;background:var(--copper-500);margin-bottom:2.6mm}
-
-/* ======================================================== P8 contacto ===
-   Cierre editorial asimétrico. La página se compone en flujo, no en posiciones
-   absolutas: la placa de marca cabalga sobre la banda fotográfica con un margen
-   negativo, pero su altura sigue contando, así que no puede solaparse con el
-   bloque de llamada a la acción por mucho que crezca el texto. */
-.back{background:var(--paper);display:flex;flex-direction:column}
-.back .shot{position:relative;flex:0 0 auto;height:104mm;overflow:hidden;background:var(--steel-100)}
-.back .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.back .shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3mm;background:var(--copper-500)}
-
-.back-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 var(--pad) 9mm}
-.back-plate{position:relative;z-index:2;width:98mm;margin-top:-26mm;background:var(--panel);
-  border:1px solid var(--line);padding:7mm 7mm 6mm;box-shadow:0 10px 30px -16px rgba(21,34,49,.34)}
-.back-plate .logo-crop{--lw:52mm}
-.back-plate .tick{display:block;width:26px;height:2px;background:var(--copper-500);margin:6mm 0 4mm}
-.back-plate .co{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);font-weight:700}
-.back-plate h2{margin-top:3mm;font-size:28px;line-height:1.02;color:var(--navy-block);letter-spacing:.05em}
-.back-plate h2 span{display:block;color:var(--copper-600)}
-
-.cta{margin-top:11mm;display:grid;grid-template-columns:auto 1fr;gap:10mm;align-items:center;
-  background:var(--navy-block);padding:10mm 10mm}
-.cta .qr{background:var(--panel);padding:3.5mm;width:34mm}
-.cta .qr img{width:100%;display:block}
-.cta .tick{display:block;width:26px;height:2px;background:var(--copper-500);margin-bottom:5mm}
-.cta h3{font-size:24px;color:#fff;letter-spacing:.05em;line-height:1.04}
-.cta p{margin-top:3mm;font-size:10px;line-height:1.6;color:var(--on-navy)}
-
-.reach{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--panel);
+.pillars4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
   border-top:1px solid var(--line);border-left:1px solid var(--line)}
-/* direct children only — .k/.v are divs and must not inherit the cell frame */
-.reach>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10mm 6mm}
-.reach .k{font-size:7.4px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper-600);font-weight:700}
-.reach .v{margin-top:2.4mm;font-size:10.4px;line-height:1.6;color:var(--navy-block)}
-.reach .v a{color:var(--navy-block);text-decoration:none}
+.pillars4>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9mm 5.5mm}
+.pillars4 i{width:34px;height:34px;border-radius:50%;border:1px solid var(--steel-200);
+  background:var(--paper);color:var(--copper-600);display:flex;align-items:center;justify-content:center}
+.pillars4 i svg{width:18px;height:18px}
+.pillars4 h4{margin-top:4mm;font-size:15px;letter-spacing:.06em}
+.pillars4 p{margin-top:2mm;font-size:8.8px;line-height:1.56;color:var(--mute)}
+.cbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-left:1px solid var(--line)}
+.cbar>div{border-right:1px solid var(--line);padding:6mm 3.2mm;font-size:8px;line-height:1.42;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.cbar>div::before{content:"";display:block;width:13px;height:2px;background:var(--copper-500);margin-bottom:2.4mm}
 
-.backband{flex:0 0 auto;height:21mm;background:var(--navy-block);
+/* ======================================================== P8 contacto === */
+.back-body{position:absolute;left:var(--pad);right:var(--pad);top:168mm;bottom:26mm;
+  display:flex;flex-direction:column}
+.back-body .co{font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);font-weight:700}
+.back-body h2{margin-top:3mm;font-size:33px;line-height:1.02;color:var(--navy);letter-spacing:.05em}
+.back-body h2 span{display:block;color:var(--copper-600)}
+.cta{margin-top:9mm;display:grid;grid-template-columns:auto 1fr;gap:9mm;align-items:center;
+  border:1px solid var(--line);background:var(--paper);padding:7mm 8mm}
+.cta .qr{background:var(--panel);border:1px solid var(--steel-200);padding:3mm;width:33mm}
+.cta .qr img{width:100%;display:block}
+.cta .tick{display:block;width:24px;height:2px;background:var(--copper-500);margin-bottom:4mm}
+.cta h3{font-size:21px;letter-spacing:.05em;line-height:1.05}
+.cta p{margin-top:2.4mm;font-size:9.4px;line-height:1.55;color:var(--mute)}
+.reach{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.reach>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:6mm 5mm;display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center}
+.reach i{width:20px;height:20px;color:var(--copper-500);display:block}
+.reach i svg{width:100%;height:100%}
+.reach .v{font-size:9.4px;line-height:1.45;color:var(--navy)}
+.reach .v a{color:var(--navy);text-decoration:none}
+.backband{position:absolute;left:0;right:0;bottom:0;height:18mm;background:var(--navy);
   display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);
-  font-size:7.6px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy);font-weight:600}
+  font-size:7.4px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy);font-weight:600}
+.backband b{color:#fff;font-weight:700}
 </style>
 </head>
 <body>
 
 <!-- ============================================================ PAGE 1 === -->
 <section class="page cover">
-  <div class="head">
-    <span class="logo-crop" style="--lw:56mm"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
-    <div class="stamp">
-      <b>Perfil Corporativo</b>
-      Florida &middot; Estados Unidos
-    </div>
-  </div>
+  <div class="hero"><img src="assets/img/print/industries-industrial.jpg" alt="Planta de proceso industrial en operación"></div>
+  <div class="cut"></div>
+  <div class="sheet"></div>
+  <div class="wedge"></div>
+  <div class="brandmark"><span class="logo-crop" style="--lw:52mm"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span></div>
+  <div class="stamp"><b>Perfil Corporativo</b>Florida &middot; Estados Unidos</div>
 
-  <div class="shot art">
-    <!-- Diagrama de proceso original, en el lenguaje gráfico de la industria:
-         almacenamiento, bombeo, válvula, bridas, reducción, instrumentación e
-         intercambio. Vectorial, así que imprime nítido a cualquier tamaño. -->
-    <svg viewBox="0 0 1000 495" preserveAspectRatio="xMidYMid meet" aria-label="Diagrama de proceso industrial">
-      <defs>
-        <pattern id="cgrid" width="25" height="25" patternUnits="userSpaceOnUse">
-          <path d="M25 0H0V25" fill="none" stroke="#dde4ed" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="1000" height="495" fill="url(#cgrid)"/>
-
-      <g transform="translate(0,38)">
-      <g stroke="#1c3253" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M150 250 H860"/>
-        <path d="M470 250 V160 H576"/>
-        <path d="M300 250 V330 H700 V250"/>
-      </g>
-
-      <g stroke="#1c3253" fill="#fff" stroke-width="3">
-        <rect x="58" y="192" width="94" height="116" rx="6"/>
-        <path d="M58 218 H152" stroke-width="2"/>
-      </g>
-
-      <g stroke="#1c3253" fill="#fff" stroke-width="3">
-        <circle cx="235" cy="250" r="30"/>
-        <path d="M222 234 L258 250 L222 266 Z" fill="#1c3253" stroke="none"/>
-      </g>
-
-      <g stroke-width="3">
-        <path d="M330 228 L330 272 L378 228 L378 272 Z" fill="#ff8c38" stroke="#c9640f"/>
-        <path d="M354 228 V196" stroke="#1c3253" fill="none"/>
-        <circle cx="354" cy="188" r="15" fill="#fff" stroke="#1c3253"/>
-        <path d="M339 188 H369 M354 173 V203" stroke="#1c3253"/>
-      </g>
-
-      <g stroke="#1c3253" stroke-width="3">
-        <path d="M424 226 V274 M436 226 V274"/>
-        <path d="M704 226 V274 M716 226 V274"/>
-      </g>
-
-      <g stroke="#1c3253" fill="#fff" stroke-width="3">
-        <path d="M560 230 L612 239 L612 261 L560 270 Z"/>
-      </g>
-
-      <g stroke-width="3">
-        <circle cx="600" cy="160" r="24" fill="#fff" stroke="#1c3253"/>
-        <path d="M582 144 L582 176 L618 144 L618 176 Z" fill="#1c3253" stroke="none"/>
-      </g>
-
-      <g stroke="#1c3253" stroke-width="2" fill="none">
-        <path d="M770 250 V132" stroke-dasharray="6 6"/>
-        <circle cx="770" cy="112" r="27" fill="#fff"/>
-        <path d="M743 112 H797"/>
-      </g>
-
-      <g stroke="#1c3253" fill="#fff" stroke-width="3">
-        <rect x="806" y="210" width="122" height="80" rx="4"/>
-        <path d="M818 250 h18 l10 -19 l16 38 l16 -38 l10 19 h20" stroke-width="2.5" fill="none"/>
-      </g>
-
-      <g stroke="#8a97a8" stroke-width="1.5" fill="none">
-        <path d="M58 372 H928 M58 364 V380 M928 364 V380 M493 364 V380"/>
-      </g>
-      <g fill="#ff8c38"><circle cx="150" cy="250" r="5"/><circle cx="860" cy="250" r="5"/><circle cx="500" cy="330" r="5"/></g>
-      </g>
-    </svg>
-  </div>
-
-  <div class="copy">
-    <!-- Global supply network motif, echoing the site's hero graphic -->
-    <svg class="net" viewBox="0 0 600 420" fill="none" aria-hidden="true">
-      <g stroke="#c3ccd8">
-        <circle cx="300" cy="210" r="60"/><circle cx="300" cy="210" r="105"/>
-        <circle cx="300" cy="210" r="150"/><circle cx="300" cy="210" r="195"/>
-        <ellipse cx="300" cy="210" rx="195" ry="72"/><ellipse cx="300" cy="210" rx="195" ry="140"/>
-        <line x1="105" y1="210" x2="495" y2="210"/><line x1="300" y1="15" x2="300" y2="405"/>
-      </g>
-      <g stroke="#ff8c38" stroke-opacity=".75" stroke-dasharray="4 6">
-        <path d="M175 265 Q 300 90 425 175"/><path d="M175 265 Q 250 320 400 285"/>
-        <path d="M175 265 Q 210 150 330 120"/>
-      </g>
-      <g fill="#ff8c38"><circle cx="175" cy="265" r="4.2"/></g>
-      <g fill="#41628f">
-        <circle cx="425" cy="175" r="2.6"/><circle cx="400" cy="285" r="2.6"/><circle cx="330" cy="120" r="2.6"/>
-      </g>
-    </svg>
-
-    <span class="eyebrow">OK. GIALFRA LLC</span>
+  <div class="cover-copy">
     <h1>Soluciones Globales<br>de Procura para la<br><em>Industria Energética</em></h1>
     <div class="sub">Procura Industrial<span>&bull;</span>Oil &amp; Gas<span>&bull;</span>Equipos<span>&bull;</span>Materiales<span>&bull;</span>Logística</div>
     <p class="msg">Conectando requerimientos industriales con soluciones confiables.</p>
-  </div>
-
-  <div class="band">
-    <div class="web">www.okgialfra.com</div>
-    <div class="loc">OK. GIALFRA LLC<br>Homestead, Florida — USA</div>
+    <div class="cover-foot">
+      <div class="web"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></i>www.okgialfra.com</div>
+      <div class="loc">OK. GIALFRA LLC<br>Homestead, Florida — USA</div>
+    </div>
   </div>
 </section>
 
 <!-- ============================================================ PAGE 2 === -->
 <section class="page">
   <div class="runner top"><span class="n">Perfil Corporativo</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+  <div class="sheetbox">
     <span class="eyebrow">01 — Compañía</span>
-    <h2 class="title" style="margin-top:5mm">Quiénes Somos</h2>
+    <h2 class="title" style="margin-top:4mm">Quiénes Somos</h2>
 
     <div class="p2-grid" style="margin-top:8mm">
       <div>
@@ -383,38 +275,21 @@ img{display:block;max-width:100%}
           calificados, orientada a la precisión técnica, la competitividad comercial y el cumplimiento de los
           plazos acordados.
         </p>
-
         <div class="checks">
-          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
-            <span>Sourcing basado en especificaciones, datasheets, estándares y números de parte.</span></div>
-          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
-            <span>Atención comercial enfocada en precisión y tiempo de respuesta.</span></div>
-          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
-            <span>Red internacional de proveedores para un suministro competitivo y confiable.</span></div>
-          <div class="check"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>
-            <span>Soporte de procura dedicado a proyectos, paradas de planta y MRO.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></i><span>Sourcing basado en especificaciones, datasheets, estándares y números de parte.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></i><span>Atención comercial enfocada en precisión y tiempo de respuesta.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></i><span>Red internacional de proveedores para un suministro competitivo y confiable.</span></div>
+          <div class="check"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></i><span>Soporte de procura dedicado a proyectos, paradas de planta y MRO.</span></div>
         </div>
       </div>
 
       <div>
-        <div class="media" style="height:86mm"><img src="assets/img/print/about-industrial.jpg" alt="Instalación industrial con tuberías y equipos de proceso"></div>
+        <div class="media" style="height:84mm"><img src="assets/img/print/products-instrumentation.jpg" alt="Válvulas e instrumentación de proceso en acero inoxidable"></div>
         <div class="pillars" style="margin-top:6mm">
-          <div class="pillar">
-            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <h4>Sede en Florida</h4><p>Homestead, Florida — Estados Unidos.</p>
-          </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>
-            <h4>Alcance Global</h4><p>Sourcing internacional de equipos y materiales.</p>
-          </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 13h2M7 17h2"/></svg>
-            <h4>Procura Industrial</h4><p>Equipos, materiales y repuestos para operación y proyecto.</p>
-          </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M8 9h8M8 13h5"/></svg>
-            <h4>Soporte Comercial</h4><p>Cotización, seguimiento de órdenes y coordinación.</p>
-          </div>
+          <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/> <circle cx="12" cy="10" r="2.5"/></svg></i><h4>Sede en Florida</h4><p>Homestead, Florida — Estados Unidos.</p></div>
+          <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></i><h4>Alcance Global</h4><p>Red internacional de suministro de equipos y materiales.</p></div>
+          <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12"/> <path d="M7 21v-7h10v7"/> <path d="M7 17h10"/></svg></i><h4>Procura Industrial</h4><p>Equipos, materiales y repuestos para operación y proyecto.</p></div>
+          <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4-2 5 3 5-3 4 2"/> <path d="M7 6v7l3 3 2-2 2 2 3-3V6"/> <path d="M12 9l-2 2"/></svg></i><h4>Soporte Comercial</h4><p>Cotización, seguimiento de órdenes y coordinación.</p></div>
         </div>
       </div>
     </div>
@@ -427,183 +302,147 @@ img{display:block;max-width:100%}
       <div><div class="k">Constitución</div><div class="v">26 Sep 2023</div></div>
     </div>
   </div>
-
   <div class="runner bot"><span>Estado de Florida — Estados Unidos</span><span class="pageno">02</span></div>
 </section>
 
 <!-- ============================================================ PAGE 3 === -->
 <section class="page">
   <div class="runner top"><span class="n">Sectores</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+  <div class="sheetbox">
+    <div class="phead">
       <div>
         <span class="eyebrow">02 — Mercados</span>
-        <h2 class="title" style="margin-top:5mm">Industrias<br>que Atendemos</h2>
+        <h2 class="title" style="margin-top:4mm">Sectores<br>Industriales</h2>
       </div>
-      <p class="body" style="max-width:82mm;text-align:right">
-        Atendemos requerimientos de equipos, materiales y repuestos para operaciones y proyectos
-        en los sectores industriales de mayor exigencia técnica.
-      </p>
+      <p class="intro">Mercados y sectores donde desarrollamos capacidades de procura y suministro.</p>
     </div>
 
-    <div class="ind-grid" style="margin-top:8mm">
-      <div class="ind wide">
-        <img src="assets/img/print/about-oil-gas.jpg" alt="Unidad de bombeo en campo petrolero al atardecer">
-        <div class="ov"></div><div class="tick"></div>
-        <div class="cap"><h3>Oil &amp; Gas</h3><p>Suministro para operaciones upstream, midstream y downstream.</p></div>
+    <div class="sectors">
+      <div class="srow">
+        <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21L11 4M16 21L13 4M11 4h2"/> <path d="M9 9h6M8.4 13h7.2M7.6 17h8.8"/> <path d="M12 4V2"/></svg></i><h3>Oil &amp; Gas</h3><p>Suministro para operaciones upstream, midstream y downstream.</p></div>
+        <div class="media"><img src="assets/img/print/about-oil-gas.jpg" alt="Unidad de bombeo en campo petrolero al amanecer"></div>
       </div>
-      <div class="ind">
-        <img src="assets/img/print/industries-energy.jpg" alt="Subestación eléctrica de alta tensión">
-        <div class="ov"></div><div class="tick"></div>
-        <div class="cap"><h3>Energía</h3><p>Generación e infraestructura energética.</p></div>
+      <div class="srow">
+        <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21l3-9H5l4-9M9 12h4l-3 9M15 6h4l-3 6h4l-5 7"/></svg></i><h3>Energía</h3><p>Generación e infraestructura energética.</p></div>
+        <div class="media"><img src="assets/img/print/industries-energy.jpg" alt="Subestación eléctrica de alta tensión"></div>
       </div>
-      <div class="ind">
-        <img src="assets/img/print/industries-petrochemical.jpg" alt="Refinería petroquímica">
-        <div class="ov"></div><div class="tick"></div>
-        <div class="cap"><h3>Petroquímica</h3><p>Refinación, procesamiento y plantas químicas.</p></div>
+      <div class="srow">
+        <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="10" height="12" rx="1"/> <circle cx="8" cy="12" r="3"/> <path d="M13 9h4l3-3M13 15h4l3 3"/></svg></i><h3>Petroquímica</h3><p>Refinación, procesamiento y plantas químicas.</p></div>
+        <div class="media"><img src="assets/img/print/about-industrial.jpg" alt="Equipos de proceso en planta petroquímica"></div>
       </div>
-      <div class="ind">
-        <img src="assets/img/print/industries-industrial.jpg" alt="Planta industrial de proceso">
-        <div class="ov"></div><div class="tick"></div>
-        <div class="cap"><h3>Industrial</h3><p>Manufactura e industria pesada.</p></div>
+      <div class="srow">
+        <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5 3V10l5 3V7l3-4 3 4v14z"/> <path d="M7 17h2M12 17h2M17 17h1"/></svg></i><h3>Industrial</h3><p>Manufactura e industria pesada.</p></div>
+        <div class="media"><img src="assets/img/print/products-pumps.jpg" alt="Bombas industriales instaladas en planta"></div>
       </div>
-      <div class="ind">
-        <img src="assets/img/print/industries-infrastructure.jpg" alt="Vista aérea de una terminal de almacenamiento de hidrocarburos">
-        <div class="ov"></div><div class="tick"></div>
-        <div class="cap"><h3>Infraestructura</h3><p>Servicios, ductos y obras de infraestructura.</p></div>
+      <div class="srow">
+        <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9a4 4 0 0 1 4 4v8"/> <path d="M13 4v4M21 4v4M13 4h8"/> <path d="M12 16h8M12 20h8"/></svg></i><h3>Infraestructura</h3><p>Servicios, ductos y obras de infraestructura.</p></div>
+        <div class="media"><img src="assets/img/print/industries-infrastructure.jpg" alt="Vista aérea de una terminal de almacenamiento"></div>
       </div>
     </div>
   </div>
-
-  <div class="runner bot"><span>Industrias que Atendemos</span><span class="pageno">03</span></div>
+  <div class="runner bot"><span>Sectores Industriales</span><span class="pageno">03</span></div>
 </section>
 
 <!-- ============================================================ PAGE 4 === -->
 <section class="page">
   <div class="runner top"><span class="n">Suministro</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+  <div class="sheetbox">
+    <div class="phead">
       <div>
         <span class="eyebrow">03 — Portafolio</span>
-        <h2 class="title" style="margin-top:5mm">Capacidad<br>de Suministro</h2>
+        <h2 class="title" style="margin-top:4mm">Capacidad<br>de Suministro</h2>
       </div>
-      <p class="body" style="max-width:82mm;text-align:right">
-        Principales familias de productos gestionadas por la compañía. Cada requerimiento se procura
-        contra especificación, norma o número de parte.
-      </p>
+      <p class="intro">Principales familias de productos gestionadas por la compañía. Cada requerimiento se procura contra especificación, norma o número de parte.</p>
     </div>
 
-    <div class="prod-grid" style="margin-top:8mm">
-      <div class="prod"><img src="assets/img/print/products-valves.jpg" alt="Válvula industrial"><div class="ov"></div><span class="num">01</span><h4>Válvulas</h4></div>
-      <div class="prod"><img src="assets/img/print/products-pipes.jpg" alt="Tuberías industriales"><div class="ov"></div><span class="num">02</span><h4>Tuberías y Accesorios</h4></div>
-      <div class="prod"><img src="assets/img/print/products-flanges.jpg" alt="Bridas industriales"><div class="ov"></div><span class="num">03</span><h4>Flanges y Conexiones</h4></div>
-      <div class="prod"><img src="assets/img/print/products-pumps.jpg" alt="Bombas industriales"><div class="ov"></div><span class="num">04</span><h4>Bombas</h4></div>
-      <div class="prod"><img src="assets/img/print/products-compressors.jpg" alt="Compresor industrial"><div class="ov"></div><span class="num">05</span><h4>Compresores</h4></div>
-      <div class="prod"><img src="assets/img/print/products-motors.jpg" alt="Motor industrial"><div class="ov"></div><span class="num">06</span><h4>Motores Industriales</h4></div>
-      <div class="prod"><img src="assets/img/print/products-instrumentation.jpg" alt="Instrumentación de proceso"><div class="ov"></div><span class="num">07</span><h4>Instrumentación</h4></div>
-      <div class="prod"><img src="assets/img/print/products-electrical.jpg" alt="Tableros eléctricos industriales"><div class="ov"></div><span class="num">08</span><h4>Equipos Eléctricos</h4></div>
-      <div class="prod"><img src="assets/img/print/products-mechanical.jpg" alt="Componentes mecánicos"><div class="ov"></div><span class="num">09</span><h4>Componentes Mecánicos</h4></div>
-      <div class="prod"><img src="assets/img/print/products-spare-parts.jpg" alt="Repuestos industriales"><div class="ov"></div><span class="num">10</span><h4>Repuestos y Partes</h4></div>
-      <div class="prod"><img src="assets/img/print/products-tools.jpg" alt="Herramientas industriales"><div class="ov"></div><span class="num">11</span><h4>Herramientas Industriales</h4></div>
-      <div class="prod"><img src="assets/img/print/products-safety.jpg" alt="Equipos de protección industrial"><div class="ov"></div><span class="num">12</span><h4>Equipos de Seguridad</h4></div>
+    <div class="fbands">
+      <div class="fband">
+        <div class="txt">
+          <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21L11 4M16 21L13 4M11 4h2"/> <path d="M9 9h6M8.4 13h7.2M7.6 17h8.8"/> <path d="M12 4V2"/></svg></i><h4>Equipos Oilfield / Wellhead</h4></div>
+          <p>Equipos de cabezal de pozo, perforación, producción y completación para operaciones upstream.</p>
+        </div>
+      </div>
+      <div class="fband">
+        <div class="txt">
+          <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12"/> <path d="M7 21v-7h10v7"/> <path d="M7 17h10"/></svg></i><h4>Materiales y Consumibles MRO</h4></div>
+          <p>Consumibles, componentes y materiales industriales para el sostenimiento de operaciones continuas.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="bands">
-      <div class="band">
-        <h4>Equipos Oilfield / Wellhead</h4>
-        <p>Equipos de cabezal de pozo, perforación, producción y completación para operaciones upstream.</p>
-      </div>
-      <div class="band">
-        <h4>Materiales y Consumibles MRO</h4>
-        <p>Consumibles, componentes y materiales industriales para el sostenimiento de operaciones continuas.</p>
-      </div>
+    <div class="pgrid">
+      <div class="pcell"><span class="no">01</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v6M9 4h6"/> <path d="M4 14l8-4 8 4-8 4-8-4z"/> <path d="M12 14v6M8 20h8"/></svg></i><h4>Válvulas</h4></div>
+      <div class="pcell"><span class="no">02</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9a4 4 0 0 1 4 4v8"/> <path d="M13 4v4M21 4v4M13 4h8"/> <path d="M12 16h8M12 20h8"/></svg></i><h4>Tuberías y Accesorios</h4></div>
+      <div class="pcell"><span class="no">03</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/> <circle cx="12" cy="12" r="3"/> <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M17.7 6.3l-1.4 1.4M7.7 16.3l-1.4 1.4"/></svg></i><h4>Flanges y Conexiones</h4></div>
+      <div class="pcell"><span class="no">04</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="13" r="5"/> <path d="M10 13l3-3"/> <path d="M15 8h5v4M18 8v-3M16 5h4"/> <path d="M4 20h16"/></svg></i><h4>Bombas</h4></div>
+      <div class="pcell"><span class="no">05</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="10" height="12" rx="1"/> <circle cx="8" cy="12" r="3"/> <path d="M13 9h4l3-3M13 15h4l3 3"/></svg></i><h4>Compresores</h4></div>
+      <div class="pcell"><span class="no">06</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="12" height="9" rx="1"/> <path d="M15 11h3v3h-3"/> <path d="M18 12h2"/> <path d="M5 8V6M9 8V6M13 8V6"/> <path d="M4 20h12"/></svg></i><h4>Motores Industriales</h4></div>
+      <div class="pcell"><span class="no">07</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17a8 8 0 1 1 16 0"/> <path d="M12 17l4-4"/> <path d="M12 17h.01"/> <path d="M4 17h16"/></svg></i><h4>Instrumentación</h4></div>
+      <div class="pcell"><span class="no">08</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h5l-1 8 8-11h-5l1-7z"/></svg></i><h4>Equipos Eléctricos</h4></div>
+      <div class="pcell"><span class="no">09</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/> <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></i><h4>Componentes Mecánicos</h4></div>
+      <div class="pcell"><span class="no">10</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/> <path d="M12 2v9M12 11l8-4.5M12 11l-8-4.5"/></svg></i><h4>Repuestos y Partes</h4></div>
+      <div class="pcell"><span class="no">11</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6a3.5 3.5 0 0 0 4.6 4.6L21 13l-2 2-2.4-2.4A3.5 3.5 0 0 0 12 8"/> <path d="M6.5 21L3 17.5l7-7"/> <path d="M4 6l2-2 3 3-2 2z"/></svg></i><h4>Herramientas Industriales</h4></div>
+      <div class="pcell"><span class="no">12</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/> <path d="M9 12l2 2 4-4"/></svg></i><h4>Equipos de Seguridad</h4></div>
     </div>
   </div>
-
   <div class="runner bot"><span>Capacidad de Suministro</span><span class="pageno">04</span></div>
 </section>
 
 <!-- ============================================================ PAGE 5 === -->
 <section class="page">
   <div class="runner top"><span class="n">Proceso</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
-    <div class="p5-head">
+  <div class="sheetbox">
+    <div class="p5-grid">
       <div>
         <span class="eyebrow">04 — Metodología</span>
-        <h2 class="title" style="margin-top:5mm">Procura Estratégica</h2>
-      </div>
-      <div class="navyblock p5-lead">
-        <p>
+        <h2 class="title" style="margin-top:4mm">Procura<br>Estratégica</h2>
+        <p class="lede" style="margin-top:6mm">
           OK. GIALFRA LLC conecta los requerimientos técnicos de cada cliente con fuentes de suministro
           competitivas y confiables, gestionando el proceso completo desde la recepción del requerimiento
           hasta la entrega.
         </p>
       </div>
+      <div class="caplist">
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/> <path d="M20 20l-4.3-4.3"/></svg></i><div><h4>Sourcing Especializado</h4><p>Búsqueda orientada a la especificación técnica del requerimiento.</p></div></div>
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12"/> <path d="M7 21v-7h10v7"/> <path d="M7 17h10"/></svg></i><div><h4>Fabricantes y Distribuidores</h4><p>Identificación de fuentes de suministro para cada familia de producto.</p></div></div>
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12"/> <path d="M5 7h14M5 7l-2.5 5a3 3 0 0 0 5 0zM19 7l2.5 5a3 3 0 0 1-5 0z"/></svg></i><div><h4>Comparación Comercial</h4><p>Evaluación de precio, plazo de entrega y condiciones.</p></div></div>
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/> <path d="M14 3v4h4"/> <path d="M9 12h6M9 16h6"/></svg></i><div><h4>Coordinación Documental</h4><p>Gestión de la documentación asociada al suministro.</p></div></div>
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="1.5"/> <path d="M9 4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9z"/> <path d="M8 11l1.5 1.5L12 10M8 16l1.5 1.5L12 15"/></svg></i><div><h4>Seguimiento de Órdenes</h4><p>Expedición y control del avance hasta el despacho.</p></div></div>
+        <div class="capitem"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10v9H3z"/> <path d="M13 10h4l3 3v3h-7"/> <circle cx="7" cy="18" r="1.6"/> <circle cx="17" cy="18" r="1.6"/></svg></i><div><h4>Coordinación Logística</h4><p>Consolidación, transporte y entrega hasta el destino acordado.</p></div></div>
+      </div>
     </div>
 
-    <div class="flowpanel" style="margin-top:10mm">
+    <div class="flowpanel">
       <div class="flow">
-        <div class="step on"><div class="dot"><i>01</i></div><h4>Requerimiento</h4><p>Recepción y registro de la solicitud del cliente.</p></div>
-        <div class="step on"><div class="dot"><i>02</i></div><h4>Identificación Técnica</h4><p>Verificación de especificaciones, normas y números de parte.</p></div>
-        <div class="step on"><div class="dot"><i>03</i></div><h4>Sourcing</h4><p>Búsqueda de fuentes de suministro en la red internacional.</p></div>
-        <div class="step on"><div class="dot"><i>04</i></div><h4>Evaluación de Proveedores</h4><p>Selección según capacidad, alcance y condiciones.</p></div>
+        <div class="step"><div class="dot"><i>01</i></div><h4>Requerimiento</h4><p>Recepción y registro de la solicitud del cliente.</p></div>
+        <div class="step"><div class="dot"><i>02</i></div><h4>Identificación Técnica</h4><p>Verificación de especificaciones, normas y números de parte.</p></div>
+        <div class="step"><div class="dot"><i>03</i></div><h4>Sourcing</h4><p>Búsqueda de fuentes de suministro en la red internacional.</p></div>
+        <div class="step"><div class="dot"><i>04</i></div><h4>Evaluación de Proveedores</h4><p>Selección según capacidad, alcance y condiciones.</p></div>
       </div>
       <div class="flow-gap"></div>
       <div class="flow">
-        <div class="step on"><div class="dot"><i>05</i></div><h4>Cotización</h4><p>Comparación comercial y presentación de la oferta.</p></div>
-        <div class="step on"><div class="dot"><i>06</i></div><h4>Procura</h4><p>Emisión y gestión de la orden de compra.</p></div>
-        <div class="step on"><div class="dot"><i>07</i></div><h4>Coordinación Logística</h4><p>Consolidación, transporte y documentación de embarque.</p></div>
-        <div class="step on"><div class="dot"><i>08</i></div><h4>Entrega</h4><p>Coordinación hasta el destino y condiciones acordadas.</p></div>
-      </div>
-    </div>
-
-    <div class="caps" style="margin-top:9mm">
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg>
-        <h4>Sourcing Especializado</h4><p>Búsqueda orientada a la especificación técnica del requerimiento.</p>
-      </div>
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/></svg>
-        <h4>Fabricantes y Distribuidores</h4><p>Identificación de fuentes de suministro para cada familia de producto.</p>
-      </div>
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6ZM17 7l-3 7h6Z"/></svg>
-        <h4>Comparación Comercial</h4><p>Evaluación de precio, plazo de entrega y condiciones.</p>
-      </div>
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
-        <h4>Coordinación Documental</h4><p>Gestión de la documentación asociada al suministro.</p>
-      </div>
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><path d="M21 12a9 9 0 1 1-4-7.5"/></svg>
-        <h4>Seguimiento de Órdenes</h4><p>Expedición y control del avance hasta el despacho.</p>
-      </div>
-      <div class="cap-cell">
-        <svg viewBox="0 0 24 24"><path d="M1 7h13v10H1z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
-        <h4>Coordinación Logística</h4><p>Consolidación, transporte y entrega hasta el destino acordado.</p>
+        <div class="step"><div class="dot"><i>05</i></div><h4>Cotización</h4><p>Comparación comercial y presentación de la oferta.</p></div>
+        <div class="step"><div class="dot"><i>06</i></div><h4>Procura</h4><p>Emisión y gestión de la orden de compra.</p></div>
+        <div class="step"><div class="dot"><i>07</i></div><h4>Coordinación Logística</h4><p>Consolidación, transporte y documentación de embarque.</p></div>
+        <div class="step"><div class="dot"><i>08</i></div><h4>Entrega</h4><p>Coordinación hasta el destino y condiciones acordadas.</p></div>
       </div>
     </div>
   </div>
-
   <div class="runner bot"><span>Procura Estratégica</span><span class="pageno">05</span></div>
 </section>
 
 <!-- ============================================================ PAGE 6 === -->
-<section class="page" style="background:var(--mist)">
-  <div class="runner top"><span class="n">Red</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+<section class="page">
+  <div class="runner top"><span class="n">Red Global</span><span>OK. GIALFRA LLC</span></div>
+  <div class="sheetbox">
     <span class="eyebrow">05 — Alcance</span>
-    <h2 class="title" style="margin-top:5mm">Global Supply Network</h2>
+    <h2 class="title" style="margin-top:4mm">Capacidad<br>de Procura Global</h2>
     <p class="lede" style="margin-top:6mm;max-width:140mm">
       Una red de abastecimiento orientada a localizar soluciones industriales de acuerdo con los
       requerimientos técnicos, comerciales y logísticos de cada proyecto.
     </p>
 
-    <div class="mapstage" style="margin:9mm calc(var(--pad)*-1) 0">
+    <div class="mapplate" style="margin:9mm calc(var(--pad)*-1) 0"><div class="mapstage">
       <img class="world" src="assets/world.svg" alt="Mapa mundial de la red de abastecimiento">
       <svg class="arcs" viewBox="0 0 1000 460" fill="none" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -613,14 +452,10 @@ img{display:block;max-width:100%}
           </linearGradient>
         </defs>
         <g stroke="url(#arc)" stroke-width="1.5" stroke-dasharray="5 6">
-          <path d="M245 180 Q 225 110 173 78"/>
-          <path d="M245 180 Q 210 150 203 166"/>
-          <path d="M245 180 Q 380 40 492 98"/>
-          <path d="M245 180 Q 430 60 609 179"/>
-          <path d="M245 180 Q 520 20 788 166"/>
-          <path d="M245 180 Q 290 250 302 301"/>
-          <path d="M245 180 Q 400 210 525 250"/>
-          <path d="M245 180 Q 560 300 832 284"/>
+          <path d="M245 180 Q 225 110 173 78"/><path d="M245 180 Q 210 150 203 166"/>
+          <path d="M245 180 Q 380 40 492 98"/><path d="M245 180 Q 430 60 609 179"/>
+          <path d="M245 180 Q 520 20 788 166"/><path d="M245 180 Q 290 250 302 301"/>
+          <path d="M245 180 Q 400 210 525 250"/><path d="M245 180 Q 560 300 832 284"/>
         </g>
         <g fill="#41628f">
           <circle cx="173" cy="78" r="3.4"/><circle cx="203" cy="166" r="3.4"/>
@@ -630,62 +465,43 @@ img{display:block;max-width:100%}
         </g>
         <circle cx="245" cy="180" r="14" fill="#ff8c38" fill-opacity=".22"/>
         <circle cx="245" cy="180" r="6" fill="#ff8c38"/>
-        <g stroke="#ef7a1f" stroke-width="1.2"><path d="M245 180 v-34 h30"/></g>
       </svg>
-      <div class="maphub" style="left:28.2%;top:31.7%;transform:translateY(-50%)">
-        Homestead, Florida — USA
-      </div>
+      <div class="maphub" style="left:26%;top:20%">Homestead, Florida — USA</div>
+    </div></div>
+
+    <div class="gblocks" style="margin-top:10mm">
+      <div class="gblock"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/> <circle cx="12" cy="10" r="2.5"/></svg></i><div><h4>USA</h4><p>Sede operativa y base de coordinación de procura en Homestead, Florida.</p></div></div>
+      <div class="gblock"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></i><div><h4>Norteamérica</h4><p>Acceso a fabricantes, distribuidores y stockistas de la región.</p></div></div>
     </div>
 
-    <div class="maplegend" style="margin-top:10mm">
-      <div><h4>USA</h4><p>Sede operativa y base de coordinación de procura en Homestead, Florida.</p></div>
-      <div><h4>North America</h4><p>Acceso a fabricantes, distribuidores y stockistas de la región.</p></div>
-    </div>
-
-    <p class="note" style="margin-top:9mm">
-      El mapa representa <b>capacidad de sourcing internacional</b>: los nodos corresponden a orígenes
-      potenciales de suministro y no a oficinas propias. OK. GIALFRA LLC opera desde una única sede en
-      Homestead, Florida, Estados Unidos.
+    <p class="note" style="margin-top:auto">
+      El mapa representa <b>capacidad de sourcing y procura internacional</b>; los puntos corresponden a
+      potenciales orígenes de suministro y no a oficinas propias de OK. GIALFRA LLC.
     </p>
-
   </div>
-
-  <div class="runner bot"><span>Global Supply Network</span><span class="pageno">06</span></div>
+  <div class="runner bot"><span>Capacidad de Procura Global</span><span class="pageno">06</span></div>
 </section>
 
 <!-- ============================================================ PAGE 7 === -->
 <section class="page">
   <div class="runner top"><span class="n">Compromiso</span><span>OK. GIALFRA LLC</span></div>
-
-  <div style="position:absolute;left:var(--pad);right:var(--pad);top:24mm;bottom:22mm;display:flex;flex-direction:column">
+  <div class="sheetbox">
     <span class="eyebrow">06 — Principios</span>
-    <h2 class="title" style="margin-top:5mm">Nuestro Compromiso</h2>
+    <h2 class="title" style="margin-top:4mm">Nuestro Compromiso</h2>
     <p class="lede" style="margin-top:6mm;max-width:150mm">
       Nuestro enfoque está orientado a suministrar soluciones que respondan a las especificaciones
       técnicas, condiciones comerciales y requerimientos documentales establecidos por nuestros clientes.
     </p>
 
-    <div class="commit" style="margin-top:8mm">
-      <div>
-        <div class="no">01</div><h3>Calidad</h3>
-        <p>Verificación de que lo suministrado corresponda a la especificación técnica solicitada por el cliente.</p>
-      </div>
-      <div>
-        <div class="no">02</div><h3>Trazabilidad</h3>
-        <p>Control de referencias, órdenes y documentación asociada a cada suministro.</p>
-      </div>
-      <div>
-        <div class="no">03</div><h3>Cumplimiento</h3>
-        <p>Atención a las condiciones comerciales, plazos y requisitos acordados para cada orden.</p>
-      </div>
-      <div>
-        <div class="no">04</div><h3>Respuesta</h3>
-        <p>Seguimiento activo y comunicación durante todo el proceso de procura.</p>
-      </div>
+    <div class="pillars4" style="margin-top:8mm">
+        <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 7.6-7 9-3.9-1.4-7-4.4-7-9V6l7-3z"/> <path d="M9 12l2 2 4-4"/></svg></i><h4>Calidad</h4><p>Verificación de que lo suministrado corresponda a la especificación técnica solicitada por el cliente.</p></div>
+        <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/> <path d="M14 3v4h4"/> <path d="M9 12h6M9 16h6"/></svg></i><h4>Trazabilidad</h4><p>Control de referencias, órdenes y documentación asociada a cada suministro.</p></div>
+        <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></i><h4>Cumplimiento</h4><p>Atención a las condiciones comerciales, plazos y requisitos acordados para cada orden.</p></div>
+        <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M12 7v5l3 2"/></svg></i><h4>Respuesta</h4><p>Seguimiento activo y comunicación durante todo el proceso de procura.</p></div>
     </div>
 
-    <div class="media" style="height:64mm;margin-top:9mm">
-      <img src="assets/img/print/industries-utilities.jpg" alt="Válvulas y tubería de proceso en una instalación industrial" style="object-position:72% 50%">
+    <div class="media" style="height:92mm;margin-top:9mm">
+      <img src="assets/img/print/products-compressors.jpg" alt="Equipos de proceso en una instalación industrial moderna">
     </div>
 
     <div class="cbar" style="margin-top:8mm">
@@ -696,55 +512,44 @@ img{display:block;max-width:100%}
       <div>Soporte durante la procura</div>
     </div>
 
-    <p class="body" style="margin-top:auto;font-size:9px;color:var(--steel-500)">
+    <p class="body" style="margin-top:auto;font-size:8.4px;color:var(--steel-500)">
       Los requisitos documentales aplicables a cada suministro se definen y acuerdan según las condiciones
       de la orden y del cliente correspondiente.
     </p>
   </div>
-
   <div class="runner bot"><span>Nuestro Compromiso</span><span class="pageno">07</span></div>
 </section>
 
 <!-- ============================================================ PAGE 8 === -->
 <section class="page back">
-  <div class="shot">
-    <img src="assets/img/print/industries-construction.jpg" alt="Grúas de izaje en un proyecto de infraestructura industrial">
-  </div>
+  <div class="hero"><img src="assets/img/print/industries-marine.jpg" alt="Terminal portuaria durante operaciones de carga industrial"></div>
+  <div class="cut"></div>
+  <div class="sheet"></div>
+  <div class="wedge"></div>
+  <div class="brandmark"><span class="logo-crop" style="--lw:52mm"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span></div>
 
   <div class="back-body">
-    <div class="back-plate">
-      <span class="logo-crop"><img src="assets/img/print/ok-gialfra-logo.png" alt="OK. GIALFRA LLC"></span>
-      <span class="tick"></span>
-      <div class="co">OK. GIALFRA LLC</div>
-      <h2>Global Procurement<span>Industrial Solutions</span></h2>
-    </div>
+    <div class="co">OK. GIALFRA LLC</div>
+    <h2>Global Procurement<span>Industrial Solutions</span></h2>
+
     <div class="cta">
       <div class="qr"><img src="assets/qr.svg" alt="Código QR de www.okgialfra.com"></div>
       <div>
         <span class="tick"></span>
         <h3>Conozca Nuestras Capacidades</h3>
-        <p>Escanee para visitar nuestro sitio web</p>
+        <p>Escanee para visitar nuestro sitio web.</p>
       </div>
     </div>
 
     <div class="reach">
-      <div>
-        <div class="k">Website</div>
-        <div class="v"><a href="https://www.okgialfra.com/">www.okgialfra.com</a></div>
-      </div>
-      <div>
-        <div class="k">Sales Department</div>
-        <div class="v"><a href="mailto:sales@okgialfra.com">sales@okgialfra.com</a></div>
-      </div>
-      <div>
-        <div class="k">Ubicación</div>
-        <div class="v">Homestead, Florida — USA</div>
-      </div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></i><div class="v"><a href="https://www.okgialfra.com/">www.okgialfra.com</a></div></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/> <path d="M4 7l8 6 8-6"/></svg></i><div class="v"><a href="mailto:sales@okgialfra.com">sales@okgialfra.com</a></div></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/> <circle cx="12" cy="10" r="2.5"/></svg></i><div class="v">Homestead, Florida — USA</div></div>
     </div>
   </div>
 
   <div class="backband">
-    <span>OK. GIALFRA LLC · Florida Limited Liability Company</span>
+    <span><b>OK. GIALFRA LLC</b> &nbsp;·&nbsp; Florida Limited Liability Company</span>
     <span>Florida Document No. L23000444881</span>
   </div>
 </section>
