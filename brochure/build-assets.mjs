@@ -190,17 +190,20 @@ const GRADE = {
   lift: 'saturate(1.14) contrast(0.88) brightness(1.30)',
 }
 const IMAGES = [
-  { file: 'industries/industrial.jpg', mm: 210, filter: GRADE.hero }, // portada
+  // Las tres aportadas por el cliente son 3:2 y de alta resolución. Van SIN
+  // grading: se pidieron colores naturales y luminosos, y ya lo son.
+  { file: 'industries/industrial.jpg', mm: 210, filter: GRADE.hero }, // portada (provisional)
+  { file: 'technical-inspection.jpg', mm: 176 }, // página 7
+  { file: 'process-valves.jpg', mm: 82 }, // página 2
   { file: 'industries/marine.jpg', mm: 210, filter: GRADE.hero }, // contraportada
-  { file: 'products/compressors.jpg', mm: 176, filter: GRADE.sector }, // página 7
   { file: 'about/oil-gas.jpg', mm: 118, filter: GRADE.sector },
   { file: 'industries/energy.jpg', mm: 118, filter: GRADE.sector },
   { file: 'about/industrial.jpg', mm: 118, filter: GRADE.sector },
   { file: 'products/pumps.jpg', mm: 118, filter: GRADE.sector },
   { file: 'industries/infrastructure.jpg', mm: 118, filter: GRADE.sector },
-  { file: 'products/instrumentation.jpg', mm: 82, filter: GRADE.neutral }, // página 2
   { file: 'ok-gialfra-logo.png', mm: 74, png: true },
 ]
+
 
 
 

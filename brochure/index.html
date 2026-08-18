@@ -63,26 +63,24 @@ img{display:block;max-width:100%}
   display:flex;flex-direction:column}
 
 /* ==================================================== P1/P8 diagonal ==== */
-.hero{position:absolute;left:0;right:0;top:0;height:60%;overflow:hidden;background:var(--steel-100)}
+.hero{position:absolute;left:0;right:0;top:0;height:150mm;overflow:hidden;background:var(--steel-100)}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(var(--scrim),.52) 0%,rgba(var(--scrim),.12) 22%,rgba(var(--scrim),0) 38%)}
-.cut{position:absolute;left:0;right:0;bottom:0;height:52%;background:var(--copper-500);
-  clip-path:polygon(0 14%,100% 0,100% 100%,0 100%)}
-.sheet{position:absolute;left:0;right:0;bottom:0;height:52%;background:var(--panel);
-  clip-path:polygon(0 16.6%,100% 2.6%,100% 100%,0 100%)}
+.cut{position:absolute;left:0;right:0;bottom:0;height:55%;background:var(--copper-500);
+  clip-path:polygon(0 7.9%,100% 0,100% 100%,0 100%)}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:55%;background:var(--panel);
+  clip-path:polygon(0 10%,100% 2.1%,100% 100%,0 100%)}
 .wedge{position:absolute;left:0;top:0;width:80mm;height:33mm;background:var(--panel);
   clip-path:polygon(0 0,100% 0,72% 100%,0 100%)}
 .brandmark{position:absolute;left:var(--pad);top:9mm}
-.stamp{position:absolute;right:var(--pad);top:12mm;text-align:right;font-size:8px;
-  letter-spacing:.24em;text-transform:uppercase;color:#fff;font-weight:600;line-height:1.9;
-  text-shadow:0 1px 6px rgba(10,18,34,.5)}
-.stamp b{display:block;font-weight:700}
+.stamp{position:absolute;right:var(--pad);top:11mm;background:var(--panel);
+  padding:4mm 6mm;text-align:right;font-size:8px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--slate);font-weight:600;line-height:1.9}
+.stamp b{display:block;font-weight:700;color:var(--navy)}
 
 /* ============================================================ P1 cover == */
-.cover-copy{position:absolute;left:var(--pad);right:var(--pad);top:188mm;bottom:14mm;
+.cover-copy{position:absolute;left:var(--pad);right:var(--pad);top:174mm;bottom:14mm;
   display:flex;flex-direction:column}
-.cover-copy h1{font-size:47px;line-height:.98;color:var(--navy);max-width:150mm}
+.cover-copy h1{font-size:50px;line-height:.98;color:var(--navy);max-width:150mm}
 .cover-copy h1 em{font-style:normal;color:var(--copper-600)}
 .cover-copy .sub{margin-top:7mm;font-size:9.4px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--slate);font-weight:700}
@@ -101,7 +99,7 @@ img{display:block;max-width:100%}
 .p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:11mm;align-items:start}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);
   border-left:1px solid var(--line)}
-.pillar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6.5mm 5mm}
+.pillar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10mm 5mm}
 .pillar i{display:block;width:19px;height:19px;color:var(--copper-500)}
 .pillar i svg{width:100%;height:100%}
 .pillar h4{margin-top:3.5mm;font-size:14px;letter-spacing:.06em}
@@ -191,14 +189,14 @@ img{display:block;max-width:100%}
 /* ====================================================== P7 compromiso === */
 .pillars4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
   border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.pillars4>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9mm 5.5mm}
+.pillars4>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:8mm 5.5mm}
 .pillars4 i{width:34px;height:34px;border-radius:50%;border:1px solid var(--steel-200);
   background:var(--paper);color:var(--copper-600);display:flex;align-items:center;justify-content:center}
 .pillars4 i svg{width:18px;height:18px}
 .pillars4 h4{margin-top:4mm;font-size:15px;letter-spacing:.06em}
 .pillars4 p{margin-top:2mm;font-size:8.8px;line-height:1.56;color:var(--mute)}
 .cbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-left:1px solid var(--line)}
-.cbar>div{border-right:1px solid var(--line);padding:6mm 3.2mm;font-size:8px;line-height:1.42;
+.cbar>div{border-right:1px solid var(--line);padding:5mm 3.2mm;font-size:8px;line-height:1.42;
   letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--navy)}
 .cbar>div::before{content:"";display:block;width:13px;height:2px;background:var(--copper-500);margin-bottom:2.4mm}
 
@@ -284,7 +282,7 @@ img{display:block;max-width:100%}
       </div>
 
       <div>
-        <div class="media" style="height:84mm"><img src="assets/img/print/products-instrumentation.jpg" alt="Válvulas e instrumentación de proceso en acero inoxidable"></div>
+        <div class="media" style="height:55mm"><img src="assets/img/print/process-valves.jpg" alt="Válvulas de control y tubería de proceso en acero inoxidable"></div>
         <div class="pillars" style="margin-top:6mm">
           <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/> <circle cx="12" cy="10" r="2.5"/></svg></i><h4>Sede en Florida</h4><p>Homestead, Florida — Estados Unidos.</p></div>
           <div class="pillar"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></i><h4>Alcance Global</h4><p>Red internacional de suministro de equipos y materiales.</p></div>
@@ -500,8 +498,8 @@ img{display:block;max-width:100%}
         <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/> <path d="M12 7v5l3 2"/></svg></i><h4>Respuesta</h4><p>Seguimiento activo y comunicación durante todo el proceso de procura.</p></div>
     </div>
 
-    <div class="media" style="height:92mm;margin-top:9mm">
-      <img src="assets/img/print/products-compressors.jpg" alt="Equipos de proceso en una instalación industrial moderna">
+    <div class="media" style="height:104mm;margin-top:9mm">
+      <img src="assets/img/print/technical-inspection.jpg" alt="Técnico inspeccionando equipos de proceso en una instalación industrial" style="object-position:50% 62%">
     </div>
 
     <div class="cbar" style="margin-top:8mm">
