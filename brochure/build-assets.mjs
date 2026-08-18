@@ -191,14 +191,13 @@ const GRADE = {
   lift: 'saturate(1.14) contrast(0.88) brightness(1.30)',
 }
 const IMAGES = [
-  { file: 'industries/infrastructure.jpg', mm: 210, filter: GRADE.cover }, // cover band
-  { file: 'industries/marine.jpg', mm: 210, filter: GRADE.hero }, // page 8 band
+  { file: 'industries/construction.jpg', mm: 210, filter: GRADE.hero }, // page 8 band
   { file: 'about/oil-gas.jpg', mm: 176, filter: GRADE.sector }, // page 3 lead card
   { file: 'industries/utilities.jpg', mm: 176, filter: GRADE.lift }, // page 7 band
   { file: 'industries/energy.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/petrochemical.jpg', mm: 86, filter: GRADE.sector },
   { file: 'industries/industrial.jpg', mm: 86, filter: GRADE.sector },
-  { file: 'industries/construction.jpg', mm: 86, filter: GRADE.sector },
+  { file: 'industries/infrastructure.jpg', mm: 86, filter: GRADE.sector },
   { file: 'about/industrial.jpg', mm: 82, filter: GRADE.clean }, // page 2 portrait
   ...['valves', 'pipes', 'flanges', 'pumps', 'compressors', 'motors',
       'instrumentation', 'electrical', 'mechanical', 'spare-parts', 'tools', 'safety']
