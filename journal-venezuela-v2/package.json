@@ -1,0 +1,15 @@
+{
+  "name": "tarjetas-diario-venezuela-v2",
+  "private": true,
+  "version": "2.0.0-prueba.1",
+  "type": "module",
+  "description": "Versión 2 premium de las tarjetas de diario «Volver a empezar en Venezuela».",
+  "scripts": {
+    "prueba": "node prueba.mjs",
+    "comparacion": "node comparacion.mjs",
+    "cmyk": "gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dColorConversionStrategy=/CMYK -dProcessColorModel=/DeviceCMYK -sOutputFile=impresion/dia01-prueba-CMYK.pdf impresion/dia01-prueba-sangrado.pdf"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
